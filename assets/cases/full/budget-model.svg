@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.52" stop-color="#13323a"/>
+      <stop offset="1" stop-color="#231827"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="20%" r="55%">
+      <stop offset="0" stop-color="#78f3d1" stop-opacity=".42"/>
+      <stop offset=".62" stop-color="#ff7a3d" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+  <g fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2">
+    <path d="M170 470 C300 350 390 390 510 260 S760 130 1030 230"/>
+    <path d="M170 525 C360 460 440 500 600 360 S820 270 1030 330"/>
+  </g>
+  <g fill="#78f3d1">
+    <circle cx="250" cy="405" r="10"/>
+    <circle cx="515" cy="260" r="10"/>
+    <circle cx="815" cy="168" r="10"/>
+    <circle cx="1008" cy="222" r="10"/>
+  </g>
+  <g fill="rgba(255,255,255,.08)">
+    <rect x="150" y="140" width="150" height="280" rx="14"/>
+    <rect x="340" y="230" width="150" height="190" rx="14"/>
+    <rect x="530" y="110" width="150" height="310" rx="14"/>
+    <rect x="720" y="180" width="150" height="240" rx="14"/>
+    <rect x="910" y="90" width="150" height="330" rx="14"/>
+  </g>
+  <text x="92" y="125" fill="#f7f5ef" font-family="Arial, sans-serif" font-size="34" font-weight="700">预算效率动态调控模型</text>
+  <text x="92" y="178" fill="rgba(247,245,239,.72)" font-family="Arial, sans-serif" font-size="22">Budget Efficiency Dynamic Control Model</text>
+  <text x="92" y="570" fill="#ffbf8e" font-family="Arial, sans-serif" font-size="22" font-weight="700">策略模型 · 投放效率 · 动态优化</text>
+</svg>
