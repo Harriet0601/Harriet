@@ -419,8 +419,8 @@
 
     .project-card {
       position: relative;
-      min-height: 250px;
-      padding: 20px;
+      min-height: 360px;
+      padding: 0;
       border: 1px solid var(--line);
       border-radius: 22px;
       overflow: hidden;
@@ -441,14 +441,57 @@
     .project-card::after {
       content: "";
       position: absolute;
-      inset: auto -20% -42% 10%;
-      height: 150px;
+      inset: 0;
+      height: 56%;
       transform: rotate(-8deg);
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.13), transparent);
+      opacity: 0;
+      transition: opacity 0.32s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.42s ease, filter 0.42s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.06);
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.02), rgba(7, 9, 13, 0.58));
+    }
+
+    .project-content {
+      position: relative;
+      padding: 18px 18px 20px;
+      display: grid;
+      gap: 10px;
     }
 
     .project-type {
       display: inline-flex;
+      width: fit-content;
       padding: 7px 10px;
       border-radius: 999px;
       background: rgba(7, 9, 13, 0.34);
@@ -458,7 +501,7 @@
 
     .project-card h3 {
       position: relative;
-      margin: 54px 0 12px;
+      margin: 0;
       max-width: 92%;
       font-size: 22px;
       line-height: 1.18;
@@ -474,10 +517,7 @@
     }
 
     .project-foot {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 18px;
+      position: relative;
       display: flex;
       justify-content: space-between;
       gap: 14px;
@@ -556,16 +596,36 @@
     }
 
     .modal-visual {
+      position: relative;
       min-height: 260px;
       padding: 24px;
       display: flex;
       align-items: flex-end;
+      overflow: hidden;
       background:
         linear-gradient(180deg, transparent, rgba(16, 19, 26, 0.92)),
         repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 16px);
     }
 
+    .modal-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+    }
+
+    .modal-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 19, 26, 0.05), rgba(16, 19, 26, 0.94));
+    }
+
     .modal-visual h3 {
+      position: relative;
+      z-index: 1;
       margin: 0;
       max-width: 720px;
       font-size: clamp(34px, 6vw, 64px);
@@ -718,7 +778,7 @@
       }
 
       .project-card {
-        min-height: 230px;
+        min-height: 0;
       }
 
       .contact-list {
@@ -868,6 +928,7 @@
     <button class="close" id="closeModal" aria-label="关闭项目弹窗">×</button>
     <article class="modal-card" id="modalCard">
       <div class="modal-visual">
+        <img id="modalImage" src="" alt="" />
         <h3 id="modalTitle"></h3>
       </div>
       <div class="modal-body">
@@ -889,6 +950,7 @@
         platform: "小红书 / AI营销",
         skill: "案例梳理、价值提炼、代理商资质支持",
         desc: "围绕社交产品的AI营销实践进行案例化表达，突出策略洞察、内容机制与品牌增长成果，服务公司媒体认证与资质建设。",
+        image: "assets/cases/qingteng-ai.png",
         color: "rgba(120, 243, 209, 0.28)"
       },
       {
@@ -897,6 +959,7 @@
         platform: "小红书 / 多车型种草",
         skill: "年度策略、车型矩阵、内容种草",
         desc: "面向短交通多车型产品线，搭建全年种草节奏、用户场景和内容资产框架，支持品牌在不同车型与人群之间形成差异化沟通。",
+        image: "assets/cases/ninebot.png",
         color: "rgba(255, 122, 61, 0.3)"
       },
       {
@@ -905,6 +968,7 @@
         platform: "小红书",
         skill: "母婴健康洞察、内容策略、预算分配",
         desc: "结合母婴健康消费决策链路，构建从人群痛点、搜索心智到达人内容的整合种草方案，提高品牌内容承接与转化效率。",
+        image: "assets/cases/d-cal.png",
         color: "rgba(184, 166, 255, 0.3)"
       },
       {
@@ -913,6 +977,7 @@
         platform: "小红书",
         skill: "区域洞察、项目定位、生活方式内容",
         desc: "针对四大楼盘差异定位，拆解目标客群的居住向往与决策关注点，形成适配小红书语境的地产内容沟通策略。",
+        image: "assets/cases/vanke.png",
         color: "rgba(98, 182, 255, 0.28)"
       },
       {
@@ -921,6 +986,7 @@
         platform: "抖音",
         skill: "爆品打法、内容矩阵、达人规划",
         desc: "围绕年度爆品打造，从产品卖点、用户场景、短视频内容和达人分层切入，形成可执行的抖音平台营销方案。",
+        image: "assets/cases/lima.png",
         color: "rgba(255, 214, 102, 0.28)"
       },
       {
@@ -929,6 +995,7 @@
         platform: "小红书",
         skill: "美妆洞察、案例包装、奖项表达",
         desc: "面向美妆品牌种草场景，提炼内容策略、趋势价值和平台影响力，形成具备传播与评审说服力的认证案例。",
+        image: "assets/cases/huaxizi.png",
         color: "rgba(255, 150, 190, 0.3)"
       },
       {
@@ -937,6 +1004,7 @@
         platform: "抖音",
         skill: "教育硬件、品牌心智、转化链路",
         desc: "聚焦智能学习硬件的家庭决策场景，规划品牌内容传播、达人种草和阶段性推广节奏，强化产品理解与购买理由。",
+        image: "assets/cases/xiaoyuan.png",
         color: "rgba(120, 243, 209, 0.24)"
       },
       {
@@ -945,6 +1013,7 @@
         platform: "内容平台",
         skill: "新品上市、执行拆解、内容创意",
         desc: "围绕消费电子新品上市，拆解卖点、内容节奏、达人执行与传播素材方向，提升新品声量和产品感知。",
+        image: "assets/cases/edifier.png",
         color: "rgba(255, 122, 61, 0.25)"
       },
       {
@@ -953,6 +1022,7 @@
         platform: "小红书",
         skill: "母婴营养、全年节奏、人群沟通",
         desc: "针对儿童营养品类，基于家长关注点和节点消费需求，规划全年小红书种草主题、达人内容和预算使用方向。",
+        image: "assets/cases/abbott.png",
         color: "rgba(184, 166, 255, 0.25)"
       }
     ];
@@ -960,6 +1030,7 @@
     const grid = document.querySelector("#projectGrid");
     const modal = document.querySelector("#projectModal");
     const modalCard = document.querySelector("#modalCard");
+    const modalImage = document.querySelector("#modalImage");
     const modalTitle = document.querySelector("#modalTitle");
     const modalDesc = document.querySelector("#modalDesc");
     const modalType = document.querySelector("#modalType");
@@ -976,10 +1047,15 @@
       card.setAttribute("role", "button");
       card.setAttribute("aria-label", `查看项目：${project.title}`);
       card.innerHTML = `
-        <span class="project-type">${project.type}</span>
-        <h3>${project.title}</h3>
-        <p>${project.desc}</p>
-        <div class="project-foot"><span>${project.platform}</span><span>查看详情</span></div>
+        <div class="project-image">
+          <img src="${project.image}" alt="${project.title}项目封面" loading="lazy">
+        </div>
+        <div class="project-content">
+          <span class="project-type">${project.type}</span>
+          <h3>${project.title}</h3>
+          <p>${project.desc}</p>
+          <div class="project-foot"><span>${project.platform}</span><span>查看详情</span></div>
+        </div>
       `;
       card.addEventListener("click", () => openProject(index));
       card.addEventListener("keydown", event => {
@@ -993,6 +1069,8 @@
 
     function openProject(index) {
       const project = projects[index];
+      modalImage.src = project.image;
+      modalImage.alt = `${project.title}项目封面`;
       modalTitle.textContent = project.title;
       modalDesc.textContent = project.desc;
       modalType.textContent = project.type;
