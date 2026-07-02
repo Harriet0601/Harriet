@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>秦飞艳 | 互联网广告策划作品集</title>
+  <meta name="description" content="秦飞艳互联网广告策划作品集，覆盖小红书、抖音、整合营销、年度年框方案、竞标讲标与媒体认证案例。" />
+  <meta property="og:title" content="秦飞艳 | 互联网广告策划作品集" />
+  <meta property="og:description" content="小红书 / 抖音 / 整合营销策划作品集，展示年度方案、品牌推广与媒体认证案例。" />
   <style>
     :root {
       --bg: #07090d;
@@ -298,6 +301,34 @@
       font-size: 12px;
     }
 
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .proof-item {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
@@ -408,6 +439,38 @@
       border-radius: 999px;
       color: rgba(247, 245, 239, 0.78);
       background: rgba(255, 255, 255, 0.07);
+      font-size: 13px;
+    }
+
+    .industry-band {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .industry-band strong {
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .industry-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .industry-list span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.8);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       font-size: 13px;
     }
 
@@ -557,6 +620,38 @@
       background: rgba(7, 9, 13, 0.28);
       color: rgba(247, 245, 239, 0.84);
       font-size: 14px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .contact-chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 120;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #10131a;
+      background: #f7f5ef;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      transform: translate(-50%, 18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
     }
 
     .footer {
@@ -646,6 +741,41 @@
       line-height: 1.85;
     }
 
+    .case-detail {
+      display: grid;
+      gap: 20px;
+    }
+
+    .case-summary {
+      font-size: 15px;
+    }
+
+    .case-sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .case-section {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .case-section strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .case-section p {
+      color: rgba(247, 245, 239, 0.7);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
     .modal-meta {
       display: grid;
       gap: 10px;
@@ -720,8 +850,14 @@
       .section-head,
       .about-layout,
       .contact-panel,
+      .industry-band,
       .modal-body {
         grid-template-columns: 1fr;
+      }
+
+      .proof-strip,
+      .case-sections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .portrait-card,
@@ -773,6 +909,11 @@
         grid-template-columns: 1fr;
       }
 
+      .proof-strip,
+      .case-sections {
+        grid-template-columns: 1fr;
+      }
+
       .project-grid {
         grid-template-columns: 1fr;
       }
@@ -800,6 +941,46 @@
         opacity: 1;
         transform: none;
         filter: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .spotlight,
+      .nav,
+      .project-grid,
+      .modal,
+      .footer {
+        display: none !important;
+      }
+
+      .section {
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      .hero,
+      .hero-grid,
+      .about-layout,
+      .contact-panel {
+        min-height: auto;
+        display: block;
+      }
+
+      .portrait-card {
+        display: none;
+      }
+
+      h1,
+      h2,
+      .lead,
+      .section-desc,
+      .story p {
+        color: #111;
       }
     }
   </style>
@@ -833,7 +1014,14 @@
             <p class="lead hero-anim" style="animation-delay: 0.58s;">2年互联网广告策划经验，擅长把行业洞察、内容种草、媒介策略与商业目标整合成可落地的品牌增长方案。</p>
             <div class="hero-actions hero-anim" style="animation-delay: 0.74s;">
               <a class="btn primary" href="#work">查看作品</a>
+              <button class="btn" type="button" id="printResume">保存简历</button>
               <a class="btn" href="tel:13764330601">拨打电话</a>
+            </div>
+            <div class="proof-strip hero-anim" style="animation-delay: 0.88s;" aria-label="核心竞争力">
+              <div class="proof-item"><strong>独立提案</strong><span>可独立完成大型年框方案撰写与竞标讲标。</span></div>
+              <div class="proof-item"><strong>复合链路</strong><span>经历策划、AE、媒介与销售助理轮岗。</span></div>
+              <div class="proof-item"><strong>平台能力</strong><span>熟悉小红书种草与抖音品牌推广打法。</span></div>
+              <div class="proof-item"><strong>AI提效</strong><span>用AI工具提升洞察、内容与方案产出效率。</span></div>
             </div>
           </div>
 
@@ -902,6 +1090,20 @@
           <p class="section-desc">以下项目横跨母婴健康、地产、短交通、智能硬件、美妆、时尚与消费电子等行业，点击卡片可放大查看项目概览。</p>
         </div>
 
+        <div class="industry-band">
+          <strong>服务行业覆盖</strong>
+          <div class="industry-list" aria-label="服务行业">
+            <span>美妆个护</span>
+            <span>母婴健康</span>
+            <span>地产生活方式</span>
+            <span>短交通</span>
+            <span>智能硬件</span>
+            <span>消费电子</span>
+            <span>医药健康</span>
+            <span>服饰时尚</span>
+          </div>
+        </div>
+
         <div class="project-grid" id="projectGrid"></div>
       </section>
 
@@ -914,6 +1116,7 @@
             <div class="contact-list">
               <a class="contact-chip" href="tel:13764330601">手机：13764330601</a>
               <a class="contact-chip" href="mailto:harriet20020601@163.com">邮箱：harriet20020601@163.com</a>
+              <button class="contact-chip" type="button" id="copyEmail">复制邮箱</button>
             </div>
           </div>
           <a class="btn primary" href="mailto:harriet20020601@163.com?subject=作品集沟通">发送邮件</a>
@@ -932,7 +1135,15 @@
         <h3 id="modalTitle"></h3>
       </div>
       <div class="modal-body">
-        <p id="modalDesc"></p>
+        <div class="case-detail">
+          <p class="case-summary" id="modalDesc"></p>
+          <div class="case-sections">
+            <div class="case-section"><strong>项目背景</strong><p id="modalBackground"></p></div>
+            <div class="case-section"><strong>我的职责</strong><p id="modalRole"></p></div>
+            <div class="case-section"><strong>策略亮点</strong><p id="modalStrategy"></p></div>
+            <div class="case-section"><strong>项目成果</strong><p id="modalResult"></p></div>
+          </div>
+        </div>
         <div class="modal-meta">
           <div class="meta-item"><span>项目类型</span><strong id="modalType"></strong></div>
           <div class="meta-item"><span>核心能力</span><strong id="modalSkill"></strong></div>
@@ -950,6 +1161,10 @@
         platform: "小红书 / AI营销",
         skill: "案例梳理、价值提炼、代理商资质支持",
         desc: "围绕社交产品的AI营销实践进行案例化表达，突出策略洞察、内容机制与品牌增长成果，服务公司媒体认证与资质建设。",
+        background: "品牌希望将AI工具应用与社交内容增长方法沉淀成可对外展示的案例资产。",
+        role: "负责案例逻辑梳理、亮点提炼、页面表达和认证材料叙事包装。",
+        strategy: "将人群洞察、AI矩阵应用、素材破圈与链路提效整合为清晰的案例论证路径。",
+        result: "形成可用于奖项与代理资质申报的案例材料，强化公司AI营销服务能力背书。",
         image: "assets/cases/qingteng-ai.png",
         color: "rgba(120, 243, 209, 0.28)"
       },
@@ -959,6 +1174,10 @@
         platform: "小红书 / 多车型种草",
         skill: "年度策略、车型矩阵、内容种草",
         desc: "面向短交通多车型产品线，搭建全年种草节奏、用户场景和内容资产框架，支持品牌在不同车型与人群之间形成差异化沟通。",
+        background: "短交通产品线丰富，不同车型需要在年度框架下找到清晰人群与场景表达。",
+        role: "参与年度策略搭建、车型内容定位、种草节奏规划和提案表达。",
+        strategy: "以通勤、校园、城市出行等场景拆分内容主题，建立多车型差异化种草矩阵。",
+        result: "输出年度营销框架，支持品牌在多车型传播中提升内容效率与产品识别度。",
         image: "assets/cases/ninebot.png",
         color: "rgba(255, 122, 61, 0.3)"
       },
@@ -968,6 +1187,10 @@
         platform: "小红书",
         skill: "母婴健康洞察、内容策略、预算分配",
         desc: "结合母婴健康消费决策链路，构建从人群痛点、搜索心智到达人内容的整合种草方案，提高品牌内容承接与转化效率。",
+        background: "母婴健康品类购买链路长，用户更依赖真实经验、专业背书和搜索验证。",
+        role: "负责品类洞察、内容主题设计、达人分层建议与预算结构梳理。",
+        strategy: "围绕科学补钙、育儿场景和妈妈决策痛点，组合搜索心智与达人种草内容。",
+        result: "形成兼顾认知建设与转化承接的小红书整合方案。",
         image: "assets/cases/d-cal.png",
         color: "rgba(184, 166, 255, 0.3)"
       },
@@ -977,6 +1200,10 @@
         platform: "小红书",
         skill: "区域洞察、项目定位、生活方式内容",
         desc: "针对四大楼盘差异定位，拆解目标客群的居住向往与决策关注点，形成适配小红书语境的地产内容沟通策略。",
+        background: "地产项目需要从参数式卖点转向更适合社交平台传播的生活方式表达。",
+        role: "负责楼盘卖点梳理、人群画像、内容方向和阶段传播策略。",
+        strategy: "以城市生活、家庭改善、社区体验和区域价值为线索拆解四盘差异。",
+        result: "输出适配小红书内容语境的楼盘阶段性营销方案。",
         image: "assets/cases/vanke.png",
         color: "rgba(98, 182, 255, 0.28)"
       },
@@ -986,6 +1213,10 @@
         platform: "抖音",
         skill: "爆品打法、内容矩阵、达人规划",
         desc: "围绕年度爆品打造，从产品卖点、用户场景、短视频内容和达人分层切入，形成可执行的抖音平台营销方案。",
+        background: "电动车品牌希望在抖音平台打造年度爆品声量，同时兼顾产品卖点转化。",
+        role: "负责爆品传播逻辑、内容矩阵、达人分层和阶段节奏规划。",
+        strategy: "用短视频高频场景放大产品卖点，结合达人内容与节点投放形成传播递进。",
+        result: "形成年度爆品推广方案，为后续执行提供内容和媒介规划依据。",
         image: "assets/cases/lima.png",
         color: "rgba(255, 214, 102, 0.28)"
       },
@@ -995,6 +1226,10 @@
         platform: "小红书",
         skill: "美妆洞察、案例包装、奖项表达",
         desc: "面向美妆品牌种草场景，提炼内容策略、趋势价值和平台影响力，形成具备传播与评审说服力的认证案例。",
+        background: "美妆品牌需要将种草打法、平台影响和内容价值沉淀成奖项案例。",
+        role: "负责案例结构搭建、策略亮点提炼和奖项申报表达。",
+        strategy: "围绕用户审美趋势、内容资产和平台种草链路组织案例叙事。",
+        result: "形成SEED AWARDS申报材料，提升案例对外表达完整度。",
         image: "assets/cases/huaxizi.png",
         color: "rgba(255, 150, 190, 0.3)"
       },
@@ -1004,6 +1239,10 @@
         platform: "抖音",
         skill: "教育硬件、品牌心智、转化链路",
         desc: "聚焦智能学习硬件的家庭决策场景，规划品牌内容传播、达人种草和阶段性推广节奏，强化产品理解与购买理由。",
+        background: "智能教育硬件需要同时解决家长理解成本、产品信任和购买理由建立。",
+        role: "负责品牌推广框架、内容主题、达人方向和阶段节奏设计。",
+        strategy: "从学习场景、家长痛点和产品功能利益点切入，建立可持续内容沟通路径。",
+        result: "输出抖音品牌推广方案，支持产品心智建设和内容转化承接。",
         image: "assets/cases/xiaoyuan.png",
         color: "rgba(120, 243, 209, 0.24)"
       },
@@ -1013,6 +1252,10 @@
         platform: "内容平台",
         skill: "新品上市、执行拆解、内容创意",
         desc: "围绕消费电子新品上市，拆解卖点、内容节奏、达人执行与传播素材方向，提升新品声量和产品感知。",
+        background: "消费电子新品上市需要快速建立产品感知，并用内容解释功能价值。",
+        role: "负责新品执行方案拆解、内容创意方向和达人执行建议。",
+        strategy: "以使用场景、听感体验和产品外观为内容抓手，规划上市传播节奏。",
+        result: "形成新品执行方案，帮助团队明确内容产出与投放执行方向。",
         image: "assets/cases/edifier.png",
         color: "rgba(255, 122, 61, 0.25)"
       },
@@ -1022,6 +1265,10 @@
         platform: "小红书",
         skill: "母婴营养、全年节奏、人群沟通",
         desc: "针对儿童营养品类，基于家长关注点和节点消费需求，规划全年小红书种草主题、达人内容和预算使用方向。",
+        background: "儿童营养品类需要长期种草和专业信任建设，全年节点规划很关键。",
+        role: "负责全年内容节奏、节点主题、达人方向和预算分配建议。",
+        strategy: "围绕儿童成长、挑食营养、季节节点和妈妈经验建立年度沟通主题。",
+        result: "输出全年小红书种草计划，支撑品牌持续内容曝光和搜索沉淀。",
         image: "assets/cases/abbott.png",
         color: "rgba(184, 166, 255, 0.25)"
       }
@@ -1033,10 +1280,16 @@
     const modalImage = document.querySelector("#modalImage");
     const modalTitle = document.querySelector("#modalTitle");
     const modalDesc = document.querySelector("#modalDesc");
+    const modalBackground = document.querySelector("#modalBackground");
+    const modalRole = document.querySelector("#modalRole");
+    const modalStrategy = document.querySelector("#modalStrategy");
+    const modalResult = document.querySelector("#modalResult");
     const modalType = document.querySelector("#modalType");
     const modalSkill = document.querySelector("#modalSkill");
     const modalPlatform = document.querySelector("#modalPlatform");
     const closeModal = document.querySelector("#closeModal");
+    const copyEmail = document.querySelector("#copyEmail");
+    const printResume = document.querySelector("#printResume");
     const spotlight = document.querySelector(".spotlight");
 
     projects.forEach((project, index) => {
@@ -1073,6 +1326,10 @@
       modalImage.alt = `${project.title}项目封面`;
       modalTitle.textContent = project.title;
       modalDesc.textContent = project.desc;
+      modalBackground.textContent = project.background;
+      modalRole.textContent = project.role;
+      modalStrategy.textContent = project.strategy;
+      modalResult.textContent = project.result;
       modalType.textContent = project.type;
       modalSkill.textContent = project.skill;
       modalPlatform.textContent = project.platform;
@@ -1093,6 +1350,35 @@
     });
     window.addEventListener("keydown", event => {
       if (event.key === "Escape") hideModal();
+    });
+
+    function showToast(message) {
+      let toast = document.querySelector("#toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.className = "toast";
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    copyEmail.addEventListener("click", async () => {
+      const email = "harriet20020601@163.com";
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast("邮箱已复制");
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+
+    printResume.addEventListener("click", () => {
+      showToast("可在打印窗口选择保存为 PDF");
+      window.setTimeout(() => window.print(), 300);
     });
 
     const observer = new IntersectionObserver(entries => {
