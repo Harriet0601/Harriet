@@ -474,6 +474,189 @@
       font-size: 13px;
     }
 
+    .life-section {
+      width: min(1220px, calc(100% - 40px));
+    }
+
+    .life-layout {
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .life-profile {
+      position: sticky;
+      top: 96px;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .life-profile::before {
+      content: "";
+      position: absolute;
+      inset: -30% -20% auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(120, 243, 209, 0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .life-avatar {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    }
+
+    .life-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .life-name {
+      margin-top: 20px;
+    }
+
+    .life-name h3 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .life-name span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .life-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .life-fact {
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .life-fact span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .life-fact strong {
+      display: block;
+      color: #fff;
+      font-size: 17px;
+    }
+
+    .life-copy {
+      margin: 0;
+      color: rgba(247, 245, 239, 0.78);
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    .life-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .life-tags span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: rgba(247, 245, 239, 0.78);
+      background: rgba(255, 255, 255, 0.065);
+      font-size: 13px;
+    }
+
+    .life-gallery {
+      columns: 3 190px;
+      column-gap: 14px;
+    }
+
+    .life-photo {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 14px;
+      padding: 0;
+      text-align: left;
+      break-inside: avoid;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+      cursor: pointer;
+      transition: transform 0.28s ease, border-color 0.28s ease;
+    }
+
+    .life-photo:hover {
+      transform: translateY(-5px) scale(1.015);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .life-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .life-photo span {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(7, 9, 13, 0.5);
+      backdrop-filter: blur(12px);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 12px;
+    }
+
+    .life-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .life-lightbox.open {
+      display: flex;
+    }
+
+    .life-lightbox img {
+      max-width: min(100%, 1080px);
+      max-height: calc(100dvh - 80px);
+      border-radius: 20px;
+      object-fit: contain;
+      box-shadow: 0 34px 120px rgba(0, 0, 0, 0.55);
+    }
+
     .project-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -849,10 +1032,20 @@
       .hero-grid,
       .section-head,
       .about-layout,
+      .life-layout,
       .contact-panel,
       .industry-band,
       .modal-body {
         grid-template-columns: 1fr;
+      }
+
+      .life-profile {
+        position: relative;
+        top: auto;
+      }
+
+      .life-gallery {
+        columns: 2 180px;
       }
 
       .proof-strip,
@@ -914,6 +1107,14 @@
         grid-template-columns: 1fr;
       }
 
+      .life-gallery {
+        columns: 1;
+      }
+
+      .life-facts {
+        grid-template-columns: 1fr;
+      }
+
       .project-grid {
         grid-template-columns: 1fr;
       }
@@ -966,6 +1167,7 @@
       .hero,
       .hero-grid,
       .about-layout,
+      .life-layout,
       .contact-panel {
         min-height: auto;
         display: block;
@@ -996,6 +1198,7 @@
       <div class="nav-links">
         <a href="#home">首页</a>
         <a href="#about">关于我</a>
+        <a href="#life">更多的我</a>
         <a href="#work">作品展示</a>
         <a href="#contact">联系方式</a>
       </div>
@@ -1081,6 +1284,63 @@
         </div>
       </section>
 
+      <section id="life" class="section life-section reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">More About Me</div>
+            <h2>工作之外，也认真生活。</h2>
+          </div>
+          <p class="section-desc">比起只被一份简历定义，我更希望你看到一个鲜活的我：爱表达、爱探索、爱记录，也愿意把热情带进每一次合作里。</p>
+        </div>
+
+        <div class="life-layout">
+          <aside class="glass life-profile">
+            <div class="life-avatar">
+              <img src="assets/life/life-avatar.jpg" alt="Q33 Harriet生活照" />
+            </div>
+            <div class="life-name">
+              <h3>Q33</h3>
+              <span>Harriet · 巨蟹座 · ENFJ</span>
+            </div>
+            <div class="life-facts">
+              <div class="life-fact"><span>昵称</span><strong>Q33</strong></div>
+              <div class="life-fact"><span>English Name</span><strong>Harriet</strong></div>
+              <div class="life-fact"><span>星座</span><strong>巨蟹座</strong></div>
+              <div class="life-fact"><span>MBTI</span><strong>ENFJ</strong></div>
+            </div>
+            <p class="life-copy">我是一个对世界保持好奇、对关系保持真诚的人。工作里我喜欢把复杂问题拆成清晰方案，生活里我也喜欢用镜头、旅行、运动和美食收集灵感。健身让我保持能量，摄影和出片训练审美，旅行与潜水让我保持开放感，唱歌则是我释放情绪的小出口。希望你看到的不只是会写方案的秦飞艳，也看到更松弛、更有生命力的 Harriet。</p>
+            <div class="life-tags" aria-label="生活爱好">
+              <span>健身</span>
+              <span>摄影</span>
+              <span>旅游</span>
+              <span>出片</span>
+              <span>唱歌</span>
+              <span>潜水</span>
+              <span>徒步</span>
+              <span>美食探索</span>
+            </div>
+          </aside>
+
+          <div class="life-gallery" aria-label="更多的我生活照">
+            <button class="life-photo" type="button"><img src="assets/life/travel-1.jpg" alt="旅行出片照" loading="lazy"><span>出片</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/diving-1.jpg" alt="潜水生活照" loading="lazy"><span>潜水</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/hiking.jpg" alt="徒步生活照" loading="lazy"><span>徒步</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/photo-1.jpg" alt="摄影作品海边" loading="lazy"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/food-1.jpg" alt="美食探索照片" loading="lazy"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/travel-3.jpg" alt="高空旅行照" loading="lazy"><span>旅行</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/photo-2.jpg" alt="摄影作品山野" loading="lazy"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/travel-2.jpg" alt="海边旅行照" loading="lazy"><span>出片</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/food-2.jpg" alt="家常美食照片" loading="lazy"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/travel-4.jpg" alt="湖边旅行照" loading="lazy"><span>旅行</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/photo-3.jpg" alt="自然摄影照片" loading="lazy"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/diving-2.jpg" alt="海底潜水照片" loading="lazy"><span>潜水</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/food-3.jpg" alt="聚餐美食照片" loading="lazy"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/travel-5.jpg" alt="瀑布旅行照" loading="lazy"><span>旅游</span></button>
+            <button class="life-photo" type="button"><img src="assets/life/food-4.jpg" alt="做饭美食照片" loading="lazy"><span>生活</span></button>
+          </div>
+        </div>
+      </section>
+
       <section id="work" class="section reveal">
         <div class="section-head">
           <div>
@@ -1151,6 +1411,11 @@
         </div>
       </div>
     </article>
+  </div>
+
+  <div class="life-lightbox" id="lifeLightbox" role="dialog" aria-modal="true" aria-label="生活照放大查看">
+    <button class="close" id="closeLifeLightbox" aria-label="关闭生活照">×</button>
+    <img id="lifeLightboxImage" src="" alt="" />
   </div>
 
   <script>
@@ -1288,6 +1553,9 @@
     const modalSkill = document.querySelector("#modalSkill");
     const modalPlatform = document.querySelector("#modalPlatform");
     const closeModal = document.querySelector("#closeModal");
+    const lifeLightbox = document.querySelector("#lifeLightbox");
+    const lifeLightboxImage = document.querySelector("#lifeLightboxImage");
+    const closeLifeLightbox = document.querySelector("#closeLifeLightbox");
     const copyEmail = document.querySelector("#copyEmail");
     const printResume = document.querySelector("#printResume");
     const spotlight = document.querySelector(".spotlight");
@@ -1349,7 +1617,31 @@
       if (event.target === modal) hideModal();
     });
     window.addEventListener("keydown", event => {
-      if (event.key === "Escape") hideModal();
+      if (event.key === "Escape") {
+        hideModal();
+        hideLifeLightbox();
+      }
+    });
+
+    document.querySelectorAll(".life-photo").forEach(photo => {
+      photo.addEventListener("click", () => {
+        const image = photo.querySelector("img");
+        lifeLightboxImage.src = image.src;
+        lifeLightboxImage.alt = image.alt;
+        lifeLightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+        closeLifeLightbox.focus();
+      });
+    });
+
+    function hideLifeLightbox() {
+      lifeLightbox.classList.remove("open");
+      if (!modal.classList.contains("open")) document.body.style.overflow = "";
+    }
+
+    closeLifeLightbox.addEventListener("click", hideLifeLightbox);
+    lifeLightbox.addEventListener("click", event => {
+      if (event.target === lifeLightbox) hideLifeLightbox();
     });
 
     function showToast(message) {
