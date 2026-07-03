@@ -41,6 +41,7 @@
       width: min(100%, 520px);
       margin: 0 auto;
       padding: 14px 14px calc(92px + var(--safe-bottom));
+      overflow: hidden;
     }
 
     .topbar {
@@ -436,8 +437,8 @@
 
     .life-rail {
       display: grid;
-      grid-template-columns: repeat(6, minmax(92px, 1fr));
-      grid-auto-rows: 92px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: clamp(118px, 32vw, 170px);
       gap: 10px;
       margin-top: 18px;
     }
@@ -453,7 +454,7 @@
 
     .life-photo:nth-child(1),
     .life-photo:nth-child(4) {
-      grid-column: span 3;
+      grid-column: span 1;
       grid-row: span 2;
     }
 
@@ -461,7 +462,7 @@
     .life-photo:nth-child(3),
     .life-photo:nth-child(5),
     .life-photo:nth-child(6) {
-      grid-column: span 3;
+      grid-column: span 1;
     }
 
     .life-photo img {
