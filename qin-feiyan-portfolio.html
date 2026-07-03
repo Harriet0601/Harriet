@@ -1080,8 +1080,9 @@
       opacity: var(--case-o, 1);
       z-index: var(--case-i, 1);
       pointer-events: var(--case-pointer, none);
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease;
+      transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.34s ease, filter 0.34s ease;
       filter: saturate(var(--case-sat, 0.8)) brightness(var(--case-b, 0.72)) blur(var(--case-blur, 0px));
+      will-change: transform, opacity, filter;
     }
 
     .case-stage .project-card:hover {
@@ -1111,19 +1112,24 @@
     .case-nav {
       position: absolute;
       top: 50%;
-      z-index: 20;
+      z-index: 220;
       width: 48px;
       height: 48px;
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 50%;
       color: #fff;
-      background: rgba(7, 9, 13, 0.48);
+      background: rgba(7, 9, 13, 0.58);
       backdrop-filter: blur(14px);
       cursor: pointer;
       transform: translateY(-50%);
       font-size: 30px;
       line-height: 1;
       transition: 0.25s ease;
+    }
+
+    .case-nav:disabled {
+      opacity: 0.45;
+      pointer-events: none;
     }
 
     .case-nav:hover {
@@ -1858,7 +1864,6 @@
           </div>
 
           <div class="hero-board hero-anim" style="animation-delay: 0.32s;" aria-label="秦飞艳个人视觉名片">
-            <span class="hero-note top">Planner / Designer Mindset</span>
             <aside class="portrait-card" aria-label="秦飞艳个人头像">
               <img src="assets/qin-feiyan-avatar.jpg" alt="秦飞艳个人照片" />
               <div class="portrait-meta">
@@ -1869,18 +1874,6 @@
                 </div>
               </div>
             </aside>
-            <article class="hero-float-card one">
-              <img src="assets/cases/lite/seed-huaxizi.jpg" alt="花西子项目封面" loading="lazy" decoding="async" />
-              <strong>Case Storytelling</strong>
-              <span>媒体认证 / 奖项表达 / 种草价值提炼</span>
-            </article>
-            <article class="hero-float-card two">
-              <img src="assets/cases/lite/ninebot-full.jpg" alt="九号项目封面" loading="lazy" decoding="async" />
-              <strong>Annual Strategy</strong>
-              <span>年框方案 / 内容矩阵 / 平台增长节奏</span>
-            </article>
-            <div class="hero-scribble">hello<br>strategy</div>
-            <span class="hero-note bottom">XHS · Douyin · AI</span>
           </div>
         </div>
       </section>
@@ -2547,6 +2540,7 @@
 
     let currentLang = "zh";
     let caseIndex = 0;
+    let caseAnimating = false;
     const grid = document.querySelector("#projectGrid");
     const caseStage = document.querySelector("#caseStage");
     const casePrev = document.querySelector("#casePrev");
@@ -2667,8 +2661,17 @@
     }
 
     function shiftCase(direction) {
+      if (caseAnimating) return;
+      caseAnimating = true;
+      casePrev.disabled = true;
+      caseNext.disabled = true;
       caseIndex = (caseIndex + direction + projects.length) % projects.length;
       renderCarousel();
+      window.setTimeout(() => {
+        caseAnimating = false;
+        casePrev.disabled = false;
+        caseNext.disabled = false;
+      }, 360);
     }
 
     function openProject(index) {
@@ -2717,6 +2720,7 @@
     let isDraggingCase = false;
 
     caseStage.addEventListener("pointerdown", event => {
+      if (event.target.closest(".case-nav")) return;
       isDraggingCase = true;
       dragStartX = event.clientX;
       dragCurrentX = event.clientX;
@@ -2818,7 +2822,8 @@
         item.querySelector("strong").textContent = text.heroCards[i][0];
         item.querySelector("span").textContent = text.heroCards[i][1];
       });
-      document.querySelector(".hero-scribble").innerHTML = text.heroScribble;
+      const heroScribble = document.querySelector(".hero-scribble");
+      if (heroScribble) heroScribble.innerHTML = text.heroScribble;
       document.querySelectorAll(".metric").forEach((item, i) => {
         item.querySelector("strong").textContent = text.metrics[i][0];
         item.querySelector("span").textContent = text.metrics[i][1];
@@ -2917,9 +2922,8 @@
       drawGrid();
 
       ctx.fillStyle = accent;
-      roundRect(ctx, 70, 76, 135, 42, 21);
-      drawText(isEn ? "PORTFOLIO RESUME" : "作品集简历", 94, 104, 17, ink, 800, 420, 22);
-      drawText(isEn ? "Selected Work / Personal Brand" : "Selected Work / Personal Brand", 70, 1556, 20, "rgba(247,245,239,0.42)", 500, 650, 28);
+      roundRect(ctx, 70, 76, 160, 42, 21);
+      drawText("Resume / 简历", 94, 104, 17, ink, 800, 420, 22);
       drawImageCover(images[0], 812, 92, 250, 330, 34);
       drawText("Q33", 1030, 382, 58, accent2, 800, 150, 60);
       drawText("Harriet", 828, 462, 28, dark, 700, 280, 34);
@@ -2935,15 +2939,18 @@
         ctx.save();
         ctx.translate(x + w / 2, y + h / 2);
         ctx.rotate(r * Math.PI / 180);
-        drawImageCover(img, -w / 2, -h / 2, w, h, 22);
+        drawImageContain(img, -w / 2, -h / 2, w, h, 22);
         ctx.restore();
       });
 
       ctx.fillStyle = "rgba(255,255,255,0.07)";
-      roundRect(ctx, 748, 1018, 410, 304, 28);
-      drawText(isEn ? "Representative cases" : "代表作品", 790, 1080, 28, accent2, 800, 320, 34);
-      drawText(isEn ? "AI marketing case / annual strategy / healthcare seeding / award certification" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1132, 22, dark, 600, 300, 34);
-      drawText(isEn ? "Full portfolio available on the website." : "完整作品案例可在网站中查看。", 790, 1244, 18, muted, 500, 300, 28);
+      roundRect(ctx, 748, 1018, 410, 360, 28);
+      drawText(isEn ? "Representative cases" : "代表作品", 790, 1076, 28, accent2, 800, 320, 34);
+      drawText(isEn ? "AI marketing case / annual strategy / healthcare seeding / award certification" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1128, 22, dark, 600, 300, 34);
+      drawText(isEn ? "Desktop portfolio:" : "电脑端作品集：", 790, 1232, 18, accent2, 700, 300, 26);
+      drawText("harriet0601.github.io/Harriet/", 790, 1262, 17, muted, 500, 320, 24);
+      drawText(isEn ? "Mobile portfolio:" : "手机端作品集：", 790, 1310, 18, accent2, 700, 300, 26);
+      drawText("harriet0601.github.io/Harriet/mobile.html", 790, 1340, 17, muted, 500, 320, 24);
 
       function drawText(text, x, y, size, color = dark, weight = 400, maxWidth = 1040, lineHeight = size * 1.55) {
         ctx.font = `${weight} ${size}px ${fontStack}`;
@@ -2961,6 +2968,13 @@
           }
         });
         if (line) lines.push(line);
+        const noLineStart = "，。、；：！？）】》”’、";
+        for (let i = 1; i < lines.length; i += 1) {
+          while (lines[i] && noLineStart.includes(lines[i][0])) {
+            lines[i - 1] += lines[i][0];
+            lines[i] = lines[i].slice(1);
+          }
+        }
         lines.forEach((item, index) => ctx.fillText(item, x, y + index * lineHeight));
         return y + Math.max(lines.length, 1) * lineHeight;
       }
@@ -2979,6 +2993,23 @@
         roundedPath(ctx, x, y, width, height, radius);
         ctx.clip();
         const scale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+        const sw = image.naturalWidth * scale;
+        const sh = image.naturalHeight * scale;
+        ctx.drawImage(image, x + (width - sw) / 2, y + (height - sh) / 2, sw, sh);
+        ctx.restore();
+        ctx.strokeStyle = "rgba(255,255,255,0.14)";
+        ctx.lineWidth = 2;
+        roundedPath(ctx, x, y, width, height, radius);
+        ctx.stroke();
+      }
+
+      function drawImageContain(image, x, y, width, height, radius) {
+        ctx.save();
+        roundedPath(ctx, x, y, width, height, radius);
+        ctx.clip();
+        ctx.fillStyle = "rgba(247,245,239,0.9)";
+        ctx.fillRect(x, y, width, height);
+        const scale = Math.min(width / image.naturalWidth, height / image.naturalHeight);
         const sw = image.naturalWidth * scale;
         const sh = image.naturalHeight * scale;
         ctx.drawImage(image, x + (width - sw) / 2, y + (height - sh) / 2, sw, sh);
@@ -3062,45 +3093,45 @@
         personal: "昵称Q33，英文名Harriet，巨蟹座，MBTI为ENFJ。工作之外喜欢健身、摄影、旅游、出片、唱歌、潜水、徒步和美食探索。"
       };
 
-      drawText(resume.name, 70, 222, 62, dark, 900, 650, 70);
-      drawText(resume.role, 72, 304, 25, accent, 800, 620, 32);
-      drawText(resume.contact, 72, 360, 22, muted, 500, 620, 30);
+      drawText(resume.name, 70, 222, 60, dark, 900, 650, 68);
+      drawText(resume.role, 72, 302, 24, accent, 800, 620, 30);
+      drawText(resume.contact, 72, 354, 21, muted, 500, 620, 28);
 
-      let y = 468;
-      y = drawText(resume.profileTitle, 72, y, 28, accent2, 900, 650, 34) + 12;
-      y = drawText(resume.profile, 72, y, 22, "rgba(247,245,239,0.84)", 400, 650, 38) + 34;
-      y = drawText(resume.expTitle, 72, y, 28, accent2, 900, 650, 34) + 12;
+      let y = 446;
+      y = drawText(resume.profileTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
+      y = drawText(resume.profile, 72, y, 20, "rgba(247,245,239,0.84)", 400, 650, 33) + 26;
+      y = drawText(resume.expTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
       resume.exp.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, 21, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, 35) + 5;
+        y = drawText(`• ${item}`, 86, y, 19, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, 30) + 4;
       });
-      y += 22;
-      y = drawText(resume.eduTitle, 72, y, 28, accent2, 900, 650, 34) + 10;
-      y = drawText(resume.edu, 72, y, 21, dark, 600, 650, 34) + 34;
-      y = drawText(resume.skillsTitle, 72, y, 28, accent2, 900, 650, 34) + 18;
+      y += 18;
+      y = drawText(resume.eduTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
+      y = drawText(resume.edu, 72, y, 20, dark, 600, 650, 31) + 24;
+      y = drawText(resume.skillsTitle, 72, y, 27, accent2, 900, 650, 32) + 16;
 
       let chipX = 72;
       let chipY = y;
-      ctx.font = `700 20px ${fontStack}`;
+      ctx.font = `700 18px ${fontStack}`;
       resume.skills.forEach(skill => {
-        const width = ctx.measureText(skill).width + 38;
+        const width = ctx.measureText(skill).width + 34;
         if (chipX + width > 700) {
           chipX = 72;
-          chipY += 56;
+          chipY += 48;
         }
         ctx.fillStyle = "rgba(255,122,61,0.17)";
-        roundRect(ctx, chipX, chipY - 29, width, 38, 19);
+        roundRect(ctx, chipX, chipY - 27, width, 34, 17);
         ctx.fillStyle = "#ffc49d";
-        ctx.fillText(skill, chipX + 19, chipY - 4);
+        ctx.fillText(skill, chipX + 17, chipY - 5);
         chipX += width + 12;
       });
-      y = chipY + 72;
-      y = drawText(resume.projectsTitle, 72, y, 28, accent2, 900, 650, 34) + 14;
+      y = chipY + 58;
+      y = drawText(resume.projectsTitle, 72, y, 27, accent2, 900, 650, 32) + 12;
       resume.projects.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, 21, muted, 400, 630, 33) + 2;
+        y = drawText(`• ${item}`, 86, y, 19, muted, 400, 630, 29) + 1;
       });
-      y += 24;
-      y = drawText(resume.personalTitle, 72, y, 28, accent2, 900, 650, 34) + 10;
-      drawText(resume.personal, 72, y, 21, "rgba(247,245,239,0.84)", 400, 650, 35);
+      y += 18;
+      y = drawText(resume.personalTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
+      drawText(resume.personal, 72, y, 19, "rgba(247,245,239,0.84)", 400, 650, 30);
 
       function roundRect(context, x, y, width, height, radius) {
         context.beginPath();
