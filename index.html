@@ -2946,11 +2946,11 @@
       ctx.fillStyle = "rgba(255,255,255,0.07)";
       roundRect(ctx, 748, 1018, 410, 330, 28);
       drawText(isEn ? "Representative cases" : "代表作品", 790, 1076, 28, accent2, 800, 320, 34);
-      drawText(isEn ? "AI marketing / annual strategy / healthcare seeding / awards" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1128, isEn ? 19 : 22, dark, 600, 320, isEn ? 28 : 34);
-      drawText(isEn ? "Desktop portfolio:" : "电脑端作品集：", 790, 1214, 18, accent2, 700, 300, 26);
-      drawTextSingleLine("harriet0601.github.io/Harriet/", 790, 1244, 17, muted, 500, 330);
-      drawText(isEn ? "Mobile portfolio:" : "手机端作品集：", 790, 1290, 18, accent2, 700, 300, 26);
-      drawTextSingleLine("harriet0601.github.io/Harriet/mobile.html", 790, 1320, 14, muted, 500, 340);
+      drawText(isEn ? "AI / annual strategy / healthcare / awards" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1128, isEn ? 18 : 22, dark, 600, 330, isEn ? 26 : 34);
+      drawText(isEn ? "Desktop portfolio:" : "电脑端作品集：", 790, 1192, 18, accent2, 700, 300, 26);
+      drawTextSingleLine("harriet0601.github.io/Harriet/", 790, 1222, 16, muted, 500, 350);
+      drawText(isEn ? "Mobile portfolio:" : "手机端作品集：", 790, 1268, 18, accent2, 700, 300, 26);
+      drawTextSingleLine("harriet0601.github.io/Harriet/mobile.html", 790, 1298, 12, muted, 500, 355);
 
       function drawText(text, x, y, size, color = dark, weight = 400, maxWidth = 1040, lineHeight = size * 1.55) {
         ctx.font = `${weight} ${size}px ${fontStack}`;
@@ -2982,7 +2982,7 @@
       function drawTextSingleLine(text, x, y, size, color = dark, weight = 400, maxWidth = 1040) {
         let fittedSize = size;
         ctx.font = `${weight} ${fittedSize}px ${fontStack}`;
-        while (ctx.measureText(text).width > maxWidth && fittedSize > 10) {
+        while (ctx.measureText(text).width > maxWidth && fittedSize > 7) {
           fittedSize -= 1;
           ctx.font = `${weight} ${fittedSize}px ${fontStack}`;
         }
@@ -3079,7 +3079,7 @@
         skillsTitle: "CORE SKILLS",
         skills: ["Annual marketing planning", "Pitch presentation", "Xiaohongshu seeding", "Douyin brand promotion", "Industry insight", "Media strategy", "Case storytelling", "AI-assisted research"],
         projectsTitle: "SELECTED PROJECTS",
-        projects: ["Qingteng AI New Era Case", "Ninebot Annual Plan", "Abbott Annual Seeding Plan", "Lima E-bike Campaign", "Vanke Four Properties Strategy", "Florasis SEED AWARDS Case", "Eye and Neck Anti-aging Trend", "Respiratory Health Insight"],
+        projects: ["Qingteng AI New Era Case", "Ninebot Annual Plan", "Abbott Annual Seeding Plan", "Lima E-bike Campaign", "Vanke Properties Strategy", "Florasis SEED AWARDS Case"],
         personalTitle: "PERSONAL",
         personal: "Nickname: Q33. English name: Harriet. Zodiac: Cancer. MBTI: ENFJ. Interests: fitness, photography, travel, portraits, singing, diving, hiking and food exploration."
       } : {
@@ -3105,25 +3105,26 @@
         personal: "昵称Q33，英文名Harriet，巨蟹座，MBTI为ENFJ。工作之外喜欢健身、摄影、旅游、出片、唱歌、潜水、徒步和美食探索。"
       };
 
-      drawText(resume.name, 70, 222, 60, dark, 900, 650, 68);
-      drawText(resume.role, 72, 302, 24, accent, 800, 620, 30);
-      drawText(resume.contact, 72, 354, 21, muted, 500, 620, 28);
+      const nameBottom = drawText(resume.name, 70, isEn ? 204 : 222, isEn ? 52 : 60, dark, 900, 650, isEn ? 58 : 68);
+      const roleY = isEn ? nameBottom + 10 : 302;
+      drawText(resume.role, 72, roleY, isEn ? 22 : 24, accent, 800, 620, isEn ? 28 : 30);
+      drawText(resume.contact, 72, roleY + (isEn ? 44 : 52), isEn ? 19 : 21, muted, 500, 620, isEn ? 26 : 28);
 
-      let y = 446;
+      let y = isEn ? roleY + 108 : 446;
       y = drawText(resume.profileTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
-      y = drawText(resume.profile, 72, y, isEn ? 19 : 20, "rgba(247,245,239,0.84)", 400, 650, isEn ? 30 : 33) + 22;
+      y = drawText(resume.profile, 72, y, isEn ? 18 : 20, "rgba(247,245,239,0.84)", 400, 650, isEn ? 27 : 33) + (isEn ? 18 : 22);
       y = drawText(resume.expTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
       resume.exp.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, isEn ? 18 : 19, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, isEn ? 27 : 30) + 3;
+        y = drawText(`• ${item}`, 86, y, isEn ? 17 : 19, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, isEn ? 25 : 30) + 2;
       });
       y += isEn ? 12 : 18;
       y = drawText(resume.eduTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
-      y = drawText(resume.edu, 72, y, 20, dark, 600, 650, 31) + (isEn ? 18 : 24);
+      y = drawText(resume.edu, 72, y, isEn ? 18 : 20, dark, 600, 650, isEn ? 27 : 31) + (isEn ? 14 : 24);
       y = drawText(resume.skillsTitle, 72, y, 27, accent2, 900, 650, 32) + (isEn ? 12 : 16);
 
       let chipX = 72;
       let chipY = y;
-      ctx.font = `700 18px ${fontStack}`;
+      ctx.font = `700 ${isEn ? 16 : 18}px ${fontStack}`;
       resume.skills.forEach(skill => {
         const width = ctx.measureText(skill).width + (isEn ? 26 : 34);
         if (chipX + width > 700) {
@@ -3136,14 +3137,15 @@
         ctx.fillText(skill, chipX + (isEn ? 13 : 17), chipY - (isEn ? 7 : 5));
         chipX += width + 12;
       });
-      y = chipY + (isEn ? 48 : 58);
+      y = chipY + (isEn ? 42 : 58);
       y = drawText(resume.projectsTitle, 72, y, 27, accent2, 900, 650, 32) + 12;
       resume.projects.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, isEn ? 18 : 19, muted, 400, 630, isEn ? 25 : 29) + 1;
+        y = drawText(`• ${item}`, 86, y, isEn ? 17 : 19, muted, 400, 630, isEn ? 23 : 29) + 1;
       });
-      y += isEn ? 12 : 18;
+      y += isEn ? 8 : 18;
+      if (isEn && y > 1560) y = 1560;
       y = drawText(resume.personalTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
-      drawText(resume.personal, 72, y, isEn ? 17 : 19, "rgba(247,245,239,0.84)", 400, 650, isEn ? 25 : 30);
+      drawText(resume.personal, 72, y, isEn ? 16 : 19, "rgba(247,245,239,0.84)", 400, 650, isEn ? 23 : 30);
 
       function roundRect(context, x, y, width, height, radius) {
         context.beginPath();
@@ -3170,8 +3172,8 @@
         const bottom = pageHeight - (y + height) * linkScaleY;
         return [left, bottom, right, top].map(value => value.toFixed(2)).join(" ");
       };
-      const desktopRect = pdfRectFromCanvas(790, 1226, 350, 32);
-      const mobileRect = pdfRectFromCanvas(790, 1302, 350, 32);
+      const desktopRect = pdfRectFromCanvas(790, 1204, 350, 32);
+      const mobileRect = pdfRectFromCanvas(790, 1280, 350, 32);
       const objects = [
         "<< /Type /Catalog /Pages 2 0 R >>",
         "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
