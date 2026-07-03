@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>秦飞艳 Harriet | 手机端作品集</title>
+  <meta name="description" content="秦飞艳 Harriet 的手机端互联网广告策划作品集，覆盖小红书、抖音、整合营销、年度方案与媒体认证案例。" />
+  <style>
+    :root {
+      --bg: #07090d;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7f5ef;
+      --muted: rgba(247, 245, 239, 0.68);
+      --line: rgba(255, 255, 255, 0.14);
+      --accent: #ff7a3d;
+      --mint: #78f3d1;
+      --violet: #b8a6ff;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% -10%, rgba(120, 243, 209, 0.18), transparent 20rem),
+        radial-gradient(circle at 100% 8%, rgba(255, 122, 61, 0.18), transparent 18rem),
+        var(--bg);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; }
+
+    .mobile-shell {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      padding: 14px 14px calc(92px + var(--safe-bottom));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 -14px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.94), rgba(7, 9, 13, 0.7));
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--accent), var(--mint), var(--violet), var(--accent));
+      box-shadow: 0 0 22px rgba(255, 122, 61, 0.28);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mini-btn {
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.84);
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: calc(100svh - 58px);
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 18px 0 28px;
+    }
+
+    .portrait {
+      position: relative;
+      min-height: 56svh;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 30px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.46);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 9, 13, 0) 30%, rgba(7, 9, 13, 0.84) 82%),
+        radial-gradient(circle at 50% 18%, transparent 0 140px, rgba(7, 9, 13, 0.16) 260px);
+      pointer-events: none;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      min-height: 56svh;
+      display: block;
+      object-fit: cover;
+      object-position: 52% center;
+    }
+
+    .portrait-copy {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.76);
+      background: rgba(7, 9, 13, 0.48);
+      backdrop-filter: blur(12px);
+      font-size: 12px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 16px var(--mint);
+    }
+
+    h1 {
+      margin: 12px 0 0;
+      font-size: clamp(44px, 16vw, 76px);
+      line-height: 0.88;
+      letter-spacing: -0.075em;
+    }
+
+    .script {
+      display: block;
+      margin-top: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      color: transparent;
+      background: linear-gradient(120deg, #fff, #ffc49d 42%, var(--mint));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .ability-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .ability {
+      min-height: 92px;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 20px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)),
+        radial-gradient(circle at 12% 0%, var(--glow), transparent 70%);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+    }
+
+    .ability strong {
+      display: block;
+      color: #fff;
+      font-size: 17px;
+    }
+
+    .ability span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .section {
+      padding: 44px 0 10px;
+    }
+
+    .kicker {
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 9px 0 12px;
+      font-size: clamp(28px, 10vw, 42px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .glass {
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045));
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(16px);
+    }
+
+    .story {
+      margin-top: 18px;
+      padding: 20px;
+    }
+
+    .story p {
+      margin: 0 0 16px;
+      color: rgba(247, 245, 239, 0.82);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .tool-line {
+      margin: 6px 0 18px;
+      padding: 14px;
+      border: 1px solid rgba(120, 243, 209, 0.18);
+      border-radius: 18px;
+      color: rgba(247, 245, 239, 0.8);
+      background: linear-gradient(135deg, rgba(120, 243, 209, 0.12), rgba(255, 122, 61, 0.08));
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .matrix {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .matrix-card {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .matrix-card strong {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .matrix-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .tags,
+    .client-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag,
+    .client-tags span {
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.72);
+      background: rgba(255, 255, 255, 0.058);
+      font-size: 12px;
+    }
+
+    .client-group {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .client-group + .client-group { margin-top: 10px; }
+    .client-group strong {
+      display: block;
+      margin-bottom: 9px;
+      color: rgba(120, 243, 209, 0.92);
+      font-size: 13px;
+    }
+
+    .work-tools {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .work-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 0 14px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .work-row::-webkit-scrollbar { display: none; }
+
+    .project-card {
+      flex: 0 0 min(82vw, 340px);
+      scroll-snap-align: start;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)),
+        radial-gradient(circle at 18% 0%, rgba(255, 122, 61, 0.15), transparent 60%);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .project-body {
+      margin: -6px 10px 10px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
+        rgba(12, 15, 20, 0.64);
+      backdrop-filter: blur(18px);
+    }
+
+    .project-body small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #ffc49d;
+      font-size: 12px;
+    }
+
+    .project-body h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .project-body p {
+      margin: 9px 0 0;
+      color: rgba(247, 245, 239, 0.76);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    details {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.052);
+      overflow: hidden;
+    }
+
+    summary {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary strong {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    summary span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    details p {
+      margin: 0;
+      padding: 0 14px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .life-rail {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(92px, 1fr));
+      grid-auto-rows: 92px;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .life-photo {
+      position: relative;
+      border: 0;
+      padding: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .life-photo:nth-child(1),
+    .life-photo:nth-child(4) {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    .life-photo:nth-child(2),
+    .life-photo:nth-child(3),
+    .life-photo:nth-child(5),
+    .life-photo:nth-child(6) {
+      grid-column: span 3;
+    }
+
+    .life-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .life-card {
+      margin-top: 14px;
+      padding: 18px;
+    }
+
+    .contact {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact a,
+    .contact button {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.075);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact .primary {
+      border-color: transparent;
+      color: #11131a;
+      background: linear-gradient(135deg, var(--accent), #ffd166);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: calc(10px + var(--safe-bottom));
+      z-index: 30;
+      width: min(calc(100% - 24px), 480px);
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(7, 9, 13, 0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .bottom-nav a {
+      min-height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.74);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .bottom-nav a:active {
+      background: rgba(255, 255, 255, 0.11);
+      color: #fff;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(72px + var(--safe-bottom));
+      z-index: 40;
+      transform: translateX(-50%) translateY(18px);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #11131a;
+      background: var(--text);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-shell">
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-mark"></span><span>Harriet</span></a>
+      <div class="top-actions">
+        <a class="mini-btn" href="index.html">电脑端</a>
+        <a class="mini-btn" href="mailto:harriet20020601@163.com">邮件</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="首页">
+        <div class="portrait">
+          <img src="assets/qin-feiyan-avatar.jpg" alt="秦飞艳个人照片" fetchpriority="high" decoding="async" />
+          <div class="portrait-copy">
+            <div class="eyebrow">互联网广告策划</div>
+            <h1>秦飞艳<span class="script">Strategy with Spark</span></h1>
+          </div>
+        </div>
+
+        <div class="ability-strip" aria-label="核心能力">
+          <div class="ability" style="--glow: rgba(255, 122, 61, 0.24);"><strong>独立提案</strong><span>大型年框方案撰写与竞标讲标。</span></div>
+          <div class="ability" style="--glow: rgba(120, 243, 209, 0.22);"><strong>平台工具</strong><span>灵犀、聚光、巨量引擎等工具落地。</span></div>
+          <div class="ability" style="--glow: rgba(184, 166, 255, 0.22);"><strong>千万级</strong><span>参与中标项目金额累计千万级。</span></div>
+          <div class="ability" style="--glow: rgba(255, 214, 102, 0.22);"><strong>复合视角</strong><span>策划、AE、媒介、销售助理轮岗。</span></div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="kicker">About</div>
+        <h2>把审美判断，转化为可落地的增长方案。</h2>
+        <p class="lead">视觉传达背景叠加广告策划轮岗经验，让我能把品牌目标、用户洞察、内容表达和执行资源放在同一张策略地图里思考。</p>
+
+        <article class="glass story">
+          <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名加入乐推（上海）文化传播有限公司，并在1年的轮岗中接触策划、AE、媒体媒介、销售助理等岗位。</p>
+          <p>目前我在品牌业务部担任策划专员，主要负责品牌整合营销方案、年度年框方案、阶段传播方案和竞标讲标工作。过往项目覆盖美妆、母婴健康、教育硬件、地产、出行与消费电子等行业。</p>
+          <p>我习惯用“洞察-策略-内容-执行”的链路推进工作：前期找到机会点，中期组织人群、场景、内容和媒介节奏，后期通过平台工具和AI工具提升表达、执行与优化效率。</p>
+          <div class="tool-line">精通小红书灵犀、聚光，抖音巨量引擎等平台工具，能够让策略从洞察出发，在投放前测、执行校准、实时优化和效果归因中持续落地。</div>
+          <div class="matrix">
+            <div class="matrix-card"><strong>策略洞察力</strong><span>擅用小红书灵犀、巨量引擎进行人群资产诊断与内容洞察，挖掘赛道趋势与爆文因子。</span></div>
+            <div class="matrix-card"><strong>内容创造力</strong><span>将数据洞察转化为具备传播力与销售力的创意内容，覆盖视频、图文与互动形式。</span></div>
+            <div class="matrix-card"><strong>闭环操盘力</strong><span>设计并监控从曝光到转化的全链路，进行实时优化与归因分析。</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">年度营销方案</span><span class="tag">竞标讲标</span><span class="tag">小红书种草</span><span class="tag">抖音品牌推广</span><span class="tag">灵犀 / 聚光</span><span class="tag">巨量引擎</span><span class="tag">AI提效</span><span class="tag">视觉表达</span>
+          </div>
+        </article>
+      </section>
+
+      <section id="work" class="section">
+        <div class="kicker">Selected Work</div>
+        <h2>项目案例库</h2>
+        <p class="lead">保留完整20个代表项目。手机端优先用横向轻滑卡片展示重点案例，下方可展开查看完整项目库。</p>
+
+        <div class="work-row" aria-label="重点案例横向滑动">
+          <article class="project-card"><img src="assets/cases/lite/qingteng-ai-full.jpg" alt="青藤之恋 AI新纪元案例封面" loading="lazy" decoding="async"><div class="project-body"><small>AI营销案例</small><h3>青藤之恋 AI新纪元案例提报</h3><p>围绕AI营销实践进行案例化表达，服务媒体认证与资质建设。</p></div></article>
+          <article class="project-card"><img src="assets/cases/lite/ninebot-full.jpg" alt="九号年框案例封面" loading="lazy" decoding="async"><div class="project-body"><small>年度年框</small><h3>九号短交通年框营销案</h3><p>搭建多车型全年种草节奏、用户场景与内容资产框架。</p></div></article>
+          <article class="project-card"><img src="assets/cases/lite/abbott-full.jpg" alt="雅培小安素案例封面" loading="lazy" decoding="async"><div class="project-body"><small>全年计划</small><h3>雅培小安素全年种草计划</h3><p>规划全年小红书种草主题、达人内容和预算使用方向。</p></div></article>
+          <article class="project-card"><img src="assets/cases/lite/seed-huaxizi.jpg" alt="花西子案例封面" loading="lazy" decoding="async"><div class="project-body"><small>媒体认证案例</small><h3>花西子SEED AWARDS种草大赏</h3><p>提炼内容策略、趋势价值和平台影响力，形成评审表达。</p></div></article>
+        </div>
+
+        <div class="project-list" id="projectList" aria-label="完整项目列表"></div>
+      </section>
+
+      <section id="clients" class="section">
+        <div class="kicker">Clients</div>
+        <h2>服务过的客户</h2>
+        <div class="client-group"><strong>医药健康 / 营养母婴</strong><div class="client-tags"><span>迪巧</span><span>贝亲</span><span>舒比奇</span><span>Swisse</span><span>澳佳宝</span><span>禾零</span></div></div>
+        <div class="client-group"><strong>消费零售 / 食品饮品</strong><div class="client-tags"><span>妙可蓝多</span><span>名创优品</span><span>九阳</span><span>沪上阿姨</span><span>霸王茶姬</span><span>幸运咖</span></div></div>
+        <div class="client-group"><strong>出行科技 / 教育硬件</strong><div class="client-tags"><span>九号</span><span>台铃</span><span>立马</span><span>漫步者</span><span>猿辅导</span></div></div>
+        <div class="client-group"><strong>地产金融 / 保险服务</strong><div class="client-tags"><span>万科房产</span><span>360借条</span><span>众安保险</span></div></div>
+        <div class="client-group"><strong>服饰个护 / 生活方式</strong><div class="client-tags"><span>海伦凯勒</span><span>珀芙研</span><span>杰士邦</span><span>玛丝菲尔</span></div></div>
+      </section>
+
+      <section id="life" class="section">
+        <div class="kicker">More About Me</div>
+        <h2>工作之外，也认真生活。</h2>
+        <p class="lead">Q33 / Harriet · 巨蟹座 · ENFJ。健身、摄影、旅游、出片、唱歌、潜水和美食探索，让我持续保持好奇、审美和能量。</p>
+        <div class="life-rail">
+          <button class="life-photo" type="button"><img src="assets/life-lite/life-avatar.jpg" alt="Harriet生活头像" loading="lazy" decoding="async"></button>
+          <button class="life-photo" type="button"><img src="assets/life-lite/travel-1.jpg" alt="旅行出片照" loading="lazy" decoding="async"></button>
+          <button class="life-photo" type="button"><img src="assets/life-lite/diving-1.jpg" alt="潜水生活照" loading="lazy" decoding="async"></button>
+          <button class="life-photo" type="button"><img src="assets/life-lite/hiking.jpg" alt="徒步生活照" loading="lazy" decoding="async"></button>
+          <button class="life-photo" type="button"><img src="assets/life-lite/photo-1.jpg" alt="摄影生活照" loading="lazy" decoding="async"></button>
+          <button class="life-photo" type="button"><img src="assets/life-lite/food-1.jpg" alt="美食生活照" loading="lazy" decoding="async"></button>
+        </div>
+        <div class="glass life-card">
+          <p class="lead">我希望你看到的不只是会写方案的秦飞艳，也看到更鲜活、更开放、更愿意表达的 Harriet。</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="kicker">Contact</div>
+        <h2>期待与你聊聊下一个增长命题。</h2>
+        <p class="lead">可联系我获取完整作品集、案例细节或进一步沟通岗位与项目合作机会。</p>
+        <div class="contact">
+          <a class="primary" href="mailto:harriet20020601@163.com?subject=作品集沟通">发送邮件</a>
+          <a href="tel:13764330601">拨打电话：13764330601</a>
+          <button type="button" id="copyEmail">复制邮箱</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="手机端快捷导航">
+    <a href="#top">首页</a>
+    <a href="#about">关于</a>
+    <a href="#work">作品</a>
+    <a href="#contact">联系</a>
+  </nav>
+
+  <script>
+    const projects = [
+      ["青藤之恋 AI新纪元案例提报", "AI营销案例", "围绕社交产品的AI营销实践进行案例化表达，突出策略洞察、内容机制与品牌增长成果。"],
+      ["青藤之恋 AI智造营", "AI训练营", "提炼AI工具在内容营销中的价值、方法路径与可复制的内容生产机制。"],
+      ["预算效率动态调控模型", "策略模型", "围绕投放预算与效果效率，搭建动态调控模型，辅助预算分配与优化判断。"],
+      ["九号短交通年框营销案", "年度年框", "搭建短交通多车型全年种草节奏、用户场景和内容资产框架。"],
+      ["迪巧氨糖小红书规划", "品类规划", "针对氨糖品类用户关注点与搜索需求，规划小红书内容沟通方式。"],
+      ["迪巧粉条小红书规划", "品类规划", "结合母婴/儿童健康用户决策链路，规划内容主题与达人种草方向。"],
+      ["迪巧黄条小红书规划", "品类规划", "进行人群和内容规划，搭建适合小红书平台的种草沟通路径。"],
+      ["雅培小安素全年种草计划", "全年计划", "基于家长关注点和节点消费需求，规划全年小红书种草主题与预算方向。"],
+      ["立马电动车年度爆品营销", "年度推广", "从产品卖点、用户场景、短视频内容和达人分层切入，形成抖音推广方案。"],
+      ["万科Y26四大楼盘策略方案", "地产策略", "针对四大楼盘差异定位，形成适配小红书语境的地产内容沟通策略。"],
+      ["城投地产露香园新品风貌方案", "地产阶段方案", "搭建阶段性小红书传播策略，表达项目气质与生活方式价值。"],
+      ["小猿学练机抖音品牌推广年框", "年度年框", "围绕学习硬件全年传播需求，搭建抖音品牌推广年框。"],
+      ["小猿智能硬件品牌推广方案", "品牌推广", "聚焦家庭决策场景，规划品牌内容传播、达人种草和阶段节奏。"],
+      ["美玉子Y26小红书营销方案", "品牌营销", "规划品牌在小红书平台的内容沟通、达人策略与阶段传播节奏。"],
+      ["EDIFIER漫步者新品执行方案", "新品执行", "拆解消费电子新品卖点、内容节奏、达人执行与传播素材方向。"],
+      ["海伦凯勒Y26 M1-M6营销方案", "半年度规划", "规划上半年小红书营销节奏、内容方向和预算分配。"],
+      ["花西子SEED AWARDS种草大赏", "媒体认证案例", "提炼美妆内容策略、趋势价值和平台影响力，形成认证案例。"],
+      ["花西子种草闭环转化案例", "种草大赏", "梳理种草闭环转化路径，展示内容种草如何承接品牌认知与转化目标。"],
+      ["面部精细化护理趋势：眼颈分区抗老", "灵犀认证", "梳理眼颈分区抗老新机遇，形成行业洞察材料。"],
+      ["医药健康行业赛道洞察：呼吸健康", "灵犀认证", "围绕呼吸健康赛道进行小红书行业洞察分析。"]
+    ];
+
+    const list = document.querySelector("#projectList");
+    list.innerHTML = projects.map((project, index) => `
+      <details ${index < 2 ? "open" : ""}>
+        <summary><strong>${project[0]}</strong><span>${project[1]}</span></summary>
+        <p>${project[2]}</p>
+      </details>
+    `).join("");
+
+    const copyEmail = document.querySelector("#copyEmail");
+    copyEmail.addEventListener("click", async () => {
+      const email = "harriet20020601@163.com";
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast("邮箱已复制");
+      } catch {
+        location.href = `mailto:${email}`;
+      }
+    });
+
+    function showToast(message) {
+      let toast = document.querySelector(".toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.className = "toast";
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+  </script>
+</body>
+</html>
