@@ -1,0 +1,2500 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>秦飞艳 | 互联网广告策划作品集</title>
+  <meta name="description" content="秦飞艳互联网广告策划作品集，覆盖小红书、抖音、整合营销、年度年框方案、竞标讲标与媒体认证案例。" />
+  <meta property="og:title" content="秦飞艳 | 互联网广告策划作品集" />
+  <meta property="og:description" content="小红书 / 抖音 / 整合营销策划作品集，展示年度方案、品牌推广与媒体认证案例。" />
+  <style>
+    :root {
+      --bg: #07090d;
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7f5ef;
+      --muted: rgba(247, 245, 239, 0.68);
+      --line: rgba(255, 255, 255, 0.14);
+      --accent: #ff7a3d;
+      --accent-2: #78f3d1;
+      --accent-3: #b8a6ff;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 10%, rgba(120, 243, 209, 0.18), transparent 32rem),
+        radial-gradient(circle at 82% 3%, rgba(255, 122, 61, 0.22), transparent 30rem),
+        radial-gradient(circle at 70% 72%, rgba(184, 166, 255, 0.18), transparent 34rem),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .spotlight {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(340px circle at var(--x, 50%) var(--y, 20%), rgba(255, 255, 255, 0.14), transparent 65%);
+      mix-blend-mode: screen;
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px clamp(18px, 4vw, 54px);
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.84), rgba(7, 9, 13, 0));
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+      box-shadow: 0 0 30px rgba(255, 122, 61, 0.34);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--text);
+      color: #11131a;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-lang {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-lang:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(255, 255, 255, 0.14);
+    }
+
+    .section {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 96px 0;
+    }
+
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      align-items: center;
+      padding-top: 86px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.75fr);
+      gap: clamp(34px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 18px var(--accent-2);
+    }
+
+    h1 {
+      margin: 24px 0 20px;
+      max-width: 760px;
+      font-size: clamp(48px, 8vw, 112px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .script {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      color: transparent;
+      background: linear-gradient(120deg, #fff, #ffc49d 42%, #78f3d1);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .lead {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn.primary {
+      border-color: transparent;
+      color: #11131a;
+      background: linear-gradient(135deg, var(--accent), #ffd166);
+      font-weight: 800;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.26);
+    }
+
+    .portrait-card {
+      position: relative;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, transparent 42%, rgba(7, 9, 13, 0.72)),
+        radial-gradient(circle at 52% 28%, transparent 0 160px, rgba(7, 9, 13, 0.12) 260px, rgba(7, 9, 13, 0.64));
+    }
+
+    .portrait-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      object-position: 52% center;
+      transform: scale(1.03);
+      display: block;
+    }
+
+    .portrait-meta {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      padding: 14px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(7, 9, 13, 0.44);
+      backdrop-filter: blur(16px);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .proof-item {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 22px;
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .story {
+      padding: clamp(24px, 4vw, 38px);
+    }
+
+    .story p {
+      margin: 0 0 18px;
+      color: rgba(247, 245, 239, 0.82);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .story p:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline {
+      padding: 26px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 24px;
+      padding-bottom: 24px;
+      border-left: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--accent);
+    }
+
+    .timeline-item strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .timeline-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.78);
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 13px;
+    }
+
+    .industry-band {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .industry-band strong {
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .industry-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .industry-list span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.8);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 13px;
+    }
+
+    .life-section {
+      width: min(1220px, calc(100% - 40px));
+    }
+
+    .life-layout {
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .life-profile {
+      position: sticky;
+      top: 96px;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .life-profile::before {
+      content: "";
+      position: absolute;
+      inset: -30% -20% auto auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(120, 243, 209, 0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .life-avatar {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    }
+
+    .life-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .life-name {
+      margin-top: 20px;
+    }
+
+    .life-name h3 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .life-name span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .life-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .life-fact {
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .life-fact span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .life-fact strong {
+      display: block;
+      color: #fff;
+      font-size: 17px;
+    }
+
+    .life-copy {
+      margin: 0;
+      color: rgba(247, 245, 239, 0.78);
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    .life-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .life-tags span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: rgba(247, 245, 239, 0.78);
+      background: rgba(255, 255, 255, 0.065);
+      font-size: 13px;
+    }
+
+    .life-gallery {
+      columns: 3 190px;
+      column-gap: 14px;
+    }
+
+    .life-photo {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 14px;
+      padding: 0;
+      text-align: left;
+      break-inside: avoid;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+      cursor: pointer;
+      transition: transform 0.28s ease, border-color 0.28s ease;
+    }
+
+    .life-photo:hover {
+      transform: translateY(-5px) scale(1.015);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .life-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .life-photo span {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(7, 9, 13, 0.5);
+      backdrop-filter: blur(12px);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 12px;
+    }
+
+    .life-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .life-lightbox.open {
+      display: flex;
+    }
+
+    .life-lightbox img {
+      max-width: min(100%, 1080px);
+      max-height: calc(100dvh - 80px);
+      border-radius: 20px;
+      object-fit: contain;
+      box-shadow: 0 34px 120px rgba(0, 0, 0, 0.55);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .case-stage {
+      position: relative;
+      height: clamp(470px, 62vw, 620px);
+      overflow: hidden;
+      border-radius: 28px;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .case-stage::before {
+      content: "";
+      position: absolute;
+      inset: 9% 5%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255, 122, 61, 0.18), transparent 48%),
+        radial-gradient(circle at 35% 55%, rgba(120, 243, 209, 0.13), transparent 42%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .case-track {
+      position: absolute;
+      inset: 0;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+
+    .case-stage .project-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(420px, 78vw);
+      min-height: 470px;
+      transform: translate(-50%, -50%) translateX(var(--case-x, 0)) translateZ(var(--case-z, 0)) rotateY(var(--case-r, 0)) scale(var(--case-s, 1));
+      opacity: var(--case-o, 1);
+      z-index: var(--case-i, 1);
+      pointer-events: var(--case-pointer, none);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease;
+      filter: saturate(var(--case-sat, 0.8)) brightness(var(--case-b, 0.72));
+    }
+
+    .case-stage .project-card:hover {
+      transform: translate(-50%, -50%) translateX(var(--case-x, 0)) translateZ(var(--case-z, 0)) rotateY(var(--case-r, 0)) scale(calc(var(--case-s, 1) + 0.025));
+    }
+
+    .case-stage .project-card.is-active {
+      pointer-events: auto;
+      filter: saturate(1.08) brightness(1);
+      border-color: rgba(255, 255, 255, 0.34);
+      box-shadow: 0 36px 100px rgba(0, 0, 0, 0.52);
+    }
+
+    .case-stage .project-card.is-near {
+      pointer-events: auto;
+    }
+
+    .case-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 20;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(7, 9, 13, 0.48);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transform: translateY(-50%);
+      font-size: 30px;
+      line-height: 1;
+      transition: 0.25s ease;
+    }
+
+    .case-nav:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .case-nav.prev {
+      left: 18px;
+    }
+
+    .case-nav.next {
+      right: 18px;
+    }
+
+    .case-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .case-dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .case-dot.active {
+      width: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .case-hint {
+      margin: 12px 0 0;
+      text-align: center;
+      color: rgba(247, 245, 239, 0.54);
+      font-size: 13px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 360px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)),
+        radial-gradient(circle at 20% 10%, var(--card-color), transparent 62%);
+      cursor: pointer;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    }
+
+    .project-grid .project-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      border-color: rgba(255, 255, 255, 0.34);
+      box-shadow: 0 28px 72px rgba(0, 0, 0, 0.38);
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      height: 56%;
+      transform: rotate(-8deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.13), transparent);
+      opacity: 0;
+      transition: opacity 0.32s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.42s ease, filter 0.42s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.06);
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 9, 13, 0.02), rgba(7, 9, 13, 0.58));
+    }
+
+    .project-content {
+      position: relative;
+      padding: 18px 18px 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .project-type {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(7, 9, 13, 0.34);
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 12px;
+    }
+
+    .project-card h3 {
+      position: relative;
+      margin: 0;
+      max-width: 92%;
+      font-size: 22px;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .project-card p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .project-foot {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 12px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: clamp(26px, 5vw, 48px);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 122, 61, 0.22), rgba(120, 243, 209, 0.12)),
+        rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin: 0 0 14px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .contact-chip {
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      background: rgba(7, 9, 13, 0.28);
+      color: rgba(247, 245, 239, 0.84);
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .contact-chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 120;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: #10131a;
+      background: #f7f5ef;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      transform: translate(-50%, 18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    .footer {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 10px 0 42px;
+      color: rgba(247, 245, 239, 0.44);
+      font-size: 13px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.76);
+      backdrop-filter: blur(18px);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(920px, 100%);
+      max-height: min(760px, calc(100dvh - 40px));
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 15% 0%, var(--modal-color), transparent 42%),
+        #10131a;
+      box-shadow: 0 36px 120px rgba(0, 0, 0, 0.62);
+    }
+
+    .modal-visual {
+      position: relative;
+      min-height: 260px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, transparent, rgba(16, 19, 26, 0.92)),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 16px);
+    }
+
+    .modal-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+    }
+
+    .modal-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 19, 26, 0.05), rgba(16, 19, 26, 0.94));
+    }
+
+    .modal-visual h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .modal-body {
+      padding: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 24px;
+    }
+
+    .modal-body p {
+      margin: 0;
+      color: rgba(247, 245, 239, 0.78);
+      line-height: 1.85;
+    }
+
+    .case-detail {
+      display: grid;
+      gap: 20px;
+    }
+
+    .case-summary {
+      font-size: 15px;
+    }
+
+    .case-sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .case-section {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .case-section strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .case-section p {
+      color: rgba(247, 245, 239, 0.7);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .modal-meta {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .meta-item {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .meta-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(8px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    @keyframes heroReveal {
+      0% { opacity: 0; transform: translateY(28px); filter: blur(12px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @keyframes heroZoom {
+      0% { transform: scale(1.07); }
+      100% { transform: scale(1.03); }
+    }
+
+    .hero-anim {
+      opacity: 0;
+      animation: heroReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .portrait-card img {
+      animation: heroZoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .about-layout,
+      .life-layout,
+      .contact-panel,
+      .industry-band,
+      .modal-body {
+        grid-template-columns: 1fr;
+      }
+
+      .life-profile {
+        position: relative;
+        top: auto;
+      }
+
+      .life-gallery {
+        columns: 2 180px;
+      }
+
+      .proof-strip,
+      .case-sections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .portrait-card,
+      .portrait-card img {
+        min-height: 470px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding: 14px 16px;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 9px 12px;
+      }
+
+      .nav-lang {
+        padding: 9px 10px;
+        font-size: 12px;
+      }
+
+      .section {
+        width: min(100% - 28px, 1160px);
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding-top: 74px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 15vw, 68px);
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .portrait-card,
+      .portrait-card img {
+        min-height: 430px;
+      }
+
+      .metric-row {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-strip,
+      .case-sections {
+        grid-template-columns: 1fr;
+      }
+
+      .life-gallery {
+        columns: 1;
+      }
+
+      .life-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: 0;
+      }
+
+      .case-stage {
+        height: 540px;
+        margin-inline: -8px;
+      }
+
+      .case-stage .project-card {
+        width: min(330px, 78vw);
+        min-height: 440px;
+      }
+
+      .case-nav {
+        width: 42px;
+        height: 42px;
+      }
+
+      .contact-list {
+        display: grid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal,
+      .hero-anim {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .spotlight,
+      .nav,
+      .project-grid,
+      .modal,
+      .footer {
+        display: none !important;
+      }
+
+      .section {
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      .hero,
+      .hero-grid,
+      .about-layout,
+      .life-layout,
+      .contact-panel {
+        min-height: auto;
+        display: block;
+      }
+
+      .portrait-card {
+        display: none;
+      }
+
+      h1,
+      h2,
+      .lead,
+      .section-desc,
+      .story p {
+        color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="site">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#home" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Qin Feiyan</span>
+      </a>
+      <div class="nav-links">
+        <a href="#home">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#work">作品展示</a>
+        <a href="#life">更多的我</a>
+        <a href="#contact">联系方式</a>
+      </div>
+      <button class="nav-lang" type="button" id="languageToggle">Change Language</button>
+      <a class="nav-cta" href="mailto:harriet20020601@163.com">邮件联系</a>
+    </nav>
+
+    <main>
+      <section id="home" class="section hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow hero-anim" style="animation-delay: 0.1s;"><span class="pulse"></span>互联网广告策划 | 小红书 / 抖音 / 整合营销</div>
+            <h1>
+              <span class="hero-anim" style="display:block; animation-delay: 0.24s;">秦飞艳</span>
+              <span class="script hero-anim" style="display:block; animation-delay: 0.4s;">Strategy with Spark</span>
+            </h1>
+            <p class="lead hero-anim" style="animation-delay: 0.58s;">2年互联网广告策划经验，擅长把行业洞察、内容种草、媒介策略与商业目标整合成可落地的品牌增长方案。</p>
+            <div class="hero-actions hero-anim" style="animation-delay: 0.74s;">
+              <a class="btn primary" href="#work">查看作品</a>
+              <button class="btn" type="button" id="printResume">保存简历</button>
+              <a class="btn" href="tel:13764330601">拨打电话</a>
+            </div>
+            <div class="proof-strip hero-anim" style="animation-delay: 0.88s;" aria-label="核心竞争力">
+              <div class="proof-item"><strong>独立提案</strong><span>可独立完成大型年框方案撰写与竞标讲标。</span></div>
+              <div class="proof-item"><strong>复合链路</strong><span>经历策划、AE、媒介与销售助理轮岗。</span></div>
+              <div class="proof-item"><strong>平台能力</strong><span>熟悉小红书种草与抖音品牌推广打法。</span></div>
+              <div class="proof-item"><strong>AI提效</strong><span>用AI工具提升洞察、内容与方案产出效率。</span></div>
+            </div>
+          </div>
+
+          <aside class="portrait-card hero-anim" style="animation-delay: 0.32s;" aria-label="秦飞艳个人头像">
+            <img src="assets/qin-feiyan-avatar.jpg" alt="秦飞艳个人照片" />
+            <div class="portrait-meta">
+              <div class="metric-row">
+                <div class="metric"><strong>2年</strong><span>广告策划经验</span></div>
+                <div class="metric"><strong>千万级</strong><span>中标项目金额</span></div>
+                <div class="metric"><strong>4岗</strong><span>复合轮岗经验</span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="section reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2>从视觉表达，到品牌增长策略。</h2>
+          </div>
+          <p class="section-desc">视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。</p>
+        </div>
+
+        <div class="about-layout">
+          <article class="glass story">
+            <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。</p>
+            <p>目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。</p>
+            <p>我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。</p>
+            <div class="skills" aria-label="技能标签">
+              <span class="tag">年度营销方案</span>
+              <span class="tag">竞标讲标</span>
+              <span class="tag">小红书种草</span>
+              <span class="tag">抖音品牌推广</span>
+              <span class="tag">行业洞察</span>
+              <span class="tag">媒介策略</span>
+              <span class="tag">AI提效</span>
+              <span class="tag">视觉表达</span>
+            </div>
+          </article>
+
+          <aside class="glass timeline" aria-label="经历时间线">
+            <div class="timeline-item">
+              <strong>2024 长沙大学毕业</strong>
+              <span>视觉传达设计专业，建立审美、版式、品牌视觉和内容表达基础。</span>
+            </div>
+            <div class="timeline-item">
+              <strong>2024 乐推管培生第一名入职</strong>
+              <span>轮岗策划、AE、媒体媒介、销售助理，理解从客户需求到投放执行的完整链路。</span>
+            </div>
+            <div class="timeline-item">
+              <strong>品牌业务部策划专员</strong>
+              <span>独立承担大型年框、阶段方案、案例认证和竞标讲标工作。</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="work" class="section reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Selected Work</div>
+            <h2>项目案例库</h2>
+          </div>
+          <p class="section-desc">以下收录20个代表项目，覆盖年度方案、阶段方案、品类规划、媒体认证、AI案例与效率模型。点击卡片可查看项目背景、职责、策略亮点和成果概览。</p>
+        </div>
+
+        <div class="industry-band">
+          <strong>案例类型覆盖</strong>
+          <div class="industry-list" aria-label="服务行业">
+            <span>年度年框</span>
+            <span>小红书种草</span>
+            <span>抖音品牌推广</span>
+            <span>地产阶段方案</span>
+            <span>媒体认证案例</span>
+            <span>AI营销案例</span>
+            <span>品类规划</span>
+            <span>效率模型</span>
+          </div>
+        </div>
+
+        <div class="case-stage" id="caseStage" aria-label="作品案例轮播">
+          <button class="case-nav prev" type="button" id="casePrev" aria-label="上一个项目">‹</button>
+          <div class="case-track" id="projectGrid"></div>
+          <button class="case-nav next" type="button" id="caseNext" aria-label="下一个项目">›</button>
+        </div>
+        <div class="case-dots" id="caseDots" aria-label="项目切换点"></div>
+        <p class="case-hint">拖动、点击两侧卡片或使用箭头切换案例。</p>
+      </section>
+
+      <section id="life" class="section life-section reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">More About Me</div>
+            <h2>工作之外，也认真生活。</h2>
+          </div>
+          <p class="section-desc">比起只被一份简历定义，我更希望你看到一个鲜活的我：爱表达、爱探索、爱记录，也愿意把热情带进每一次合作里。</p>
+        </div>
+
+        <div class="life-layout">
+          <aside class="glass life-profile">
+            <div class="life-avatar">
+              <img src="assets/life-lite/life-avatar.jpg" alt="Q33 Harriet生活照" loading="lazy" decoding="async" />
+            </div>
+            <div class="life-name">
+              <h3>Q33</h3>
+              <span>Harriet · 巨蟹座 · ENFJ</span>
+            </div>
+            <div class="life-facts">
+              <div class="life-fact"><span>昵称</span><strong>Q33</strong></div>
+              <div class="life-fact"><span>English Name</span><strong>Harriet</strong></div>
+              <div class="life-fact"><span>星座</span><strong>巨蟹座</strong></div>
+              <div class="life-fact"><span>MBTI</span><strong>ENFJ</strong></div>
+            </div>
+            <p class="life-copy">我是一个对世界保持好奇、对关系保持真诚的人。工作里我喜欢把复杂问题拆成清晰方案，生活里我也喜欢用镜头、旅行、运动和美食收集灵感。健身让我保持能量，摄影和出片训练审美，旅行与潜水让我保持开放感，唱歌则是我释放情绪的小出口。希望你看到的不只是会写方案的秦飞艳，也看到更松弛、更有生命力的 Harriet。</p>
+            <div class="life-tags" aria-label="生活爱好">
+              <span>健身</span>
+              <span>摄影</span>
+              <span>旅游</span>
+              <span>出片</span>
+              <span>唱歌</span>
+              <span>潜水</span>
+              <span>徒步</span>
+              <span>美食探索</span>
+            </div>
+          </aside>
+
+          <div class="life-gallery" aria-label="更多的我生活照">
+            <button class="life-photo" type="button"><img src="assets/life-lite/travel-1.jpg" alt="旅行出片照" loading="lazy" decoding="async"><span>出片</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/diving-1.jpg" alt="潜水生活照" loading="lazy" decoding="async"><span>潜水</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/hiking.jpg" alt="徒步生活照" loading="lazy" decoding="async"><span>徒步</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/photo-1.jpg" alt="摄影作品海边" loading="lazy" decoding="async"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/food-1.jpg" alt="美食探索照片" loading="lazy" decoding="async"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/travel-3.jpg" alt="高空旅行照" loading="lazy" decoding="async"><span>旅行</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/photo-2.jpg" alt="摄影作品山野" loading="lazy" decoding="async"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/travel-2.jpg" alt="海边旅行照" loading="lazy" decoding="async"><span>出片</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/food-2.jpg" alt="家常美食照片" loading="lazy" decoding="async"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/travel-4.jpg" alt="湖边旅行照" loading="lazy" decoding="async"><span>旅行</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/photo-3.jpg" alt="自然摄影照片" loading="lazy" decoding="async"><span>摄影</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/diving-2.jpg" alt="海底潜水照片" loading="lazy" decoding="async"><span>潜水</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/food-3.jpg" alt="聚餐美食照片" loading="lazy" decoding="async"><span>美食</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/travel-5.jpg" alt="瀑布旅行照" loading="lazy" decoding="async"><span>旅游</span></button>
+            <button class="life-photo" type="button"><img src="assets/life-lite/food-4.jpg" alt="做饭美食照片" loading="lazy" decoding="async"><span>生活</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="contact-panel">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>期待与你聊聊下一个增长命题。</h2>
+            <p class="section-desc">可联系我获取完整作品集、案例细节或进一步沟通岗位与项目合作机会。</p>
+            <div class="contact-list">
+              <a class="contact-chip" href="tel:13764330601">手机：13764330601</a>
+              <a class="contact-chip" href="mailto:harriet20020601@163.com">邮箱：harriet20020601@163.com</a>
+              <button class="contact-chip" type="button" id="copyEmail">复制邮箱</button>
+            </div>
+          </div>
+          <a class="btn primary" href="mailto:harriet20020601@163.com?subject=作品集沟通">发送邮件</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">© 2026 Qin Feiyan Portfolio. Built as a single-page HTML portfolio.</footer>
+  </div>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close" id="closeModal" aria-label="关闭项目弹窗">×</button>
+    <article class="modal-card" id="modalCard">
+      <div class="modal-visual">
+        <img id="modalImage" src="" alt="" />
+        <h3 id="modalTitle"></h3>
+      </div>
+      <div class="modal-body">
+        <div class="case-detail">
+          <p class="case-summary" id="modalDesc"></p>
+          <div class="case-sections">
+            <div class="case-section"><strong>项目背景</strong><p id="modalBackground"></p></div>
+            <div class="case-section"><strong>我的职责</strong><p id="modalRole"></p></div>
+            <div class="case-section"><strong>策略亮点</strong><p id="modalStrategy"></p></div>
+            <div class="case-section"><strong>项目成果</strong><p id="modalResult"></p></div>
+          </div>
+        </div>
+        <div class="modal-meta">
+          <div class="meta-item"><span>项目类型</span><strong id="modalType"></strong></div>
+          <div class="meta-item"><span>核心能力</span><strong id="modalSkill"></strong></div>
+          <div class="meta-item"><span>服务平台</span><strong id="modalPlatform"></strong></div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="life-lightbox" id="lifeLightbox" role="dialog" aria-modal="true" aria-label="生活照放大查看">
+    <button class="close" id="closeLifeLightbox" aria-label="关闭生活照">×</button>
+    <img id="lifeLightboxImage" src="" alt="" />
+  </div>
+
+  <script>
+    const projects = [
+      {
+        title: "青藤之恋 AI新纪元案例提报",
+        type: "AI营销案例",
+        platform: "小红书 / AI营销",
+        skill: "案例梳理、价值提炼、代理商资质支持",
+        desc: "围绕社交产品的AI营销实践进行案例化表达，突出策略洞察、内容机制与品牌增长成果，服务公司媒体认证与资质建设。",
+        background: "品牌希望将AI工具应用与社交内容增长方法沉淀成可对外展示的案例资产。",
+        role: "负责案例逻辑梳理、亮点提炼、页面表达和认证材料叙事包装。",
+        strategy: "将人群洞察、AI矩阵应用、素材破圈与链路提效整合为清晰的案例论证路径。",
+        result: "形成可用于奖项与代理资质申报的案例材料，强化公司AI营销服务能力背书。",
+        image: "assets/cases/lite/qingteng-ai-full.jpg",
+        color: "rgba(120, 243, 209, 0.28)"
+      },
+      {
+        title: "青藤之恋 AI智造营",
+        type: "AI训练营",
+        platform: "AI工具 / 内容生产",
+        skill: "AI应用、训练营策划、内容提效",
+        desc: "围绕AI工具在内容营销中的应用，提炼训练营价值、方法路径与可复制的内容生产机制。",
+        background: "AI工具开始进入营销工作流，团队需要把能力沉淀成可理解、可传播的训练营案例。",
+        role: "参与内容框架、价值表达与方案包装，强化AI在策划与创意产出中的应用感。",
+        strategy: "以工具应用、内容效率和案例结果为主线，呈现从认知到实操的训练营路径。",
+        result: "沉淀AI营销能力表达，辅助品牌与团队对AI工作流形成更清晰认知。",
+        image: "assets/cases/lite/qingteng-camp.jpg",
+        color: "rgba(120, 243, 209, 0.24)"
+      },
+      {
+        title: "预算效率动态调控模型",
+        type: "策略模型",
+        platform: "投放效率 / 预算调控",
+        skill: "预算模型、效率监控、动态优化",
+        desc: "围绕投放预算与效果效率，搭建动态调控模型，帮助项目在执行中更清晰地判断预算分配与优化方向。",
+        background: "投放项目常面临预算节奏、内容效率和效果反馈之间的动态平衡问题。",
+        role: "参与模型表达、关键指标梳理和onepage呈现，让复杂机制更易被客户理解。",
+        strategy: "用预算、内容、效果三类变量建立判断框架，辅助阶段性资源倾斜和优化决策。",
+        result: "形成可对外讲解的效率模型资产，增强方案中的方法论和专业度。",
+        image: "assets/cases/full/budget-model.svg",
+        color: "rgba(255, 122, 61, 0.25)"
+      },
+      {
+        title: "九号短交通年框营销案",
+        type: "年度年框",
+        platform: "小红书 / 多车型种草",
+        skill: "年度策略、车型矩阵、内容种草",
+        desc: "面向短交通多车型产品线，搭建全年种草节奏、用户场景和内容资产框架，支持品牌在不同车型与人群之间形成差异化沟通。",
+        background: "短交通产品线丰富，不同车型需要在年度框架下找到清晰人群与场景表达。",
+        role: "参与年度策略搭建、车型内容定位、种草节奏规划和提案表达。",
+        strategy: "以通勤、校园、城市出行等场景拆分内容主题，建立多车型差异化种草矩阵。",
+        result: "输出年度营销框架，支持品牌在多车型传播中提升内容效率与产品识别度。",
+        image: "assets/cases/lite/ninebot-full.jpg",
+        color: "rgba(255, 122, 61, 0.3)"
+      },
+      {
+        title: "迪巧氨糖小红书规划",
+        type: "品类规划",
+        platform: "小红书",
+        skill: "医药健康、需求洞察、内容规划",
+        desc: "针对氨糖品类的用户关注点与搜索需求，规划小红书内容沟通方式，强化健康场景下的产品理解。",
+        background: "关节健康相关产品需要兼顾专业性、生活场景和用户信任建立。",
+        role: "负责品类痛点梳理、内容主题规划与达人沟通方向整理。",
+        strategy: "从运动、久坐、长辈关怀等场景切入，将功效认知转化为用户更容易理解的生活表达。",
+        result: "形成氨糖品类小红书规划，为品牌内容投放提供策略框架。",
+        image: "assets/cases/lite/d-cal-glucosamine.jpg",
+        color: "rgba(184, 166, 255, 0.28)"
+      },
+      {
+        title: "迪巧粉条小红书规划",
+        type: "品类规划",
+        platform: "小红书",
+        skill: "母婴健康、内容种草、预算规划",
+        desc: "围绕迪巧粉条产品，结合母婴/儿童健康用户决策链路，规划内容主题与达人种草方向。",
+        background: "母婴健康消费决策更重视真实经验、专业背书和搜索验证。",
+        role: "负责内容策略、达人方向、种草节奏和预算使用建议。",
+        strategy: "围绕妈妈经验、儿童成长、科学补充等角度组织内容矩阵。",
+        result: "输出小红书种草规划，提升内容对用户决策链路的承接能力。",
+        image: "assets/cases/lite/d-cal-pink.jpg",
+        color: "rgba(255, 150, 190, 0.28)"
+      },
+      {
+        title: "迪巧黄条小红书规划",
+        type: "品类规划",
+        platform: "小红书",
+        skill: "健康洞察、人群沟通、内容矩阵",
+        desc: "针对迪巧黄条产品进行人群和内容规划，搭建适合小红书平台的种草沟通路径。",
+        background: "健康产品需要在平台内完成用户认知建立、内容说服和搜索沉淀。",
+        role: "参与人群画像、内容主题和阶段节奏规划。",
+        strategy: "用场景化痛点连接产品卖点，结合达人内容建立持续曝光。",
+        result: "形成可执行的品类内容规划，支持后续投放落地。",
+        image: "assets/cases/lite/d-cal-yellow.jpg",
+        color: "rgba(255, 214, 102, 0.28)"
+      },
+      {
+        title: "雅培小安素全年种草计划",
+        type: "全年计划",
+        platform: "小红书",
+        skill: "母婴营养、全年节奏、人群沟通",
+        desc: "针对儿童营养品类，基于家长关注点和节点消费需求，规划全年小红书种草主题、达人内容和预算使用方向。",
+        background: "儿童营养品类需要长期种草和专业信任建设，全年节点规划很关键。",
+        role: "负责全年内容节奏、节点主题、达人方向和预算分配建议。",
+        strategy: "围绕儿童成长、挑食营养、季节节点和妈妈经验建立年度沟通主题。",
+        result: "输出全年小红书种草计划，支撑品牌持续内容曝光和搜索沉淀。",
+        image: "assets/cases/lite/abbott-full.jpg",
+        color: "rgba(184, 166, 255, 0.25)"
+      },
+      {
+        title: "立马电动车年度爆品营销",
+        type: "年度推广",
+        platform: "抖音",
+        skill: "爆品打法、内容矩阵、达人规划",
+        desc: "围绕年度爆品打造，从产品卖点、用户场景、短视频内容和达人分层切入，形成可执行的抖音平台营销方案。",
+        background: "电动车品牌希望在抖音平台打造年度爆品声量，同时兼顾产品卖点转化。",
+        role: "负责爆品传播逻辑、内容矩阵、达人分层和阶段节奏规划。",
+        strategy: "用短视频高频场景放大产品卖点，结合达人内容与节点投放形成传播递进。",
+        result: "形成年度爆品推广方案，为后续执行提供内容和媒介规划依据。",
+        image: "assets/cases/lite/lima-full.jpg",
+        color: "rgba(255, 214, 102, 0.28)"
+      },
+      {
+        title: "万科Y26四大楼盘策略方案",
+        type: "地产策略",
+        platform: "小红书",
+        skill: "区域洞察、项目定位、生活方式内容",
+        desc: "针对四大楼盘差异定位，拆解目标客群的居住向往与决策关注点，形成适配小红书语境的地产内容沟通策略。",
+        background: "地产项目需要从参数式卖点转向更适合社交平台传播的生活方式表达。",
+        role: "负责楼盘卖点梳理、人群画像、内容方向和阶段传播策略。",
+        strategy: "以城市生活、家庭改善、社区体验和区域价值为线索拆解四盘差异。",
+        result: "输出适配小红书内容语境的楼盘阶段性营销方案。",
+        image: "assets/cases/lite/vanke-full.jpg",
+        color: "rgba(98, 182, 255, 0.28)"
+      },
+      {
+        title: "城投地产露香园新品风貌方案",
+        type: "地产阶段方案",
+        platform: "小红书",
+        skill: "新品风貌、阶段传播、内容策略",
+        desc: "围绕露香园新品风貌，搭建阶段性小红书传播策略，用内容表达项目气质与生活方式价值。",
+        background: "高端地产传播需要兼顾项目质感、区域价值和审美化表达。",
+        role: "参与项目定位、内容方向、阶段节奏和提案表达。",
+        strategy: "以风貌、生活、圈层和城市稀缺性为内容切口，提高项目审美感和记忆点。",
+        result: "形成阶段性营销方案，支持新品传播和项目形象建设。",
+        image: "assets/cases/lite/luxiangyuan.jpg",
+        color: "rgba(98, 182, 255, 0.24)"
+      },
+      {
+        title: "小猿学练机抖音品牌推广年框",
+        type: "年度年框",
+        platform: "抖音",
+        skill: "教育硬件、年度推广、品牌心智",
+        desc: "围绕学习硬件产品的全年传播需求，搭建抖音平台品牌推广年框，覆盖内容、达人与节点节奏。",
+        background: "教育硬件需要长期建设家长信任，并持续解释产品价值。",
+        role: "参与年度策略框架、内容主题、达人方向和提案表达。",
+        strategy: "将学习场景、家长焦虑、产品功能与阶段节点结合，形成年度传播路径。",
+        result: "输出年框方案，支持品牌在抖音平台持续建设认知。",
+        image: "assets/cases/lite/xiaoyuan-yearframe.jpg",
+        color: "rgba(120, 243, 209, 0.24)"
+      },
+      {
+        title: "小猿智能硬件品牌推广方案",
+        type: "品牌推广",
+        platform: "抖音",
+        skill: "智能硬件、品牌心智、转化链路",
+        desc: "聚焦智能学习硬件的家庭决策场景，规划品牌内容传播、达人种草和阶段性推广节奏，强化产品理解与购买理由。",
+        background: "智能教育硬件需要同时解决家长理解成本、产品信任和购买理由建立。",
+        role: "负责品牌推广框架、内容主题、达人方向和阶段节奏设计。",
+        strategy: "从学习场景、家长痛点和产品功能利益点切入，建立可持续内容沟通路径。",
+        result: "输出抖音品牌推广方案，支持产品心智建设和内容转化承接。",
+        image: "assets/cases/lite/xiaoyuan-hardware.jpg",
+        color: "rgba(120, 243, 209, 0.22)"
+      },
+      {
+        title: "美玉子Y26小红书营销方案",
+        type: "品牌营销",
+        platform: "小红书",
+        skill: "品牌定位、内容种草、节点规划",
+        desc: "围绕美玉子品牌在小红书平台的营销需求，规划内容沟通、达人策略与阶段传播节奏。",
+        background: "消费品牌需要在小红书上建立清晰记忆点，并通过内容持续触达目标用户。",
+        role: "参与行业分析、人群洞察、内容策略和方案包装。",
+        strategy: "从品牌核心卖点、用户场景和内容审美三方面建立种草路径。",
+        result: "输出小红书营销方案，支撑品牌阶段性内容投放。",
+        image: "assets/cases/lite/meiyuzi.jpg",
+        color: "rgba(255, 150, 190, 0.25)"
+      },
+      {
+        title: "EDIFIER漫步者新品执行方案",
+        type: "新品执行",
+        platform: "内容平台",
+        skill: "新品上市、执行拆解、内容创意",
+        desc: "围绕消费电子新品上市，拆解卖点、内容节奏、达人执行与传播素材方向，提升新品声量和产品感知。",
+        background: "消费电子新品上市需要快速建立产品感知，并用内容解释功能价值。",
+        role: "负责新品执行方案拆解、内容创意方向和达人执行建议。",
+        strategy: "以使用场景、听感体验和产品外观为内容抓手，规划上市传播节奏。",
+        result: "形成新品执行方案，帮助团队明确内容产出与投放执行方向。",
+        image: "assets/cases/lite/edifier-full.jpg",
+        color: "rgba(255, 122, 61, 0.25)"
+      },
+      {
+        title: "海伦凯勒Y26 M1-M6营销方案",
+        type: "半年度规划",
+        platform: "小红书",
+        skill: "预算分配、半年节奏、内容种草",
+        desc: "围绕海伦凯勒上半年小红书营销需求，规划月度节奏、内容方向和预算分配。",
+        background: "眼镜/时尚配饰品牌需要在平台中兼顾功能价值和造型审美。",
+        role: "参与阶段节奏、内容规划和预算结构梳理。",
+        strategy: "以佩戴场景、审美表达、功能利益点和节点内容组合成半年度规划。",
+        result: "输出M1-M6小红书营销方案及具体预算分配。",
+        image: "assets/cases/lite/helen-keller.jpg",
+        color: "rgba(184, 166, 255, 0.24)"
+      },
+      {
+        title: "花西子SEED AWARDS种草大赏",
+        type: "媒体认证案例",
+        platform: "小红书",
+        skill: "美妆洞察、案例包装、奖项表达",
+        desc: "面向美妆品牌种草场景，提炼内容策略、趋势价值和平台影响力，形成具备传播与评审说服力的认证案例。",
+        background: "美妆品牌需要将种草打法、平台影响和内容价值沉淀成奖项案例。",
+        role: "负责案例结构搭建、策略亮点提炼和奖项申报表达。",
+        strategy: "围绕用户审美趋势、内容资产和平台种草链路组织案例叙事。",
+        result: "形成SEED AWARDS申报材料，提升案例对外表达完整度。",
+        image: "assets/cases/lite/seed-huaxizi.jpg",
+        color: "rgba(255, 150, 190, 0.3)"
+      },
+      {
+        title: "花西子种草闭环转化案例",
+        type: "种草大赏",
+        platform: "小红书",
+        skill: "闭环转化、案例申报、内容资产",
+        desc: "围绕花西子种草闭环转化路径进行案例申报表达，展示内容种草如何承接品牌认知与转化目标。",
+        background: "种草大赏申报需要用清晰链路说明品牌如何从内容种草走向心智与转化。",
+        role: "参与案例资料整合、策略链路梳理和申报表达。",
+        strategy: "以人群洞察、内容种草、搜索承接和转化闭环为主线组织案例。",
+        result: "形成完整种草大赏申报材料，强化项目对外展示价值。",
+        image: "assets/cases/lite/seed-huaxizi-full.jpg",
+        color: "rgba(255, 150, 190, 0.24)"
+      },
+      {
+        title: "面部精细化护理趋势：眼颈分区抗老",
+        type: "灵犀认证",
+        platform: "小红书 / 美妆趋势",
+        skill: "趋势洞察、行业分析、认证撰写",
+        desc: "围绕眼颈分区抗老新机遇，梳理面部精细化护理趋势，形成可用于灵犀认证的行业洞察材料。",
+        background: "美妆护肤赛道从单一抗老诉求走向更精细的区域护理需求。",
+        role: "负责趋势结构、洞察表达和认证报告内容包装。",
+        strategy: "从用户痛点、场景变化、产品机会和平台内容趋势切入，提炼眼颈分区护理价值。",
+        result: "输出灵犀认证报告，助力公司沉淀美妆行业洞察能力。",
+        image: "assets/cases/lite/lingxi-eye-neck.jpg",
+        color: "rgba(184, 166, 255, 0.3)"
+      },
+      {
+        title: "医药健康行业赛道洞察：呼吸健康",
+        type: "灵犀认证",
+        platform: "小红书 / 医药健康",
+        skill: "赛道洞察、健康内容、认证撰写",
+        desc: "围绕呼吸健康赛道进行小红书行业洞察分析，提炼用户关注、内容趋势与品牌机会。",
+        background: "医药健康内容在社交平台中需要兼顾科学性、用户痛点和合规表达。",
+        role: "负责赛道结构梳理、用户需求分析和报告表达。",
+        strategy: "从搜索需求、内容场景、季节节点和健康管理心智拆解呼吸健康赛道机会。",
+        result: "形成灵犀认证材料，支持公司在医药健康领域的专业资质建设。",
+        image: "assets/cases/lite/lingxi-respiratory.jpg",
+        color: "rgba(120, 243, 209, 0.22)"
+      }
+    ];
+
+    const projectEn = [
+      { title: "Qingteng AI New Era Case Submission", type: "AI Marketing Case", platform: "Xiaohongshu / AI Marketing", skill: "Case storytelling, value extraction, agency qualification support", desc: "A structured AI marketing case for a social product, highlighting strategic insight, content mechanics and growth value.", background: "The brand needed to turn AI-enabled content growth practices into a presentable case asset.", role: "Organized the case logic, refined highlights, shaped page storytelling and supported certification materials.", strategy: "Connected audience insight, AI matrix application, creative reach and workflow efficiency into a clear proof path.", result: "Delivered reusable case materials for awards and agency qualification submissions." },
+      { title: "Qingteng AI Creation Camp", type: "AI Training Camp", platform: "AI Tools / Content Production", skill: "AI application, training camp planning, content efficiency", desc: "A training-camp style case that translates AI tool usage into a replicable content production method.", background: "As AI tools entered marketing workflows, the team needed an understandable and shareable capability case.", role: "Supported content framework, value expression and proposal packaging.", strategy: "Used tool application, production efficiency and case outcomes as the main narrative line.", result: "Helped clarify the team's AI marketing workflow and service value." },
+      { title: "Dynamic Budget Efficiency Model", type: "Strategy Model", platform: "Media Efficiency / Budget Control", skill: "Budget modeling, efficiency tracking, dynamic optimization", desc: "A dynamic framework for judging budget allocation and optimization direction during campaign execution.", background: "Media campaigns often need to balance budget rhythm, content efficiency and real-time results.", role: "Helped simplify indicators, logic and one-page presentation for client communication.", strategy: "Built a decision framework around budget, content and performance variables.", result: "Created a method asset that strengthened the strategic credibility of proposals." },
+      { title: "Ninebot Short Mobility Annual Plan", type: "Annual Retainer", platform: "Xiaohongshu / Multi-model Seeding", skill: "Annual strategy, product matrix, content seeding", desc: "An annual seeding framework for multiple short-mobility product lines and user scenarios.", background: "Different vehicle models needed clear audience and scenario positioning under one annual strategy.", role: "Supported annual strategy, model positioning, content rhythm and pitch narrative.", strategy: "Separated themes by commute, campus and urban travel scenarios to build a differentiated matrix.", result: "Delivered an annual framework to improve content efficiency and product recognition." },
+      { title: "D-Cal Glucosamine Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Healthcare insight, demand mapping, content planning", desc: "A Xiaohongshu content plan for joint-health users and search-driven decision needs.", background: "Joint-health products require professional credibility and relatable life scenarios.", role: "Mapped category pain points, content themes and creator directions.", strategy: "Linked product benefits to exercise, sedentary work and family-care scenarios.", result: "Built a category planning framework for future content investment." },
+      { title: "D-Cal Pink Product Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Maternal and child health, seeding content, budget planning", desc: "A content and creator plan for D-Cal's pink product line in maternal and child health contexts.", background: "Maternal-child decisions value real experience, professional support and search validation.", role: "Planned content strategy, creator direction, seeding rhythm and budget suggestions.", strategy: "Built content around parent experience, child growth and scientific supplementation.", result: "Improved the plan's ability to support user decision journeys." },
+      { title: "D-Cal Yellow Product Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Health insight, audience communication, content matrix", desc: "A Xiaohongshu communication path for D-Cal's yellow product line.", background: "Healthcare products need awareness building, content persuasion and search accumulation.", role: "Supported audience profiling, theme planning and staged rhythm.", strategy: "Connected scenario pain points with product benefits through creator content.", result: "Delivered an executable category content plan." },
+      { title: "Abbott PediaSure Annual Seeding Plan", type: "Annual Plan", platform: "Xiaohongshu", skill: "Child nutrition, annual rhythm, parent communication", desc: "An annual Xiaohongshu seeding plan based on parent concerns and seasonal purchase needs.", background: "Child nutrition requires long-term trust building and professional content accumulation.", role: "Planned annual content rhythm, node themes, creator direction and budget allocation.", strategy: "Organized yearly communication around child growth, picky eating, seasons and parent experience.", result: "Supported consistent exposure and search asset accumulation." },
+      { title: "Lima E-bike Hero Product Campaign", type: "Annual Promotion", platform: "Douyin", skill: "Hero product strategy, content matrix, creator planning", desc: "A Douyin marketing plan for building annual hero-product awareness and product reasons-to-buy.", background: "The brand needed to create product buzz while strengthening selling points.", role: "Built promotion logic, content matrix, creator tiers and phased rhythm.", strategy: "Amplified product benefits through high-frequency short-video scenarios and creator content.", result: "Delivered the annual hero product campaign framework." },
+      { title: "Vanke Y26 Four Properties Strategy", type: "Real Estate Strategy", platform: "Xiaohongshu", skill: "Regional insight, project positioning, lifestyle content", desc: "A Xiaohongshu strategy for four property projects with different audience and lifestyle positions.", background: "Real estate communication needed to move from specifications to social-platform lifestyle expression.", role: "Clarified selling points, audience profiles, content directions and campaign stages.", strategy: "Separated project value by city life, family upgrade, community experience and regional potential.", result: "Delivered platform-fit content strategy for the property portfolio." },
+      { title: "Luxiangyuan New Product Image Plan", type: "Real Estate Phase Plan", platform: "Xiaohongshu", skill: "Product image, phased communication, content strategy", desc: "A staged Xiaohongshu plan to express the character and lifestyle value of Luxiangyuan.", background: "Premium real estate requires visual quality, regional value and refined content expression.", role: "Supported positioning, content direction, phased rhythm and proposal narrative.", strategy: "Used architecture, lifestyle, circles and scarcity as content entry points.", result: "Supported new-product image building and launch communication." },
+      { title: "Xiaoyuan Learning Device Douyin Annual Plan", type: "Annual Retainer", platform: "Douyin", skill: "Education hardware, annual promotion, brand mindset", desc: "An annual Douyin brand promotion framework for learning hardware.", background: "Education hardware needs continuous parent trust building and clear product value explanation.", role: "Supported annual framework, content themes, creator directions and pitch expression.", strategy: "Connected learning scenes, parent concerns, functions and seasonal nodes.", result: "Supported long-term brand awareness building on Douyin." },
+      { title: "Xiaoyuan Smart Hardware Brand Campaign", type: "Brand Promotion", platform: "Douyin", skill: "Smart hardware, brand mindset, conversion path", desc: "A staged brand campaign for smart learning hardware in family decision contexts.", background: "Smart education hardware needs to reduce understanding cost and build trust.", role: "Designed campaign framework, content themes, creator direction and phased rhythm.", strategy: "Started from learning scenes, parent pain points and functional benefits.", result: "Supported product understanding and content conversion." },
+      { title: "Meiyuzi Y26 Xiaohongshu Plan", type: "Brand Marketing", platform: "Xiaohongshu", skill: "Brand positioning, content seeding, campaign nodes", desc: "A Xiaohongshu content, creator and stage communication plan for Meiyuzi.", background: "Consumer brands need clear memory points and continuous reach on Xiaohongshu.", role: "Supported industry analysis, audience insight, content strategy and proposal packaging.", strategy: "Built the seeding path around core selling points, user scenes and visual tone.", result: "Delivered a staged content investment plan." },
+      { title: "EDIFIER New Product Execution Plan", type: "Launch Execution", platform: "Content Platforms", skill: "New launch, execution planning, content creative", desc: "A new-product launch execution plan covering selling points, creator execution and content assets.", background: "Consumer electronics launches need fast product understanding and feature explanation.", role: "Broke down execution logic, creative directions and creator suggestions.", strategy: "Used usage scenes, sound experience and product appearance as content anchors.", result: "Clarified content production and media execution direction." },
+      { title: "Helen Keller Y26 M1-M6 Marketing Plan", type: "Half-year Plan", platform: "Xiaohongshu", skill: "Budget allocation, half-year rhythm, content seeding", desc: "A half-year Xiaohongshu plan covering monthly rhythm, content direction and budget allocation.", background: "Eyewear brands need both functional value and styling expression.", role: "Supported stage rhythm, content planning and budget structure.", strategy: "Combined wearing occasions, aesthetics, functional benefits and seasonal nodes.", result: "Delivered M1-M6 Xiaohongshu plan and budget allocation." },
+      { title: "Florasis SEED AWARDS Seeding Case", type: "Media Certification Case", platform: "Xiaohongshu", skill: "Beauty insight, case packaging, award narrative", desc: "A beauty seeding case built for award and certification communication.", background: "The brand needed to present seeding methods, platform influence and content value as an award case.", role: "Built case structure, refined strategic highlights and award expression.", strategy: "Organized the story around beauty trends, content assets and platform seeding paths.", result: "Delivered SEED AWARDS submission materials." },
+      { title: "Florasis Seeding-to-Conversion Loop Case", type: "Seeding Award Case", platform: "Xiaohongshu", skill: "Closed-loop conversion, case submission, content assets", desc: "A case narrative showing how content seeding supports brand awareness and conversion goals.", background: "Award submissions needed a clear path from content seeding to mindset and conversion.", role: "Integrated case materials and clarified the strategic chain.", strategy: "Used audience insight, content seeding, search capture and conversion loop as the main path.", result: "Delivered a complete submission case with stronger external value." },
+      { title: "Facial Care Trend: Eye and Neck Anti-aging", type: "Lingxi Certification", platform: "Xiaohongshu / Beauty Trend", skill: "Trend insight, industry analysis, certification writing", desc: "An industry insight report on the eye-and-neck anti-aging opportunity in refined facial care.", background: "Beauty care demand is moving from broad anti-aging to more precise regional care.", role: "Structured trend logic, insight expression and report packaging.", strategy: "Extracted opportunity from user pain points, scenarios, product chances and content trends.", result: "Delivered a Lingxi certification report for beauty industry capability building." },
+      { title: "Healthcare Track Insight: Respiratory Health", type: "Lingxi Certification", platform: "Xiaohongshu / Healthcare", skill: "Track insight, health content, certification writing", desc: "A Xiaohongshu industry insight report on respiratory health demand, content trends and brand opportunities.", background: "Healthcare content must balance scientific credibility, user pain points and compliant expression.", role: "Structured the track, analyzed user needs and shaped report expression.", strategy: "Identified opportunities through search demand, content scenarios, seasons and health-management mindset.", result: "Supported professional qualification building in the healthcare category." }
+    ];
+
+    const i18n = {
+      zh: {
+        nav: ["首页", "关于我", "作品展示", "更多的我", "联系方式"],
+        langButton: "Change Language",
+        emailContact: "邮件联系",
+        eyebrow: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
+        heroName: "秦飞艳",
+        heroScript: "Strategy with Spark",
+        lead: "2年互联网广告策划经验，擅长把行业洞察、内容种草、媒介策略与商业目标整合成可落地的品牌增长方案。",
+        heroButtons: ["查看作品", "保存简历", "拨打电话"],
+        proof: [
+          ["独立提案", "可独立完成大型年框方案撰写与竞标讲标。"],
+          ["复合链路", "经历策划、AE、媒介与销售助理轮岗。"],
+          ["平台能力", "熟悉小红书种草与抖音品牌推广打法。"],
+          ["AI提效", "用AI工具提升洞察、内容与方案产出效率。"]
+        ],
+        metrics: [["2年", "广告策划经验"], ["千万级", "中标项目金额"], ["4岗", "复合轮岗经验"]],
+        aboutKicker: "About",
+        aboutTitle: "从视觉表达，到品牌增长策略。",
+        aboutDesc: "视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。",
+        story: [
+          "我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。",
+          "目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。",
+          "我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。"
+        ],
+        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "AI提效", "视觉表达"],
+        timeline: [
+          ["2024 长沙大学毕业", "视觉传达设计专业，建立审美、版式、品牌视觉和内容表达基础。"],
+          ["2024 乐推管培生第一名入职", "轮岗策划、AE、媒体媒介、销售助理，理解从客户需求到投放执行的完整链路。"],
+          ["品牌业务部策划专员", "独立承担大型年框、阶段方案、案例认证和竞标讲标工作。"]
+        ],
+        workKicker: "Selected Work",
+        workTitle: "项目案例库",
+        workDesc: "以下收录20个代表项目，覆盖年度方案、阶段方案、品类规划、媒体认证、AI案例与效率模型。点击卡片可查看项目背景、职责、策略亮点和成果概览。",
+        industryTitle: "案例类型覆盖",
+        industries: ["年度年框", "小红书种草", "抖音品牌推广", "地产阶段方案", "媒体认证案例", "AI营销案例", "品类规划", "效率模型"],
+        caseHint: "拖动、点击两侧卡片或使用箭头切换案例。",
+        viewDetail: "查看详情",
+        lifeKicker: "More About Me",
+        lifeTitle: "工作之外，也认真生活。",
+        lifeDesc: "比起只被一份简历定义，我更希望你看到一个鲜活的我：爱表达、爱探索、爱记录，也愿意把热情带进每一次合作里。",
+        lifeName: "Q33",
+        lifeMeta: "Harriet · 巨蟹座 · ENFJ",
+        facts: [["昵称", "Q33"], ["English Name", "Harriet"], ["星座", "巨蟹座"], ["MBTI", "ENFJ"]],
+        lifeCopy: "我是一个对世界保持好奇、对关系保持真诚的人。工作里我喜欢把复杂问题拆成清晰方案，生活里我也喜欢用镜头、旅行、运动和美食收集灵感。健身让我保持能量，摄影和出片训练审美，旅行与潜水让我保持开放感，唱歌则是我释放情绪的小出口。希望你看到的不只是会写方案的秦飞艳，也看到更松弛、更有生命力的 Harriet。",
+        lifeTags: ["健身", "摄影", "旅游", "出片", "唱歌", "潜水", "徒步", "美食探索"],
+        photoLabels: ["出片", "潜水", "徒步", "摄影", "美食", "旅行", "摄影", "出片", "美食", "旅行", "摄影", "潜水", "美食", "旅游", "生活"],
+        contactKicker: "Contact",
+        contactTitle: "期待与你聊聊下一个增长命题。",
+        contactDesc: "可联系我获取完整作品集、案例细节或进一步沟通岗位与项目合作机会。",
+        contactChips: ["手机：13764330601", "邮箱：harriet20020601@163.com", "复制邮箱"],
+        sendEmail: "发送邮件",
+        footer: "© 2026 Qin Feiyan Portfolio. Built as a single-page HTML portfolio.",
+        modalLabels: ["项目背景", "我的职责", "策略亮点", "项目成果"],
+        modalMeta: ["项目类型", "核心能力", "服务平台"],
+        toastCopied: "邮箱已复制",
+        toastPdf: "PDF简历已开始下载"
+      },
+      en: {
+        nav: ["Home", "About", "Work", "More Me", "Contact"],
+        langButton: "中文",
+        emailContact: "Email Me",
+        eyebrow: "Internet Advertising Planner | Xiaohongshu / Douyin / Integrated Marketing",
+        heroName: "Qin Feiyan",
+        heroScript: "Strategy with Spark",
+        lead: "A digital advertising planner with 2 years of experience, turning category insight, content seeding, media strategy and business goals into executable growth proposals.",
+        heroButtons: ["View Work", "Save Resume", "Call Me"],
+        proof: [
+          ["Independent Proposals", "Able to complete annual-retainer proposals and pitch presentations independently."],
+          ["Cross-functional View", "Rotated across planning, AE, media and sales assistant roles."],
+          ["Platform Skills", "Experienced in Xiaohongshu seeding and Douyin brand promotion."],
+          ["AI Efficiency", "Uses AI tools to improve research, ideation and proposal output."]
+        ],
+        metrics: [["2 Years", "Ad planning experience"], ["10M+ RMB", "Winning project value"], ["4 Roles", "Rotation experience"]],
+        aboutKicker: "About",
+        aboutTitle: "From visual expression to brand growth strategy.",
+        aboutDesc: "My visual communication training sharpened my sensitivity to aesthetics, content expression and user experience; my rotation experience helped me understand how client needs, media execution and business goals connect.",
+        story: [
+          "I am Qin Feiyan, born in 2003 and graduated from Changsha University in 2024 with a major in Visual Communication Design. After graduation, I joined Letui (Shanghai) Culture Communication Co., Ltd. as the top-ranked management trainee and completed a one-year rotation across planning, AE, media and sales assistant roles, gradually building a full-chain view from client needs to content strategy and execution.",
+          "I am now positioned in the Brand Business Department as a Planning Specialist. I can independently develop large annual-retainer proposals and pitch presentations, and I also write media certification cases to help the company build industry cases and agency qualification materials. The projects I have participated in cover multiple industries, with total winning project value reaching the 10-million-RMB level.",
+          "I am proficient with office software and AI tools to improve research, strategic deduction, content generation and proposal expression. In a fast-changing platform ecosystem, I keep learning and paying attention to updates in content trends, user communication and brand growth methods."
+        ],
+        skills: ["Annual Marketing Plans", "Pitch Presentation", "Xiaohongshu Seeding", "Douyin Brand Promotion", "Industry Insight", "Media Strategy", "AI Efficiency", "Visual Expression"],
+        timeline: [
+          ["2024 Changsha University Graduate", "Visual Communication Design major, with a foundation in aesthetics, layout, brand visuals and content expression."],
+          ["2024 Joined Letui as Top Management Trainee", "Rotated across planning, AE, media and sales assistant roles to understand the full campaign chain."],
+          ["Planning Specialist, Brand Business Department", "Responsible for annual plans, phased proposals, certification cases and pitch presentations."]
+        ],
+        workKicker: "Selected Work",
+        workTitle: "Project Case Library",
+        workDesc: "20 representative projects covering annual retainers, phased plans, category planning, media certification, AI cases and efficiency models. Click a card to view background, role, strategy and outcomes.",
+        industryTitle: "Case Coverage",
+        industries: ["Annual Retainers", "Xiaohongshu Seeding", "Douyin Promotion", "Real Estate Plans", "Certification Cases", "AI Marketing Cases", "Category Planning", "Efficiency Models"],
+        caseHint: "Drag, click side cards, or use arrows to switch cases.",
+        viewDetail: "View Details",
+        lifeKicker: "More About Me",
+        lifeTitle: "I work seriously, and live vividly.",
+        lifeDesc: "Beyond a resume, I hope you can see a more vivid version of me: expressive, curious, observant and ready to bring energy into every collaboration.",
+        lifeName: "Q33",
+        lifeMeta: "Harriet · Cancer · ENFJ",
+        facts: [["Nickname", "Q33"], ["English Name", "Harriet"], ["Zodiac", "Cancer"], ["MBTI", "ENFJ"]],
+        lifeCopy: "I stay curious about the world and sincere in relationships. At work, I enjoy turning complex questions into clear solutions; in life, I collect inspiration through photography, travel, workouts and food. Fitness keeps my energy steady, photography trains my eye, travel and diving keep me open to the world, and singing is my way to reset emotionally. I hope you see not only Qin Feiyan the planner, but also Harriet as a relaxed and lively person.",
+        lifeTags: ["Fitness", "Photography", "Travel", "Portraits", "Singing", "Diving", "Hiking", "Food"],
+        photoLabels: ["Portrait", "Diving", "Hiking", "Photo", "Food", "Travel", "Photo", "Portrait", "Food", "Travel", "Photo", "Diving", "Food", "Travel", "Life"],
+        contactKicker: "Contact",
+        contactTitle: "Let’s discuss the next growth challenge.",
+        contactDesc: "Contact me for the full portfolio, project details, job opportunities or project collaboration.",
+        contactChips: ["Phone: 13764330601", "Email: harriet20020601@163.com", "Copy Email"],
+        sendEmail: "Send Email",
+        footer: "© 2026 Qin Feiyan Portfolio. Built as a single-page HTML portfolio.",
+        modalLabels: ["Background", "My Role", "Strategy Highlights", "Outcome"],
+        modalMeta: ["Project Type", "Core Skill", "Platform"],
+        toastCopied: "Email copied",
+        toastPdf: "PDF resume download started"
+      }
+    };
+
+    let currentLang = "zh";
+    let caseIndex = 0;
+    const grid = document.querySelector("#projectGrid");
+    const caseStage = document.querySelector("#caseStage");
+    const casePrev = document.querySelector("#casePrev");
+    const caseNext = document.querySelector("#caseNext");
+    const caseDots = document.querySelector("#caseDots");
+    const languageToggle = document.querySelector("#languageToggle");
+    const modal = document.querySelector("#projectModal");
+    const modalCard = document.querySelector("#modalCard");
+    const modalImage = document.querySelector("#modalImage");
+    const modalTitle = document.querySelector("#modalTitle");
+    const modalDesc = document.querySelector("#modalDesc");
+    const modalBackground = document.querySelector("#modalBackground");
+    const modalRole = document.querySelector("#modalRole");
+    const modalStrategy = document.querySelector("#modalStrategy");
+    const modalResult = document.querySelector("#modalResult");
+    const modalType = document.querySelector("#modalType");
+    const modalSkill = document.querySelector("#modalSkill");
+    const modalPlatform = document.querySelector("#modalPlatform");
+    const closeModal = document.querySelector("#closeModal");
+    const lifeLightbox = document.querySelector("#lifeLightbox");
+    const lifeLightboxImage = document.querySelector("#lifeLightboxImage");
+    const closeLifeLightbox = document.querySelector("#closeLifeLightbox");
+    const copyEmail = document.querySelector("#copyEmail");
+    const printResume = document.querySelector("#printResume");
+    const spotlight = document.querySelector(".spotlight");
+    const projectCards = [];
+    const dotButtons = [];
+
+    projects.forEach((project, index) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.style.setProperty("--card-color", project.color);
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.addEventListener("click", () => {
+        if (index === caseIndex) {
+          openProject(index);
+          return;
+        }
+        caseIndex = index;
+        renderCarousel();
+      });
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          if (index === caseIndex) openProject(index);
+          else {
+            caseIndex = index;
+            renderCarousel();
+          }
+        }
+      });
+      grid.appendChild(card);
+      projectCards.push(card);
+
+      const dot = document.createElement("button");
+      dot.className = "case-dot";
+      dot.type = "button";
+      dot.addEventListener("click", () => {
+        caseIndex = index;
+        renderCarousel();
+      });
+      caseDots.appendChild(dot);
+      dotButtons.push(dot);
+    });
+
+    function getProject(index) {
+      return currentLang === "en" ? { ...projects[index], ...projectEn[index] } : projects[index];
+    }
+
+    function renderProjectCards() {
+      projectCards.forEach((card, index) => {
+        const project = getProject(index);
+        card.setAttribute("aria-label", `${currentLang === "en" ? "View project" : "查看项目"}：${project.title}`);
+        card.innerHTML = `
+          <div class="project-image">
+            <img src="${project.image}" alt="${project.title}${currentLang === "en" ? " project cover" : "项目封面"}" loading="lazy" decoding="async">
+          </div>
+          <div class="project-content">
+            <span class="project-type">${project.type}</span>
+            <h3>${project.title}</h3>
+            <p>${project.desc}</p>
+            <div class="project-foot"><span>${project.platform}</span><span>${i18n[currentLang].viewDetail}</span></div>
+          </div>
+        `;
+      });
+    }
+
+    function renderCarousel() {
+      const total = projectCards.length;
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      const step = isMobile ? 178 : 282;
+      projectCards.forEach((card, index) => {
+        let distance = index - caseIndex;
+        if (distance > total / 2) distance -= total;
+        if (distance < -total / 2) distance += total;
+        const abs = Math.abs(distance);
+        const clamped = Math.max(-3, Math.min(3, distance));
+        const visible = abs <= 3;
+        card.classList.toggle("is-active", distance === 0);
+        card.classList.toggle("is-near", abs === 1 || abs === 2);
+        card.style.setProperty("--case-x", `${clamped * step}px`);
+        card.style.setProperty("--case-z", `${-abs * 130}px`);
+        card.style.setProperty("--case-r", `${clamped * -11}deg`);
+        card.style.setProperty("--case-s", `${Math.max(0.62, 1 - abs * 0.13)}`);
+        card.style.setProperty("--case-o", `${visible ? Math.max(0.18, 1 - abs * 0.25) : 0}`);
+        card.style.setProperty("--case-i", `${100 - abs}`);
+        card.style.setProperty("--case-b", `${Math.max(0.54, 1 - abs * 0.12)}`);
+        card.style.setProperty("--case-sat", `${Math.max(0.62, 1 - abs * 0.08)}`);
+        card.style.setProperty("--case-pointer", `${abs <= 2 ? "auto" : "none"}`);
+        card.tabIndex = abs <= 2 ? 0 : -1;
+      });
+      dotButtons.forEach((dot, index) => {
+        dot.classList.toggle("active", index === caseIndex);
+        dot.setAttribute("aria-label", `${currentLang === "en" ? "Switch to project" : "切换到项目"} ${index + 1}`);
+      });
+    }
+
+    function shiftCase(direction) {
+      caseIndex = (caseIndex + direction + projects.length) % projects.length;
+      renderCarousel();
+    }
+
+    function openProject(index) {
+      const project = getProject(index);
+      const text = i18n[currentLang];
+      modalImage.src = project.image;
+      modalImage.alt = `${project.title}${currentLang === "en" ? " project cover" : "项目封面"}`;
+      modalTitle.textContent = project.title;
+      modalDesc.textContent = project.desc;
+      modalBackground.textContent = project.background;
+      modalRole.textContent = project.role;
+      modalStrategy.textContent = project.strategy;
+      modalResult.textContent = project.result;
+      modalType.textContent = project.type;
+      modalSkill.textContent = project.skill;
+      modalPlatform.textContent = project.platform;
+      document.querySelectorAll(".case-section strong").forEach((label, i) => label.textContent = text.modalLabels[i]);
+      document.querySelectorAll(".meta-item span").forEach((label, i) => label.textContent = text.modalMeta[i]);
+      modalCard.style.setProperty("--modal-color", project.color);
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      closeModal.focus();
+    }
+
+    function hideModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", event => {
+      if (event.target === modal) hideModal();
+    });
+    window.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        hideModal();
+        hideLifeLightbox();
+      }
+    });
+
+    casePrev.addEventListener("click", () => shiftCase(-1));
+    caseNext.addEventListener("click", () => shiftCase(1));
+
+    let dragStartX = 0;
+    let dragCurrentX = 0;
+    let isDraggingCase = false;
+
+    caseStage.addEventListener("pointerdown", event => {
+      isDraggingCase = true;
+      dragStartX = event.clientX;
+      dragCurrentX = event.clientX;
+      caseStage.setPointerCapture(event.pointerId);
+    });
+
+    caseStage.addEventListener("pointermove", event => {
+      if (!isDraggingCase) return;
+      dragCurrentX = event.clientX;
+    });
+
+    caseStage.addEventListener("pointerup", event => {
+      if (!isDraggingCase) return;
+      isDraggingCase = false;
+      const delta = dragCurrentX - dragStartX;
+      if (Math.abs(delta) > 46) shiftCase(delta > 0 ? -1 : 1);
+      caseStage.releasePointerCapture(event.pointerId);
+    });
+
+    window.addEventListener("keydown", event => {
+      if (modal.classList.contains("open") || lifeLightbox.classList.contains("open")) return;
+      if (event.key === "ArrowLeft") shiftCase(-1);
+      if (event.key === "ArrowRight") shiftCase(1);
+    });
+
+    document.querySelectorAll(".life-photo").forEach(photo => {
+      photo.addEventListener("click", () => {
+        const image = photo.querySelector("img");
+        lifeLightboxImage.src = image.src;
+        lifeLightboxImage.alt = image.alt;
+        lifeLightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+        closeLifeLightbox.focus();
+      });
+    });
+
+    function hideLifeLightbox() {
+      lifeLightbox.classList.remove("open");
+      if (!modal.classList.contains("open")) document.body.style.overflow = "";
+    }
+
+    closeLifeLightbox.addEventListener("click", hideLifeLightbox);
+    lifeLightbox.addEventListener("click", event => {
+      if (event.target === lifeLightbox) hideLifeLightbox();
+    });
+
+    function showToast(message) {
+      let toast = document.querySelector("#toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.className = "toast";
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    copyEmail.addEventListener("click", async () => {
+      const email = "harriet20020601@163.com";
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast(i18n[currentLang].toastCopied);
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+
+    printResume.addEventListener("click", () => {
+      downloadResumePdf();
+      showToast(i18n[currentLang].toastPdf);
+    });
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      const text = i18n[currentLang];
+      document.documentElement.lang = currentLang === "en" ? "en" : "zh-CN";
+      document.title = currentLang === "en" ? "Qin Feiyan | Digital Advertising Portfolio" : "秦飞艳 | 互联网广告策划作品集";
+      document.querySelectorAll(".nav-links a").forEach((link, i) => link.textContent = text.nav[i]);
+      languageToggle.textContent = text.langButton;
+      document.querySelector(".nav-cta").textContent = text.emailContact;
+      document.querySelector(".eyebrow").innerHTML = `<span class="pulse"></span>${text.eyebrow}`;
+      document.querySelector("h1 span:first-child").textContent = text.heroName;
+      document.querySelector("h1 .script").textContent = text.heroScript;
+      document.querySelector(".lead").textContent = text.lead;
+      document.querySelectorAll(".hero-actions .btn").forEach((button, i) => button.textContent = text.heroButtons[i]);
+      document.querySelectorAll(".proof-item").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.proof[i][0];
+        item.querySelector("span").textContent = text.proof[i][1];
+      });
+      document.querySelectorAll(".metric").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.metrics[i][0];
+        item.querySelector("span").textContent = text.metrics[i][1];
+      });
+      const sectionHeads = document.querySelectorAll(".section-head");
+      sectionHeads[0].querySelector(".section-kicker").textContent = text.aboutKicker;
+      sectionHeads[0].querySelector("h2").textContent = text.aboutTitle;
+      sectionHeads[0].querySelector(".section-desc").textContent = text.aboutDesc;
+      document.querySelectorAll(".story p").forEach((p, i) => { if (text.story[i]) p.textContent = text.story[i]; });
+      document.querySelectorAll(".skills .tag").forEach((tag, i) => tag.textContent = text.skills[i]);
+      document.querySelectorAll(".timeline-item").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.timeline[i][0];
+        item.querySelector("span").textContent = text.timeline[i][1];
+      });
+      sectionHeads[1].querySelector(".section-kicker").textContent = text.workKicker;
+      sectionHeads[1].querySelector("h2").textContent = text.workTitle;
+      sectionHeads[1].querySelector(".section-desc").textContent = text.workDesc;
+      document.querySelector(".industry-band strong").textContent = text.industryTitle;
+      document.querySelectorAll(".industry-list span").forEach((item, i) => item.textContent = text.industries[i]);
+      document.querySelector(".case-hint").textContent = text.caseHint;
+      sectionHeads[2].querySelector(".section-kicker").textContent = text.lifeKicker;
+      sectionHeads[2].querySelector("h2").textContent = text.lifeTitle;
+      sectionHeads[2].querySelector(".section-desc").textContent = text.lifeDesc;
+      document.querySelector(".life-name h3").textContent = text.lifeName;
+      document.querySelector(".life-name span").textContent = text.lifeMeta;
+      document.querySelectorAll(".life-fact").forEach((item, i) => {
+        item.querySelector("span").textContent = text.facts[i][0];
+        item.querySelector("strong").textContent = text.facts[i][1];
+      });
+      document.querySelector(".life-copy").textContent = text.lifeCopy;
+      document.querySelectorAll(".life-tags span").forEach((tag, i) => tag.textContent = text.lifeTags[i]);
+      document.querySelectorAll(".life-photo span").forEach((label, i) => label.textContent = text.photoLabels[i]);
+      const contact = document.querySelector("#contact");
+      contact.querySelector(".section-kicker").textContent = text.contactKicker;
+      contact.querySelector("h2").textContent = text.contactTitle;
+      contact.querySelector(".section-desc").textContent = text.contactDesc;
+      contact.querySelectorAll(".contact-chip").forEach((chip, i) => chip.textContent = text.contactChips[i]);
+      contact.querySelector(".btn.primary").textContent = text.sendEmail;
+      document.querySelector(".footer").textContent = text.footer;
+      renderProjectCards();
+      renderCarousel();
+    }
+
+    languageToggle.addEventListener("click", () => applyLanguage(currentLang === "zh" ? "en" : "zh"));
+
+    function downloadResumePdf() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1240;
+      canvas.height = 1754;
+      const ctx = canvas.getContext("2d");
+      const isEn = currentLang === "en";
+      const fontStack = "Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif";
+      const dark = "#171a20";
+      const muted = "#626875";
+      const accent = "#ff7a3d";
+      const accent2 = "#18b992";
+      ctx.fillStyle = "#fbfaf7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = accent;
+      ctx.fillRect(0, 0, 18, canvas.height);
+      ctx.fillStyle = "#f0eee8";
+      ctx.fillRect(70, 150, 1100, 1);
+      ctx.fillRect(70, 430, 1100, 1);
+      ctx.fillRect(70, 930, 1100, 1);
+
+      function drawText(text, x, y, size, color = dark, weight = 400, maxWidth = 1040, lineHeight = size * 1.55) {
+        ctx.font = `${weight} ${size}px ${fontStack}`;
+        ctx.fillStyle = color;
+        const lines = [];
+        let line = "";
+        const tokens = isEn ? text.split(/\s+/) : Array.from(text);
+        tokens.forEach(token => {
+          const next = isEn ? (line ? `${line} ${token}` : token) : line + token;
+          if (ctx.measureText(next).width > maxWidth && line) {
+            lines.push(line);
+            line = token;
+          } else {
+            line = next;
+          }
+        });
+        if (line) lines.push(line);
+        lines.forEach((item, index) => ctx.fillText(item, x, y + index * lineHeight));
+        return y + Math.max(lines.length, 1) * lineHeight;
+      }
+
+      const resume = isEn ? {
+        name: "QIN FEIYAN / HARRIET",
+        role: "Digital Advertising Planner",
+        contact: "Phone: 13764330601    Email: harriet20020601@163.com",
+        profileTitle: "PROFILE",
+        profile: "A digital advertising planner with 2 years of experience across Xiaohongshu, Douyin, integrated marketing proposals, annual-retainer plans, pitch presentations and media certification cases. Combines visual communication training with cross-functional rotation experience to translate business goals into clear and executable content strategy.",
+        expTitle: "EXPERIENCE",
+        exp: [
+          "Planning Specialist, Brand Business Department - Letui (Shanghai) Culture Communication Co., Ltd.",
+          "Joined as the top-ranked management trainee after graduation and completed a one-year rotation across planning, AE, media and sales assistant roles.",
+          "Independently develops annual-retainer proposals and pitch presentations; supports media certification case writing and agency qualification materials.",
+          "Participated in projects across multiple industries, with total winning project value reaching the 10-million-RMB level."
+        ],
+        eduTitle: "EDUCATION",
+        edu: "Changsha University - Visual Communication Design, 2024",
+        skillsTitle: "CORE SKILLS",
+        skills: ["Annual marketing planning", "Pitch presentation", "Xiaohongshu seeding", "Douyin brand promotion", "Industry insight", "Media strategy", "Case storytelling", "AI-assisted research"],
+        projectsTitle: "SELECTED PROJECTS",
+        projects: ["Qingteng AI New Era Case", "Ninebot Annual Plan", "Abbott Annual Seeding Plan", "Lima E-bike Campaign", "Vanke Four Properties Strategy", "Florasis SEED AWARDS Case", "Eye and Neck Anti-aging Trend", "Respiratory Health Insight"],
+        personalTitle: "PERSONAL",
+        personal: "Nickname: Q33    English Name: Harriet    Zodiac: Cancer    MBTI: ENFJ    Interests: fitness, photography, travel, portraits, singing, diving, hiking and food exploration."
+      } : {
+        name: "秦飞艳 / Harriet",
+        role: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
+        contact: "手机：13764330601    邮箱：harriet20020601@163.com",
+        profileTitle: "个人简介",
+        profile: "2024年毕业于长沙大学视觉传达设计专业，毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司。具备策划、AE、媒体媒介、销售助理轮岗经验，目前定岗品牌业务部策划专员，能够将行业洞察、内容种草、媒介策略和商业目标整合成清晰可执行的方案。",
+        expTitle: "工作经历",
+        exp: [
+          "乐推（上海）文化传播有限公司｜品牌业务部策划专员",
+          "完成1年管培生轮岗，覆盖策划、AE、媒体媒介、销售助理等岗位，建立从客户需求到内容策略、媒介执行的完整业务视角。",
+          "可独立完成大型年框方案撰写与竞标讲标，参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料。",
+          "参与项目覆盖美妆、母婴健康、教育硬件、地产、电动车、消费电子等行业，累计中标项目金额达到千万级。"
+        ],
+        eduTitle: "教育背景",
+        edu: "长沙大学｜视觉传达设计专业｜2024届",
+        skillsTitle: "核心能力",
+        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "案例包装", "AI提效"],
+        projectsTitle: "代表项目",
+        projects: ["青藤之恋AI新纪元案例", "九号短交通年框营销案", "雅培小安素全年种草计划", "立马电动车年度爆品营销", "万科四大楼盘策略方案", "花西子SEED AWARDS种草大赏", "眼颈分区抗老趋势报告", "呼吸健康赛道洞察"],
+        personalTitle: "更多的我",
+        personal: "昵称Q33，英文名Harriet，巨蟹座，MBTI为ENFJ。工作之外喜欢健身、摄影、旅游、出片、唱歌、潜水、徒步和美食探索。"
+      };
+
+      drawText(resume.name, 70, 96, 58, dark, 800, 1000, 66);
+      drawText(resume.role, 72, 172, 25, accent, 700);
+      drawText(resume.contact, 72, 222, 22, muted, 500);
+
+      let y = 318;
+      y = drawText(resume.profileTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      y = drawText(resume.profile, 72, y, 23, dark, 400, 1040, 38) + 34;
+      y = drawText(resume.expTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      resume.exp.forEach(item => {
+        y = drawText(`• ${item}`, 86, y, 22, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 700 : 400, 1010, 36) + 6;
+      });
+      y += 22;
+      y = drawText(resume.eduTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      y = drawText(resume.edu, 72, y, 22, dark, 500, 1040, 36) + 34;
+      y = drawText(resume.skillsTitle, 72, y, 27, accent2, 800, 1040, 34) + 16;
+
+      let chipX = 72;
+      let chipY = y;
+      ctx.font = `700 20px ${fontStack}`;
+      resume.skills.forEach(skill => {
+        const width = ctx.measureText(skill).width + 38;
+        if (chipX + width > 1140) {
+          chipX = 72;
+          chipY += 56;
+        }
+        ctx.fillStyle = "#fff2e8";
+        roundRect(ctx, chipX, chipY - 29, width, 38, 19);
+        ctx.fillStyle = accent;
+        ctx.fillText(skill, chipX + 19, chipY - 4);
+        chipX += width + 12;
+      });
+      y = chipY + 72;
+      y = drawText(resume.projectsTitle, 72, y, 27, accent2, 800, 1040, 34) + 14;
+      resume.projects.forEach(item => {
+        y = drawText(`• ${item}`, 86, y, 22, muted, 400, 1010, 34) + 2;
+      });
+      y += 24;
+      y = drawText(resume.personalTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      drawText(resume.personal, 72, y, 22, dark, 400, 1040, 36);
+
+      function roundRect(context, x, y, width, height, radius) {
+        context.beginPath();
+        context.moveTo(x + radius, y);
+        context.arcTo(x + width, y, x + width, y + height, radius);
+        context.arcTo(x + width, y + height, x, y + height, radius);
+        context.arcTo(x, y + height, x, y, radius);
+        context.arcTo(x, y, x + width, y, radius);
+        context.closePath();
+        context.fill();
+      }
+
+      const jpgBinary = atob(canvas.toDataURL("image/jpeg", 0.92).split(",")[1]);
+      const imageDrawCommand = "q 595 0 0 842 0 0 cm /Im0 Do Q";
+      const header = "%PDF-1.4\n";
+      const objects = [
+        "<< /Type /Catalog /Pages 2 0 R >>",
+        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 5 0 R >> >> /Contents 4 0 R >>",
+        `<< /Length ${imageDrawCommand.length} >>\nstream\n${imageDrawCommand}\nendstream`,
+        `<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpgBinary.length} >>\nstream\n${jpgBinary}\nendstream`
+      ];
+      let pdf = header;
+      const offsets = [0];
+      objects.forEach((object, index) => {
+        offsets[index + 1] = pdf.length;
+        pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+      });
+      const xrefStart = pdf.length;
+      pdf += "xref\n0 6\n0000000000 65535 f \n";
+      for (let i = 1; i <= 5; i += 1) {
+        pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+      }
+      pdf += `trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+      const bytes = new Uint8Array(pdf.length);
+      for (let i = 0; i < pdf.length; i += 1) bytes[i] = pdf.charCodeAt(i) & 0xff;
+      const blob = new Blob([bytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Qin-Feiyan-Harriet-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    applyLanguage("zh");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+
+    let mouseX = window.innerWidth * 0.5;
+    let mouseY = window.innerHeight * 0.2;
+    let smoothX = mouseX;
+    let smoothY = mouseY;
+
+    window.addEventListener("pointermove", event => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    }, { passive: true });
+
+    function animateSpotlight() {
+      smoothX += (mouseX - smoothX) * 0.1;
+      smoothY += (mouseY - smoothY) * 0.1;
+      spotlight.style.setProperty("--x", `${smoothX}px`);
+      spotlight.style.setProperty("--y", `${smoothY}px`);
+      requestAnimationFrame(animateSpotlight);
+    }
+
+    animateSpotlight();
+  </script>
+</body>
+</html>
