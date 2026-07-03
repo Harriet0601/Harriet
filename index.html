@@ -638,6 +638,107 @@
       margin-top: 22px;
     }
 
+    .tool-line {
+      margin: 4px 0 22px;
+      padding: 16px 18px;
+      border: 1px solid rgba(120, 243, 209, 0.18);
+      border-radius: 18px;
+      color: rgba(247, 245, 239, 0.82);
+      background:
+        linear-gradient(135deg, rgba(120, 243, 209, 0.12), rgba(255, 122, 61, 0.08)),
+        rgba(255, 255, 255, 0.045);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .capability-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .capability-card {
+      position: relative;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .capability-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -20%;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--cap-color, rgba(255, 122, 61, 0.22)), transparent 68%);
+    }
+
+    .capability-card strong {
+      position: relative;
+      display: block;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .capability-card span {
+      position: relative;
+      display: block;
+      margin-top: 9px;
+      color: rgba(247, 245, 239, 0.68);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .client-cloud {
+      margin-top: 18px;
+    }
+
+    .client-cloud > strong {
+      display: block;
+      margin-bottom: 12px;
+      color: rgba(247, 245, 239, 0.92);
+      font-size: 15px;
+    }
+
+    .client-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .client-group {
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .client-group strong {
+      display: block;
+      margin-bottom: 9px;
+      color: rgba(120, 243, 209, 0.9);
+      font-size: 13px;
+    }
+
+    .client-group div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .client-group span {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: rgba(247, 245, 239, 0.66);
+      background: rgba(255, 255, 255, 0.052);
+      font-size: 12px;
+    }
+
     .tag {
       padding: 9px 12px;
       border: 1px solid rgba(255, 255, 255, 0.14);
@@ -980,11 +1081,12 @@
       z-index: var(--case-i, 1);
       pointer-events: var(--case-pointer, none);
       transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease;
-      filter: saturate(var(--case-sat, 0.8)) brightness(var(--case-b, 0.72));
+      filter: saturate(var(--case-sat, 0.8)) brightness(var(--case-b, 0.72)) blur(var(--case-blur, 0px));
     }
 
     .case-stage .project-card:hover {
       transform: translate(-50%, -50%) translateX(var(--case-x, 0)) translateZ(var(--case-z, 0)) rotateY(var(--case-r, 0)) scale(calc(var(--case-s, 1) + 0.025));
+      filter: saturate(1.08) brightness(1) blur(0);
     }
 
     .case-stage .project-card.is-active {
@@ -996,6 +1098,14 @@
 
     .case-stage .project-card.is-near {
       pointer-events: auto;
+    }
+
+    .case-stage .project-card.is-near:not(:hover) .project-content {
+      opacity: 0.82;
+    }
+
+    .case-stage .project-card.is-near:hover .project-content {
+      opacity: 1;
     }
 
     .case-nav {
@@ -1126,9 +1236,28 @@
 
     .project-content {
       position: relative;
+      margin: -2px 10px 10px;
       padding: 18px 18px 20px;
       display: grid;
       gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
+        radial-gradient(circle at 18% 0%, var(--card-color), transparent 72%),
+        rgba(12, 15, 20, 0.64);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px) saturate(1.2);
+      transition: opacity 0.32s ease, background 0.32s ease, border-color 0.32s ease;
+    }
+
+    .project-card:hover .project-content,
+    .project-card.is-active .project-content {
+      border-color: rgba(255, 255, 255, 0.22);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.075)),
+        radial-gradient(circle at 18% 0%, var(--card-color), transparent 68%),
+        rgba(13, 16, 22, 0.72);
     }
 
     .project-type {
@@ -1136,26 +1265,30 @@
       width: fit-content;
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(7, 9, 13, 0.34);
-      color: rgba(255, 255, 255, 0.74);
+      background: rgba(255, 122, 61, 0.16);
+      color: rgba(255, 208, 178, 0.94);
       font-size: 12px;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.28);
     }
 
     .project-card h3 {
       position: relative;
       margin: 0;
       max-width: 92%;
+      color: #fff;
       font-size: 22px;
       line-height: 1.18;
       letter-spacing: -0.03em;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
     }
 
     .project-card p {
       position: relative;
       margin: 0;
-      color: var(--muted);
+      color: rgba(247, 245, 239, 0.82);
       font-size: 14px;
       line-height: 1.65;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
     }
 
     .project-foot {
@@ -1163,8 +1296,9 @@
       display: flex;
       justify-content: space-between;
       gap: 14px;
-      color: rgba(255, 255, 255, 0.64);
+      color: rgba(255, 255, 255, 0.72);
       font-size: 12px;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.42);
     }
 
     .contact-panel {
@@ -1464,7 +1598,8 @@
       }
 
       .proof-strip,
-      .case-sections {
+      .case-sections,
+      .capability-matrix {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1565,7 +1700,8 @@
       }
 
       .proof-strip,
-      .case-sections {
+      .case-sections,
+      .capability-matrix {
         grid-template-columns: 1fr;
       }
 
@@ -1576,6 +1712,10 @@
       }
 
       .life-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .client-list {
         grid-template-columns: 1fr;
       }
 
@@ -1749,16 +1889,22 @@
         <div class="section-head">
           <div>
             <div class="section-kicker">About</div>
-            <h2>从视觉表达，到品牌增长策略。</h2>
+            <h2>把审美判断，转化为可落地的增长方案。</h2>
           </div>
-          <p class="section-desc">视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。</p>
+          <p class="section-desc">我具备视觉传达背景，也经历过策划、AE、媒介与销售助理轮岗，因此更擅长把品牌目标、用户洞察、内容表达和执行资源放在同一张策略地图里思考。</p>
         </div>
 
         <div class="about-layout">
           <article class="glass story">
-            <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。</p>
-            <p>目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。</p>
-            <p>我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。</p>
+            <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名加入乐推（上海）文化传播有限公司，并在1年的轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从需求理解、策略拆解到媒介执行的完整业务视角。</p>
+            <p>目前我在品牌业务部担任策划专员，主要负责品牌整合营销方案、年度年框方案、阶段传播方案和竞标讲标工作。过往项目覆盖美妆、母婴健康、教育硬件、地产、出行与消费电子等行业，参与中标项目金额累计达到千万级。</p>
+            <p>我习惯用“洞察-策略-内容-执行”的链路推进工作：前期用资料研究和平台观察找到机会点，中期把人群、场景、内容和媒介节奏组织成清晰方案，后期通过AI工具与办公软件提升提案表达和产出效率。面对变化很快的平台生态，我会持续更新方法，保持对用户沟通方式和品牌增长路径的敏感度。</p>
+            <div class="tool-line">精通小红书灵犀、聚光，抖音巨量引擎等平台工具，能够让策略从洞察出发，在投放前测、执行校准、实时优化和效果归因中持续落地，确保方案可执行、可优化、见实效。</div>
+            <div class="capability-matrix" aria-label="核心能力矩阵">
+              <div class="capability-card" style="--cap-color: rgba(120, 243, 209, 0.24);"><strong>策略洞察力</strong><span>擅用小红书灵犀、巨量引擎进行人群资产诊断与内容洞察，挖掘赛道趋势与爆文因子，并通过聚光等投放平台进行策略前测与校准。</span></div>
+              <div class="capability-card" style="--cap-color: rgba(255, 122, 61, 0.24);"><strong>内容创造力</strong><span>将数据洞察转化为具备传播力与销售力的创意内容，覆盖视频、图文与互动形式，实现“策略即内容”。</span></div>
+              <div class="capability-card" style="--cap-color: rgba(184, 166, 255, 0.24);"><strong>闭环操盘力</strong><span>设计并监控从曝光到转化的全链路，结合巨量引擎、聚光等数据平台进行实时优化与归因分析，驱动更确定的增长结果。</span></div>
+            </div>
             <div class="skills" aria-label="技能标签">
               <span class="tag">年度营销方案</span>
               <span class="tag">竞标讲标</span>
@@ -1766,23 +1912,35 @@
               <span class="tag">抖音品牌推广</span>
               <span class="tag">行业洞察</span>
               <span class="tag">媒介策略</span>
+              <span class="tag">小红书灵犀 / 聚光</span>
+              <span class="tag">巨量引擎</span>
               <span class="tag">AI提效</span>
               <span class="tag">视觉表达</span>
+            </div>
+            <div class="client-cloud" aria-label="服务过的客户">
+              <strong>服务过的客户</strong>
+              <div class="client-list">
+                <div class="client-group"><strong>医药健康 / 营养母婴</strong><div><span>迪巧</span><span>贝亲</span><span>舒比奇</span><span>Swisse</span><span>澳佳宝</span><span>禾零</span></div></div>
+                <div class="client-group"><strong>消费零售 / 食品饮品</strong><div><span>妙可蓝多</span><span>名创优品</span><span>九阳</span><span>沪上阿姨</span><span>霸王茶姬</span><span>幸运咖</span></div></div>
+                <div class="client-group"><strong>出行科技 / 教育硬件</strong><div><span>九号</span><span>台铃</span><span>立马</span><span>漫步者</span><span>猿辅导</span></div></div>
+                <div class="client-group"><strong>地产金融 / 保险服务</strong><div><span>万科房产</span><span>360借条</span><span>众安保险</span></div></div>
+                <div class="client-group"><strong>服饰个护 / 生活方式</strong><div><span>海伦凯勒</span><span>珀芙研</span><span>杰士邦</span><span>玛丝菲尔</span></div></div>
+              </div>
             </div>
           </article>
 
           <aside class="glass timeline" aria-label="经历时间线">
             <div class="timeline-item">
-              <strong>2024 长沙大学毕业</strong>
-              <span>视觉传达设计专业，建立审美、版式、品牌视觉和内容表达基础。</span>
+              <strong>2024 长沙大学视觉传达设计专业毕业</strong>
+              <span>系统训练审美判断、版式表达、品牌视觉和内容呈现能力。</span>
             </div>
             <div class="timeline-item">
-              <strong>2024 乐推管培生第一名入职</strong>
-              <span>轮岗策划、AE、媒体媒介、销售助理，理解从客户需求到投放执行的完整链路。</span>
+              <strong>2024 以管培生考试第一名加入乐推</strong>
+              <span>经历策划、AE、媒体媒介、销售助理轮岗，理解客户需求、内容策略与投放执行的协作关系。</span>
             </div>
             <div class="timeline-item">
               <strong>品牌业务部策划专员</strong>
-              <span>独立承担大型年框、阶段方案、案例认证和竞标讲标工作。</span>
+              <span>独立承担年框方案、阶段方案、竞标讲标与媒体认证案例撰写，持续沉淀跨行业项目方法。</span>
             </div>
           </aside>
         </div>
@@ -2244,18 +2402,32 @@
         heroScribble: "hello<br>strategy",
         metrics: [["2年", "广告策划经验"], ["千万级", "中标项目金额"], ["4岗", "复合轮岗经验"]],
         aboutKicker: "About",
-        aboutTitle: "从视觉表达，到品牌增长策略。",
-        aboutDesc: "视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。",
+        aboutTitle: "把审美判断，转化为可落地的增长方案。",
+        aboutDesc: "我具备视觉传达背景，也经历过策划、AE、媒介与销售助理轮岗，因此更擅长把品牌目标、用户洞察、内容表达和执行资源放在同一张策略地图里思考。",
         story: [
-          "我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。",
-          "目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。",
-          "我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。"
+          "我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名加入乐推（上海）文化传播有限公司，并在1年的轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从需求理解、策略拆解到媒介执行的完整业务视角。",
+          "目前我在品牌业务部担任策划专员，主要负责品牌整合营销方案、年度年框方案、阶段传播方案和竞标讲标工作。过往项目覆盖美妆、母婴健康、教育硬件、地产、出行与消费电子等行业，参与中标项目金额累计达到千万级。",
+          "我习惯用“洞察-策略-内容-执行”的链路推进工作：前期用资料研究和平台观察找到机会点，中期把人群、场景、内容和媒介节奏组织成清晰方案，后期通过AI工具与办公软件提升提案表达和产出效率。面对变化很快的平台生态，我会持续更新方法，保持对用户沟通方式和品牌增长路径的敏感度。"
         ],
-        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "AI提效", "视觉表达"],
+        toolLine: "精通小红书灵犀、聚光，抖音巨量引擎等平台工具，能够让策略从洞察出发，在投放前测、执行校准、实时优化和效果归因中持续落地，确保方案可执行、可优化、见实效。",
+        capabilities: [
+          ["策略洞察力", "擅用小红书灵犀、巨量引擎进行人群资产诊断与内容洞察，挖掘赛道趋势与爆文因子，并通过聚光等投放平台进行策略前测与校准。"],
+          ["内容创造力", "将数据洞察转化为具备传播力与销售力的创意内容，覆盖视频、图文与互动形式，实现“策略即内容”。"],
+          ["闭环操盘力", "设计并监控从曝光到转化的全链路，运用数据平台进行实时优化与归因分析，驱动更确定的增长结果。"]
+        ],
+        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "小红书灵犀 / 聚光", "巨量引擎", "AI提效", "视觉表达"],
+        clientTitle: "服务过的客户",
+        clientGroups: [
+          ["医药健康 / 营养母婴", ["迪巧", "贝亲", "舒比奇", "Swisse", "澳佳宝", "禾零"]],
+          ["消费零售 / 食品饮品", ["妙可蓝多", "名创优品", "九阳", "沪上阿姨", "霸王茶姬", "幸运咖"]],
+          ["出行科技 / 教育硬件", ["九号", "台铃", "立马", "漫步者", "猿辅导"]],
+          ["地产金融 / 保险服务", ["万科房产", "360借条", "众安保险"]],
+          ["服饰个护 / 生活方式", ["海伦凯勒", "珀芙研", "杰士邦", "玛丝菲尔"]]
+        ],
         timeline: [
-          ["2024 长沙大学毕业", "视觉传达设计专业，建立审美、版式、品牌视觉和内容表达基础。"],
-          ["2024 乐推管培生第一名入职", "轮岗策划、AE、媒体媒介、销售助理，理解从客户需求到投放执行的完整链路。"],
-          ["品牌业务部策划专员", "独立承担大型年框、阶段方案、案例认证和竞标讲标工作。"]
+          ["2024 长沙大学视觉传达设计专业毕业", "系统训练审美判断、版式表达、品牌视觉和内容呈现能力。"],
+          ["2024 以管培生考试第一名加入乐推", "经历策划、AE、媒体媒介、销售助理轮岗，理解客户需求、内容策略与投放执行的协作关系。"],
+          ["品牌业务部策划专员", "独立承担年框方案、阶段方案、竞标讲标与媒体认证案例撰写，持续沉淀跨行业项目方法。"]
         ],
         workKicker: "Selected Work",
         workTitle: "项目案例库",
@@ -2312,18 +2484,32 @@
         heroScribble: "hello<br>strategy",
         metrics: [["2 Years", "Ad planning experience"], ["10M+ RMB", "Winning project value"], ["4 Roles", "Rotation experience"]],
         aboutKicker: "About",
-        aboutTitle: "From visual expression to brand growth strategy.",
-        aboutDesc: "My visual communication training sharpened my sensitivity to aesthetics, content expression and user experience; my rotation experience helped me understand how client needs, media execution and business goals connect.",
+        aboutTitle: "Turning aesthetic judgment into executable growth plans.",
+        aboutDesc: "With a background in visual communication and rotation experience across planning, AE, media and sales support, I think about brand goals, audience insight, content expression and execution resources as one connected strategy map.",
         story: [
-          "I am Qin Feiyan, born in 2003 and graduated from Changsha University in 2024 with a major in Visual Communication Design. After graduation, I joined Letui (Shanghai) Culture Communication Co., Ltd. as the top-ranked management trainee and completed a one-year rotation across planning, AE, media and sales assistant roles, gradually building a full-chain view from client needs to content strategy and execution.",
-          "I am now positioned in the Brand Business Department as a Planning Specialist. I can independently develop large annual-retainer proposals and pitch presentations, and I also write media certification cases to help the company build industry cases and agency qualification materials. The projects I have participated in cover multiple industries, with total winning project value reaching the 10-million-RMB level.",
-          "I am proficient with office software and AI tools to improve research, strategic deduction, content generation and proposal expression. In a fast-changing platform ecosystem, I keep learning and paying attention to updates in content trends, user communication and brand growth methods."
+          "I am Qin Feiyan, born in 2003 and graduated from Changsha University in 2024 with a major in Visual Communication Design. After graduation, I joined Letui (Shanghai) Culture Communication Co., Ltd. as the top-ranked management trainee and completed a one-year rotation across planning, AE, media and sales support roles, building a full-chain view from need understanding and strategy breakdown to media execution.",
+          "I am now a Planning Specialist in the Brand Business Department, mainly working on integrated marketing proposals, annual-retainer plans, phased campaign plans and pitch presentations. My project experience spans beauty, maternal and child health, education hardware, real estate, mobility and consumer electronics, with total winning project value reaching the 10-million-RMB level.",
+          "I work through an insight-strategy-content-execution path: using research and platform observation to identify opportunities, organizing audiences, scenarios, content and media rhythm into clear proposals, and improving presentation quality and output efficiency with AI and office tools. In a fast-changing platform ecosystem, I keep updating my methods and staying sensitive to user communication and brand growth paths."
         ],
-        skills: ["Annual Marketing Plans", "Pitch Presentation", "Xiaohongshu Seeding", "Douyin Brand Promotion", "Industry Insight", "Media Strategy", "AI Efficiency", "Visual Expression"],
+        toolLine: "Proficient in platform tools such as Xiaohongshu Lingxi, Spotlight and Douyin Ocean Engine, I make sure strategies can move from insight to pre-testing, execution calibration, real-time optimization and attribution analysis.",
+        capabilities: [
+          ["Strategic Insight", "Use Xiaohongshu Lingxi and Douyin Ocean Engine for audience asset diagnosis and content insight, identify category trends and viral-content factors, and calibrate strategy through platforms such as Spotlight."],
+          ["Content Creativity", "Translate data insight into creative content with both communication and sales value, covering video, image-text and interactive formats."],
+          ["Closed-loop Execution", "Design and monitor the full path from exposure to conversion, using data platforms for real-time optimization and attribution analysis."]
+        ],
+        skills: ["Annual Marketing Plans", "Pitch Presentation", "Xiaohongshu Seeding", "Douyin Brand Promotion", "Industry Insight", "Media Strategy", "Lingxi / Spotlight", "Ocean Engine", "AI Efficiency", "Visual Expression"],
+        clientTitle: "Selected Clients",
+        clientGroups: [
+          ["Healthcare / Nutrition & Family", ["D-Cal", "Pigeon", "Subichy", "Swisse", "Blackmores", "Hering"]],
+          ["Retail / Food & Beverage", ["Milkground", "MINISO", "Joyoung", "Hu Shang A Yi", "CHAGEE", "Lucky Cup"]],
+          ["Mobility / Tech / Education", ["Ninebot", "TAILG", "Lima", "EDIFIER", "Yuanfudao"]],
+          ["Real Estate / Finance / Insurance", ["Vanke", "360 Jietiao", "Zhongan Insurance"]],
+          ["Fashion / Personal Care / Lifestyle", ["Helen Keller", "Pofuyan", "Jissbon", "Marisfrolg"]]
+        ],
         timeline: [
-          ["2024 Changsha University Graduate", "Visual Communication Design major, with a foundation in aesthetics, layout, brand visuals and content expression."],
-          ["2024 Joined Letui as Top Management Trainee", "Rotated across planning, AE, media and sales assistant roles to understand the full campaign chain."],
-          ["Planning Specialist, Brand Business Department", "Responsible for annual plans, phased proposals, certification cases and pitch presentations."]
+          ["2024 Visual Communication Design Graduate", "Trained in aesthetic judgment, layout, brand visuals and content presentation."],
+          ["2024 Joined Letui as Top-ranked Management Trainee", "Rotated across planning, AE, media and sales support to understand how client needs, content strategy and media execution work together."],
+          ["Planning Specialist, Brand Business Department", "Independently handles annual plans, phased proposals, pitch presentations and certification cases while building cross-industry project methods."]
         ],
         workKicker: "Selected Work",
         workTitle: "Project Case Library",
@@ -2470,6 +2656,7 @@
         card.style.setProperty("--case-i", `${100 - abs}`);
         card.style.setProperty("--case-b", `${Math.max(0.54, 1 - abs * 0.12)}`);
         card.style.setProperty("--case-sat", `${Math.max(0.62, 1 - abs * 0.08)}`);
+        card.style.setProperty("--case-blur", `${abs === 0 ? 0 : Math.min(3.2, abs * 1.15)}px`);
         card.style.setProperty("--case-pointer", `${abs <= 2 ? "auto" : "none"}`);
         card.tabIndex = abs <= 2 ? 0 : -1;
       });
@@ -2641,7 +2828,19 @@
       sectionHeads[0].querySelector("h2").textContent = text.aboutTitle;
       sectionHeads[0].querySelector(".section-desc").textContent = text.aboutDesc;
       document.querySelectorAll(".story p").forEach((p, i) => { if (text.story[i]) p.textContent = text.story[i]; });
+      document.querySelector(".tool-line").textContent = text.toolLine;
+      document.querySelectorAll(".capability-card").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.capabilities[i][0];
+        item.querySelector("span").textContent = text.capabilities[i][1];
+      });
       document.querySelectorAll(".skills .tag").forEach((tag, i) => tag.textContent = text.skills[i]);
+      document.querySelector(".client-cloud > strong").textContent = text.clientTitle;
+      document.querySelector(".client-list").innerHTML = text.clientGroups.map(group => `
+        <div class="client-group">
+          <strong>${group[0]}</strong>
+          <div>${group[1].map(client => `<span>${client}</span>`).join("")}</div>
+        </div>
+      `).join("");
       document.querySelectorAll(".timeline-item").forEach((item, i) => {
         item.querySelector("strong").textContent = text.timeline[i][0];
         item.querySelector("span").textContent = text.timeline[i][1];
@@ -2824,13 +3023,13 @@
         role: "Digital Advertising Planner",
         contact: "Phone: 13764330601    Email: harriet20020601@163.com",
         profileTitle: "PROFILE",
-        profile: "A digital advertising planner with 2 years of experience across Xiaohongshu, Douyin, integrated marketing proposals, annual-retainer plans, pitch presentations and media certification cases. Combines visual communication training with cross-functional rotation experience to translate business goals into clear and executable content strategy.",
+        profile: "A digital advertising planner with visual communication training and cross-functional rotation experience across planning, AE, media and sales support. I work through an insight-strategy-content-execution path, turning brand goals, audience insight and platform rhythm into clear, executable growth proposals.",
         expTitle: "EXPERIENCE",
         exp: [
           "Planning Specialist, Brand Business Department - Letui (Shanghai) Culture Communication Co., Ltd.",
-          "Joined as the top-ranked management trainee after graduation and completed a one-year rotation across planning, AE, media and sales assistant roles.",
-          "Independently develops annual-retainer proposals and pitch presentations; supports media certification case writing and agency qualification materials.",
-          "Participated in projects across multiple industries, with total winning project value reaching the 10-million-RMB level."
+          "Joined as the top-ranked management trainee after graduation and completed a one-year rotation across planning, AE, media and sales support roles.",
+          "Independently develops annual-retainer proposals, phased campaign plans and pitch presentations; also supports media certification case writing.",
+          "Project experience spans beauty, maternal and child health, education hardware, real estate, mobility and consumer electronics, with total winning project value reaching the 10-million-RMB level."
         ],
         eduTitle: "EDUCATION",
         edu: "Changsha University - Visual Communication Design, 2024",
@@ -2845,13 +3044,13 @@
         role: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
         contact: "手机：13764330601    邮箱：harriet20020601@163.com",
         profileTitle: "个人简介",
-        profile: "2024年毕业于长沙大学视觉传达设计专业，毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司。具备策划、AE、媒体媒介、销售助理轮岗经验，目前定岗品牌业务部策划专员，能够将行业洞察、内容种草、媒介策略和商业目标整合成清晰可执行的方案。",
+        profile: "具备视觉传达专业背景和策划、AE、媒体媒介、销售助理轮岗经验，目前担任品牌业务部策划专员。我习惯用“洞察-策略-内容-执行”的链路推进工作，将品牌目标、用户洞察、平台节奏和执行资源整合成清晰可落地的增长方案。",
         expTitle: "工作经历",
         exp: [
           "乐推（上海）文化传播有限公司｜品牌业务部策划专员",
-          "完成1年管培生轮岗，覆盖策划、AE、媒体媒介、销售助理等岗位，建立从客户需求到内容策略、媒介执行的完整业务视角。",
-          "可独立完成大型年框方案撰写与竞标讲标，参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料。",
-          "参与项目覆盖美妆、母婴健康、教育硬件、地产、电动车、消费电子等行业，累计中标项目金额达到千万级。"
+          "完成1年管培生轮岗，覆盖策划、AE、媒体媒介、销售助理等岗位，建立从需求理解、策略拆解到媒介执行的完整业务视角。",
+          "可独立完成年框方案、阶段传播方案与竞标讲标，参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料。",
+          "项目覆盖美妆、母婴健康、教育硬件、地产、出行、消费电子等行业，参与中标项目金额累计达到千万级。"
         ],
         eduTitle: "教育背景",
         edu: "长沙大学｜视觉传达设计专业｜2024届",
