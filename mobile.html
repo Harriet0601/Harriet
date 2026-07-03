@@ -487,12 +487,23 @@
     .contact button {
       width: 100%;
       min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 999px;
       color: var(--text);
       background: rgba(255, 255, 255, 0.075);
       font-size: 14px;
       font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .contact .primary {
