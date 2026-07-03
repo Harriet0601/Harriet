@@ -131,6 +131,24 @@
       transition: 0.25s ease;
     }
 
+    .nav-lang {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-lang:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.13);
+    }
+
     .nav-cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 14px 30px rgba(255, 255, 255, 0.14);
@@ -663,6 +681,124 @@
       gap: 18px;
     }
 
+    .case-stage {
+      position: relative;
+      height: clamp(470px, 62vw, 620px);
+      overflow: hidden;
+      border-radius: 28px;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .case-stage::before {
+      content: "";
+      position: absolute;
+      inset: 9% 5%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255, 122, 61, 0.18), transparent 48%),
+        radial-gradient(circle at 35% 55%, rgba(120, 243, 209, 0.13), transparent 42%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .case-track {
+      position: absolute;
+      inset: 0;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+
+    .case-stage .project-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(420px, 78vw);
+      min-height: 470px;
+      transform: translate(-50%, -50%) translateX(var(--case-x, 0)) translateZ(var(--case-z, 0)) rotateY(var(--case-r, 0)) scale(var(--case-s, 1));
+      opacity: var(--case-o, 1);
+      z-index: var(--case-i, 1);
+      pointer-events: var(--case-pointer, none);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease;
+      filter: saturate(var(--case-sat, 0.8)) brightness(var(--case-b, 0.72));
+    }
+
+    .case-stage .project-card:hover {
+      transform: translate(-50%, -50%) translateX(var(--case-x, 0)) translateZ(var(--case-z, 0)) rotateY(var(--case-r, 0)) scale(calc(var(--case-s, 1) + 0.025));
+    }
+
+    .case-stage .project-card.is-active {
+      pointer-events: auto;
+      filter: saturate(1.08) brightness(1);
+      border-color: rgba(255, 255, 255, 0.34);
+      box-shadow: 0 36px 100px rgba(0, 0, 0, 0.52);
+    }
+
+    .case-stage .project-card.is-near {
+      pointer-events: auto;
+    }
+
+    .case-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 20;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(7, 9, 13, 0.48);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transform: translateY(-50%);
+      font-size: 30px;
+      line-height: 1;
+      transition: 0.25s ease;
+    }
+
+    .case-nav:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .case-nav.prev {
+      left: 18px;
+    }
+
+    .case-nav.next {
+      right: 18px;
+    }
+
+    .case-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .case-dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .case-dot.active {
+      width: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .case-hint {
+      margin: 12px 0 0;
+      text-align: center;
+      color: rgba(247, 245, 239, 0.54);
+      font-size: 13px;
+    }
+
     .project-card {
       position: relative;
       min-height: 360px;
@@ -678,7 +814,7 @@
       transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
     }
 
-    .project-card:hover {
+    .project-grid .project-card:hover {
       transform: translateY(-8px) scale(1.025);
       border-color: rgba(255, 255, 255, 0.34);
       box-shadow: 0 28px 72px rgba(0, 0, 0, 0.38);
@@ -1076,6 +1212,11 @@
         padding: 9px 12px;
       }
 
+      .nav-lang {
+        padding: 9px 10px;
+        font-size: 12px;
+      }
+
       .section {
         width: min(100% - 28px, 1160px);
         padding: 70px 0;
@@ -1121,6 +1262,21 @@
 
       .project-card {
         min-height: 0;
+      }
+
+      .case-stage {
+        height: 540px;
+        margin-inline: -8px;
+      }
+
+      .case-stage .project-card {
+        width: min(330px, 78vw);
+        min-height: 440px;
+      }
+
+      .case-nav {
+        width: 42px;
+        height: 42px;
       }
 
       .contact-list {
@@ -1198,10 +1354,11 @@
       <div class="nav-links">
         <a href="#home">首页</a>
         <a href="#about">关于我</a>
-        <a href="#life">更多的我</a>
         <a href="#work">作品展示</a>
+        <a href="#life">更多的我</a>
         <a href="#contact">联系方式</a>
       </div>
+      <button class="nav-lang" type="button" id="languageToggle">Change Language</button>
       <a class="nav-cta" href="mailto:harriet20020601@163.com">邮件联系</a>
     </nav>
 
@@ -1247,14 +1404,14 @@
             <div class="section-kicker">About</div>
             <h2>从视觉表达，到品牌增长策略。</h2>
           </div>
-          <p class="section-desc">设计专业背景带来审美与内容敏感度，管培生轮岗经历补足业务视角，最终形成兼具创意、媒介和提案能力的策划方法。</p>
+          <p class="section-desc">视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。</p>
         </div>
 
         <div class="about-layout">
           <article class="glass story">
-            <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，完成为期1年的多岗位轮岗，覆盖策划、AE、媒体媒介、销售助理等关键业务环节。</p>
-            <p>目前定岗品牌业务部，担任策划专员。至今能够独立完成大型年框方案撰写与竞标讲标工作，也能撰写认证案例，助力公司获得媒体代理商资质；参与和推动的中标项目金额已达千万级。</p>
-            <p>我熟练使用各类办公软件与AI工具提升策略研究、内容生成、排版表达和提案效率，保持持续学习状态，关注平台生态、内容趋势和品牌增长方法的变化。</p>
+            <p>我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。</p>
+            <p>目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。</p>
+            <p>我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。</p>
             <div class="skills" aria-label="技能标签">
               <span class="tag">年度营销方案</span>
               <span class="tag">竞标讲标</span>
@@ -1282,6 +1439,38 @@
             </div>
           </aside>
         </div>
+      </section>
+
+      <section id="work" class="section reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Selected Work</div>
+            <h2>项目案例库</h2>
+          </div>
+          <p class="section-desc">以下收录20个代表项目，覆盖年度方案、阶段方案、品类规划、媒体认证、AI案例与效率模型。点击卡片可查看项目背景、职责、策略亮点和成果概览。</p>
+        </div>
+
+        <div class="industry-band">
+          <strong>案例类型覆盖</strong>
+          <div class="industry-list" aria-label="服务行业">
+            <span>年度年框</span>
+            <span>小红书种草</span>
+            <span>抖音品牌推广</span>
+            <span>地产阶段方案</span>
+            <span>媒体认证案例</span>
+            <span>AI营销案例</span>
+            <span>品类规划</span>
+            <span>效率模型</span>
+          </div>
+        </div>
+
+        <div class="case-stage" id="caseStage" aria-label="作品案例轮播">
+          <button class="case-nav prev" type="button" id="casePrev" aria-label="上一个项目">‹</button>
+          <div class="case-track" id="projectGrid"></div>
+          <button class="case-nav next" type="button" id="caseNext" aria-label="下一个项目">›</button>
+        </div>
+        <div class="case-dots" id="caseDots" aria-label="项目切换点"></div>
+        <p class="case-hint">拖动、点击两侧卡片或使用箭头切换案例。</p>
       </section>
 
       <section id="life" class="section life-section reveal">
@@ -1339,32 +1528,6 @@
             <button class="life-photo" type="button"><img src="assets/life-lite/food-4.jpg" alt="做饭美食照片" loading="lazy" decoding="async"><span>生活</span></button>
           </div>
         </div>
-      </section>
-
-      <section id="work" class="section reveal">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker">Selected Work</div>
-            <h2>项目案例库</h2>
-          </div>
-          <p class="section-desc">以下收录20个代表项目，覆盖年度方案、阶段方案、品类规划、媒体认证、AI案例与效率模型。点击卡片可查看项目背景、职责、策略亮点和成果概览。</p>
-        </div>
-
-        <div class="industry-band">
-          <strong>案例类型覆盖</strong>
-          <div class="industry-list" aria-label="服务行业">
-            <span>年度年框</span>
-            <span>小红书种草</span>
-            <span>抖音品牌推广</span>
-            <span>地产阶段方案</span>
-            <span>媒体认证案例</span>
-            <span>AI营销案例</span>
-            <span>品类规划</span>
-            <span>效率模型</span>
-          </div>
-        </div>
-
-        <div class="project-grid" id="projectGrid"></div>
       </section>
 
       <section id="contact" class="section reveal">
@@ -1682,7 +1845,154 @@
       }
     ];
 
+    const projectEn = [
+      { title: "Qingteng AI New Era Case Submission", type: "AI Marketing Case", platform: "Xiaohongshu / AI Marketing", skill: "Case storytelling, value extraction, agency qualification support", desc: "A structured AI marketing case for a social product, highlighting strategic insight, content mechanics and growth value.", background: "The brand needed to turn AI-enabled content growth practices into a presentable case asset.", role: "Organized the case logic, refined highlights, shaped page storytelling and supported certification materials.", strategy: "Connected audience insight, AI matrix application, creative reach and workflow efficiency into a clear proof path.", result: "Delivered reusable case materials for awards and agency qualification submissions." },
+      { title: "Qingteng AI Creation Camp", type: "AI Training Camp", platform: "AI Tools / Content Production", skill: "AI application, training camp planning, content efficiency", desc: "A training-camp style case that translates AI tool usage into a replicable content production method.", background: "As AI tools entered marketing workflows, the team needed an understandable and shareable capability case.", role: "Supported content framework, value expression and proposal packaging.", strategy: "Used tool application, production efficiency and case outcomes as the main narrative line.", result: "Helped clarify the team's AI marketing workflow and service value." },
+      { title: "Dynamic Budget Efficiency Model", type: "Strategy Model", platform: "Media Efficiency / Budget Control", skill: "Budget modeling, efficiency tracking, dynamic optimization", desc: "A dynamic framework for judging budget allocation and optimization direction during campaign execution.", background: "Media campaigns often need to balance budget rhythm, content efficiency and real-time results.", role: "Helped simplify indicators, logic and one-page presentation for client communication.", strategy: "Built a decision framework around budget, content and performance variables.", result: "Created a method asset that strengthened the strategic credibility of proposals." },
+      { title: "Ninebot Short Mobility Annual Plan", type: "Annual Retainer", platform: "Xiaohongshu / Multi-model Seeding", skill: "Annual strategy, product matrix, content seeding", desc: "An annual seeding framework for multiple short-mobility product lines and user scenarios.", background: "Different vehicle models needed clear audience and scenario positioning under one annual strategy.", role: "Supported annual strategy, model positioning, content rhythm and pitch narrative.", strategy: "Separated themes by commute, campus and urban travel scenarios to build a differentiated matrix.", result: "Delivered an annual framework to improve content efficiency and product recognition." },
+      { title: "D-Cal Glucosamine Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Healthcare insight, demand mapping, content planning", desc: "A Xiaohongshu content plan for joint-health users and search-driven decision needs.", background: "Joint-health products require professional credibility and relatable life scenarios.", role: "Mapped category pain points, content themes and creator directions.", strategy: "Linked product benefits to exercise, sedentary work and family-care scenarios.", result: "Built a category planning framework for future content investment." },
+      { title: "D-Cal Pink Product Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Maternal and child health, seeding content, budget planning", desc: "A content and creator plan for D-Cal's pink product line in maternal and child health contexts.", background: "Maternal-child decisions value real experience, professional support and search validation.", role: "Planned content strategy, creator direction, seeding rhythm and budget suggestions.", strategy: "Built content around parent experience, child growth and scientific supplementation.", result: "Improved the plan's ability to support user decision journeys." },
+      { title: "D-Cal Yellow Product Xiaohongshu Plan", type: "Category Plan", platform: "Xiaohongshu", skill: "Health insight, audience communication, content matrix", desc: "A Xiaohongshu communication path for D-Cal's yellow product line.", background: "Healthcare products need awareness building, content persuasion and search accumulation.", role: "Supported audience profiling, theme planning and staged rhythm.", strategy: "Connected scenario pain points with product benefits through creator content.", result: "Delivered an executable category content plan." },
+      { title: "Abbott PediaSure Annual Seeding Plan", type: "Annual Plan", platform: "Xiaohongshu", skill: "Child nutrition, annual rhythm, parent communication", desc: "An annual Xiaohongshu seeding plan based on parent concerns and seasonal purchase needs.", background: "Child nutrition requires long-term trust building and professional content accumulation.", role: "Planned annual content rhythm, node themes, creator direction and budget allocation.", strategy: "Organized yearly communication around child growth, picky eating, seasons and parent experience.", result: "Supported consistent exposure and search asset accumulation." },
+      { title: "Lima E-bike Hero Product Campaign", type: "Annual Promotion", platform: "Douyin", skill: "Hero product strategy, content matrix, creator planning", desc: "A Douyin marketing plan for building annual hero-product awareness and product reasons-to-buy.", background: "The brand needed to create product buzz while strengthening selling points.", role: "Built promotion logic, content matrix, creator tiers and phased rhythm.", strategy: "Amplified product benefits through high-frequency short-video scenarios and creator content.", result: "Delivered the annual hero product campaign framework." },
+      { title: "Vanke Y26 Four Properties Strategy", type: "Real Estate Strategy", platform: "Xiaohongshu", skill: "Regional insight, project positioning, lifestyle content", desc: "A Xiaohongshu strategy for four property projects with different audience and lifestyle positions.", background: "Real estate communication needed to move from specifications to social-platform lifestyle expression.", role: "Clarified selling points, audience profiles, content directions and campaign stages.", strategy: "Separated project value by city life, family upgrade, community experience and regional potential.", result: "Delivered platform-fit content strategy for the property portfolio." },
+      { title: "Luxiangyuan New Product Image Plan", type: "Real Estate Phase Plan", platform: "Xiaohongshu", skill: "Product image, phased communication, content strategy", desc: "A staged Xiaohongshu plan to express the character and lifestyle value of Luxiangyuan.", background: "Premium real estate requires visual quality, regional value and refined content expression.", role: "Supported positioning, content direction, phased rhythm and proposal narrative.", strategy: "Used architecture, lifestyle, circles and scarcity as content entry points.", result: "Supported new-product image building and launch communication." },
+      { title: "Xiaoyuan Learning Device Douyin Annual Plan", type: "Annual Retainer", platform: "Douyin", skill: "Education hardware, annual promotion, brand mindset", desc: "An annual Douyin brand promotion framework for learning hardware.", background: "Education hardware needs continuous parent trust building and clear product value explanation.", role: "Supported annual framework, content themes, creator directions and pitch expression.", strategy: "Connected learning scenes, parent concerns, functions and seasonal nodes.", result: "Supported long-term brand awareness building on Douyin." },
+      { title: "Xiaoyuan Smart Hardware Brand Campaign", type: "Brand Promotion", platform: "Douyin", skill: "Smart hardware, brand mindset, conversion path", desc: "A staged brand campaign for smart learning hardware in family decision contexts.", background: "Smart education hardware needs to reduce understanding cost and build trust.", role: "Designed campaign framework, content themes, creator direction and phased rhythm.", strategy: "Started from learning scenes, parent pain points and functional benefits.", result: "Supported product understanding and content conversion." },
+      { title: "Meiyuzi Y26 Xiaohongshu Plan", type: "Brand Marketing", platform: "Xiaohongshu", skill: "Brand positioning, content seeding, campaign nodes", desc: "A Xiaohongshu content, creator and stage communication plan for Meiyuzi.", background: "Consumer brands need clear memory points and continuous reach on Xiaohongshu.", role: "Supported industry analysis, audience insight, content strategy and proposal packaging.", strategy: "Built the seeding path around core selling points, user scenes and visual tone.", result: "Delivered a staged content investment plan." },
+      { title: "EDIFIER New Product Execution Plan", type: "Launch Execution", platform: "Content Platforms", skill: "New launch, execution planning, content creative", desc: "A new-product launch execution plan covering selling points, creator execution and content assets.", background: "Consumer electronics launches need fast product understanding and feature explanation.", role: "Broke down execution logic, creative directions and creator suggestions.", strategy: "Used usage scenes, sound experience and product appearance as content anchors.", result: "Clarified content production and media execution direction." },
+      { title: "Helen Keller Y26 M1-M6 Marketing Plan", type: "Half-year Plan", platform: "Xiaohongshu", skill: "Budget allocation, half-year rhythm, content seeding", desc: "A half-year Xiaohongshu plan covering monthly rhythm, content direction and budget allocation.", background: "Eyewear brands need both functional value and styling expression.", role: "Supported stage rhythm, content planning and budget structure.", strategy: "Combined wearing occasions, aesthetics, functional benefits and seasonal nodes.", result: "Delivered M1-M6 Xiaohongshu plan and budget allocation." },
+      { title: "Florasis SEED AWARDS Seeding Case", type: "Media Certification Case", platform: "Xiaohongshu", skill: "Beauty insight, case packaging, award narrative", desc: "A beauty seeding case built for award and certification communication.", background: "The brand needed to present seeding methods, platform influence and content value as an award case.", role: "Built case structure, refined strategic highlights and award expression.", strategy: "Organized the story around beauty trends, content assets and platform seeding paths.", result: "Delivered SEED AWARDS submission materials." },
+      { title: "Florasis Seeding-to-Conversion Loop Case", type: "Seeding Award Case", platform: "Xiaohongshu", skill: "Closed-loop conversion, case submission, content assets", desc: "A case narrative showing how content seeding supports brand awareness and conversion goals.", background: "Award submissions needed a clear path from content seeding to mindset and conversion.", role: "Integrated case materials and clarified the strategic chain.", strategy: "Used audience insight, content seeding, search capture and conversion loop as the main path.", result: "Delivered a complete submission case with stronger external value." },
+      { title: "Facial Care Trend: Eye and Neck Anti-aging", type: "Lingxi Certification", platform: "Xiaohongshu / Beauty Trend", skill: "Trend insight, industry analysis, certification writing", desc: "An industry insight report on the eye-and-neck anti-aging opportunity in refined facial care.", background: "Beauty care demand is moving from broad anti-aging to more precise regional care.", role: "Structured trend logic, insight expression and report packaging.", strategy: "Extracted opportunity from user pain points, scenarios, product chances and content trends.", result: "Delivered a Lingxi certification report for beauty industry capability building." },
+      { title: "Healthcare Track Insight: Respiratory Health", type: "Lingxi Certification", platform: "Xiaohongshu / Healthcare", skill: "Track insight, health content, certification writing", desc: "A Xiaohongshu industry insight report on respiratory health demand, content trends and brand opportunities.", background: "Healthcare content must balance scientific credibility, user pain points and compliant expression.", role: "Structured the track, analyzed user needs and shaped report expression.", strategy: "Identified opportunities through search demand, content scenarios, seasons and health-management mindset.", result: "Supported professional qualification building in the healthcare category." }
+    ];
+
+    const i18n = {
+      zh: {
+        nav: ["首页", "关于我", "作品展示", "更多的我", "联系方式"],
+        langButton: "Change Language",
+        emailContact: "邮件联系",
+        eyebrow: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
+        heroName: "秦飞艳",
+        heroScript: "Strategy with Spark",
+        lead: "2年互联网广告策划经验，擅长把行业洞察、内容种草、媒介策略与商业目标整合成可落地的品牌增长方案。",
+        heroButtons: ["查看作品", "保存简历", "拨打电话"],
+        proof: [
+          ["独立提案", "可独立完成大型年框方案撰写与竞标讲标。"],
+          ["复合链路", "经历策划、AE、媒介与销售助理轮岗。"],
+          ["平台能力", "熟悉小红书种草与抖音品牌推广打法。"],
+          ["AI提效", "用AI工具提升洞察、内容与方案产出效率。"]
+        ],
+        metrics: [["2年", "广告策划经验"], ["千万级", "中标项目金额"], ["4岗", "复合轮岗经验"]],
+        aboutKicker: "About",
+        aboutTitle: "从视觉表达，到品牌增长策略。",
+        aboutDesc: "视觉传达的专业训练让我对审美、内容表达和用户感受更敏感；轮岗经历则让我理解客户需求、媒介执行和商业目标之间的关系。",
+        story: [
+          "我叫秦飞艳，2003年出生，2024年毕业于长沙大学视觉传达设计专业。毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司，并在1年的管培生轮岗中接触策划、AE、媒体媒介、销售助理等岗位，逐步建立起从客户需求到内容策略、媒介执行的完整业务视角。",
+          "目前定岗品牌业务部，担任策划专员。我能够独立完成大型年框方案撰写和竞标讲标，也参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料；参与项目覆盖多个行业，累计中标项目金额达到千万级。",
+          "我熟练使用办公软件与AI工具提升资料研究、策略推演、内容生成和提案表达效率。面对变化很快的平台生态，我保持持续学习，关注内容趋势、用户沟通方式和品牌增长方法的更新。"
+        ],
+        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "AI提效", "视觉表达"],
+        timeline: [
+          ["2024 长沙大学毕业", "视觉传达设计专业，建立审美、版式、品牌视觉和内容表达基础。"],
+          ["2024 乐推管培生第一名入职", "轮岗策划、AE、媒体媒介、销售助理，理解从客户需求到投放执行的完整链路。"],
+          ["品牌业务部策划专员", "独立承担大型年框、阶段方案、案例认证和竞标讲标工作。"]
+        ],
+        workKicker: "Selected Work",
+        workTitle: "项目案例库",
+        workDesc: "以下收录20个代表项目，覆盖年度方案、阶段方案、品类规划、媒体认证、AI案例与效率模型。点击卡片可查看项目背景、职责、策略亮点和成果概览。",
+        industryTitle: "案例类型覆盖",
+        industries: ["年度年框", "小红书种草", "抖音品牌推广", "地产阶段方案", "媒体认证案例", "AI营销案例", "品类规划", "效率模型"],
+        caseHint: "拖动、点击两侧卡片或使用箭头切换案例。",
+        viewDetail: "查看详情",
+        lifeKicker: "More About Me",
+        lifeTitle: "工作之外，也认真生活。",
+        lifeDesc: "比起只被一份简历定义，我更希望你看到一个鲜活的我：爱表达、爱探索、爱记录，也愿意把热情带进每一次合作里。",
+        lifeName: "Q33",
+        lifeMeta: "Harriet · 巨蟹座 · ENFJ",
+        facts: [["昵称", "Q33"], ["English Name", "Harriet"], ["星座", "巨蟹座"], ["MBTI", "ENFJ"]],
+        lifeCopy: "我是一个对世界保持好奇、对关系保持真诚的人。工作里我喜欢把复杂问题拆成清晰方案，生活里我也喜欢用镜头、旅行、运动和美食收集灵感。健身让我保持能量，摄影和出片训练审美，旅行与潜水让我保持开放感，唱歌则是我释放情绪的小出口。希望你看到的不只是会写方案的秦飞艳，也看到更松弛、更有生命力的 Harriet。",
+        lifeTags: ["健身", "摄影", "旅游", "出片", "唱歌", "潜水", "徒步", "美食探索"],
+        photoLabels: ["出片", "潜水", "徒步", "摄影", "美食", "旅行", "摄影", "出片", "美食", "旅行", "摄影", "潜水", "美食", "旅游", "生活"],
+        contactKicker: "Contact",
+        contactTitle: "期待与你聊聊下一个增长命题。",
+        contactDesc: "可联系我获取完整作品集、案例细节或进一步沟通岗位与项目合作机会。",
+        contactChips: ["手机：13764330601", "邮箱：harriet20020601@163.com", "复制邮箱"],
+        sendEmail: "发送邮件",
+        footer: "© 2026 Qin Feiyan Portfolio. Built as a single-page HTML portfolio.",
+        modalLabels: ["项目背景", "我的职责", "策略亮点", "项目成果"],
+        modalMeta: ["项目类型", "核心能力", "服务平台"],
+        toastCopied: "邮箱已复制",
+        toastPdf: "PDF简历已开始下载"
+      },
+      en: {
+        nav: ["Home", "About", "Work", "More Me", "Contact"],
+        langButton: "中文",
+        emailContact: "Email Me",
+        eyebrow: "Internet Advertising Planner | Xiaohongshu / Douyin / Integrated Marketing",
+        heroName: "Qin Feiyan",
+        heroScript: "Strategy with Spark",
+        lead: "A digital advertising planner with 2 years of experience, turning category insight, content seeding, media strategy and business goals into executable growth proposals.",
+        heroButtons: ["View Work", "Save Resume", "Call Me"],
+        proof: [
+          ["Independent Proposals", "Able to complete annual-retainer proposals and pitch presentations independently."],
+          ["Cross-functional View", "Rotated across planning, AE, media and sales assistant roles."],
+          ["Platform Skills", "Experienced in Xiaohongshu seeding and Douyin brand promotion."],
+          ["AI Efficiency", "Uses AI tools to improve research, ideation and proposal output."]
+        ],
+        metrics: [["2 Years", "Ad planning experience"], ["10M+ RMB", "Winning project value"], ["4 Roles", "Rotation experience"]],
+        aboutKicker: "About",
+        aboutTitle: "From visual expression to brand growth strategy.",
+        aboutDesc: "My visual communication training sharpened my sensitivity to aesthetics, content expression and user experience; my rotation experience helped me understand how client needs, media execution and business goals connect.",
+        story: [
+          "I am Qin Feiyan, born in 2003 and graduated from Changsha University in 2024 with a major in Visual Communication Design. After graduation, I joined Letui (Shanghai) Culture Communication Co., Ltd. as the top-ranked management trainee and completed a one-year rotation across planning, AE, media and sales assistant roles, gradually building a full-chain view from client needs to content strategy and execution.",
+          "I am now positioned in the Brand Business Department as a Planning Specialist. I can independently develop large annual-retainer proposals and pitch presentations, and I also write media certification cases to help the company build industry cases and agency qualification materials. The projects I have participated in cover multiple industries, with total winning project value reaching the 10-million-RMB level.",
+          "I am proficient with office software and AI tools to improve research, strategic deduction, content generation and proposal expression. In a fast-changing platform ecosystem, I keep learning and paying attention to updates in content trends, user communication and brand growth methods."
+        ],
+        skills: ["Annual Marketing Plans", "Pitch Presentation", "Xiaohongshu Seeding", "Douyin Brand Promotion", "Industry Insight", "Media Strategy", "AI Efficiency", "Visual Expression"],
+        timeline: [
+          ["2024 Changsha University Graduate", "Visual Communication Design major, with a foundation in aesthetics, layout, brand visuals and content expression."],
+          ["2024 Joined Letui as Top Management Trainee", "Rotated across planning, AE, media and sales assistant roles to understand the full campaign chain."],
+          ["Planning Specialist, Brand Business Department", "Responsible for annual plans, phased proposals, certification cases and pitch presentations."]
+        ],
+        workKicker: "Selected Work",
+        workTitle: "Project Case Library",
+        workDesc: "20 representative projects covering annual retainers, phased plans, category planning, media certification, AI cases and efficiency models. Click a card to view background, role, strategy and outcomes.",
+        industryTitle: "Case Coverage",
+        industries: ["Annual Retainers", "Xiaohongshu Seeding", "Douyin Promotion", "Real Estate Plans", "Certification Cases", "AI Marketing Cases", "Category Planning", "Efficiency Models"],
+        caseHint: "Drag, click side cards, or use arrows to switch cases.",
+        viewDetail: "View Details",
+        lifeKicker: "More About Me",
+        lifeTitle: "I work seriously, and live vividly.",
+        lifeDesc: "Beyond a resume, I hope you can see a more vivid version of me: expressive, curious, observant and ready to bring energy into every collaboration.",
+        lifeName: "Q33",
+        lifeMeta: "Harriet · Cancer · ENFJ",
+        facts: [["Nickname", "Q33"], ["English Name", "Harriet"], ["Zodiac", "Cancer"], ["MBTI", "ENFJ"]],
+        lifeCopy: "I stay curious about the world and sincere in relationships. At work, I enjoy turning complex questions into clear solutions; in life, I collect inspiration through photography, travel, workouts and food. Fitness keeps my energy steady, photography trains my eye, travel and diving keep me open to the world, and singing is my way to reset emotionally. I hope you see not only Qin Feiyan the planner, but also Harriet as a relaxed and lively person.",
+        lifeTags: ["Fitness", "Photography", "Travel", "Portraits", "Singing", "Diving", "Hiking", "Food"],
+        photoLabels: ["Portrait", "Diving", "Hiking", "Photo", "Food", "Travel", "Photo", "Portrait", "Food", "Travel", "Photo", "Diving", "Food", "Travel", "Life"],
+        contactKicker: "Contact",
+        contactTitle: "Let’s discuss the next growth challenge.",
+        contactDesc: "Contact me for the full portfolio, project details, job opportunities or project collaboration.",
+        contactChips: ["Phone: 13764330601", "Email: harriet20020601@163.com", "Copy Email"],
+        sendEmail: "Send Email",
+        footer: "© 2026 Qin Feiyan Portfolio. Built as a single-page HTML portfolio.",
+        modalLabels: ["Background", "My Role", "Strategy Highlights", "Outcome"],
+        modalMeta: ["Project Type", "Core Skill", "Platform"],
+        toastCopied: "Email copied",
+        toastPdf: "PDF resume download started"
+      }
+    };
+
+    let currentLang = "zh";
+    let caseIndex = 0;
     const grid = document.querySelector("#projectGrid");
+    const caseStage = document.querySelector("#caseStage");
+    const casePrev = document.querySelector("#casePrev");
+    const caseNext = document.querySelector("#caseNext");
+    const caseDots = document.querySelector("#caseDots");
+    const languageToggle = document.querySelector("#languageToggle");
     const modal = document.querySelector("#projectModal");
     const modalCard = document.querySelector("#modalCard");
     const modalImage = document.querySelector("#modalImage");
@@ -1702,6 +2012,8 @@
     const copyEmail = document.querySelector("#copyEmail");
     const printResume = document.querySelector("#printResume");
     const spotlight = document.querySelector(".spotlight");
+    const projectCards = [];
+    const dotButtons = [];
 
     projects.forEach((project, index) => {
       const card = document.createElement("article");
@@ -1709,32 +2021,100 @@
       card.style.setProperty("--card-color", project.color);
       card.tabIndex = 0;
       card.setAttribute("role", "button");
-      card.setAttribute("aria-label", `查看项目：${project.title}`);
-      card.innerHTML = `
-        <div class="project-image">
-          <img src="${project.image}" alt="${project.title}项目封面" loading="lazy" decoding="async">
-        </div>
-        <div class="project-content">
-          <span class="project-type">${project.type}</span>
-          <h3>${project.title}</h3>
-          <p>${project.desc}</p>
-          <div class="project-foot"><span>${project.platform}</span><span>查看详情</span></div>
-        </div>
-      `;
-      card.addEventListener("click", () => openProject(index));
+      card.addEventListener("click", () => {
+        if (index === caseIndex) {
+          openProject(index);
+          return;
+        }
+        caseIndex = index;
+        renderCarousel();
+      });
       card.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          openProject(index);
+          if (index === caseIndex) openProject(index);
+          else {
+            caseIndex = index;
+            renderCarousel();
+          }
         }
       });
       grid.appendChild(card);
+      projectCards.push(card);
+
+      const dot = document.createElement("button");
+      dot.className = "case-dot";
+      dot.type = "button";
+      dot.addEventListener("click", () => {
+        caseIndex = index;
+        renderCarousel();
+      });
+      caseDots.appendChild(dot);
+      dotButtons.push(dot);
     });
 
+    function getProject(index) {
+      return currentLang === "en" ? { ...projects[index], ...projectEn[index] } : projects[index];
+    }
+
+    function renderProjectCards() {
+      projectCards.forEach((card, index) => {
+        const project = getProject(index);
+        card.setAttribute("aria-label", `${currentLang === "en" ? "View project" : "查看项目"}：${project.title}`);
+        card.innerHTML = `
+          <div class="project-image">
+            <img src="${project.image}" alt="${project.title}${currentLang === "en" ? " project cover" : "项目封面"}" loading="lazy" decoding="async">
+          </div>
+          <div class="project-content">
+            <span class="project-type">${project.type}</span>
+            <h3>${project.title}</h3>
+            <p>${project.desc}</p>
+            <div class="project-foot"><span>${project.platform}</span><span>${i18n[currentLang].viewDetail}</span></div>
+          </div>
+        `;
+      });
+    }
+
+    function renderCarousel() {
+      const total = projectCards.length;
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      const step = isMobile ? 178 : 282;
+      projectCards.forEach((card, index) => {
+        let distance = index - caseIndex;
+        if (distance > total / 2) distance -= total;
+        if (distance < -total / 2) distance += total;
+        const abs = Math.abs(distance);
+        const clamped = Math.max(-3, Math.min(3, distance));
+        const visible = abs <= 3;
+        card.classList.toggle("is-active", distance === 0);
+        card.classList.toggle("is-near", abs === 1 || abs === 2);
+        card.style.setProperty("--case-x", `${clamped * step}px`);
+        card.style.setProperty("--case-z", `${-abs * 130}px`);
+        card.style.setProperty("--case-r", `${clamped * -11}deg`);
+        card.style.setProperty("--case-s", `${Math.max(0.62, 1 - abs * 0.13)}`);
+        card.style.setProperty("--case-o", `${visible ? Math.max(0.18, 1 - abs * 0.25) : 0}`);
+        card.style.setProperty("--case-i", `${100 - abs}`);
+        card.style.setProperty("--case-b", `${Math.max(0.54, 1 - abs * 0.12)}`);
+        card.style.setProperty("--case-sat", `${Math.max(0.62, 1 - abs * 0.08)}`);
+        card.style.setProperty("--case-pointer", `${abs <= 2 ? "auto" : "none"}`);
+        card.tabIndex = abs <= 2 ? 0 : -1;
+      });
+      dotButtons.forEach((dot, index) => {
+        dot.classList.toggle("active", index === caseIndex);
+        dot.setAttribute("aria-label", `${currentLang === "en" ? "Switch to project" : "切换到项目"} ${index + 1}`);
+      });
+    }
+
+    function shiftCase(direction) {
+      caseIndex = (caseIndex + direction + projects.length) % projects.length;
+      renderCarousel();
+    }
+
     function openProject(index) {
-      const project = projects[index];
+      const project = getProject(index);
+      const text = i18n[currentLang];
       modalImage.src = project.image;
-      modalImage.alt = `${project.title}项目封面`;
+      modalImage.alt = `${project.title}${currentLang === "en" ? " project cover" : "项目封面"}`;
       modalTitle.textContent = project.title;
       modalDesc.textContent = project.desc;
       modalBackground.textContent = project.background;
@@ -1744,6 +2124,8 @@
       modalType.textContent = project.type;
       modalSkill.textContent = project.skill;
       modalPlatform.textContent = project.platform;
+      document.querySelectorAll(".case-section strong").forEach((label, i) => label.textContent = text.modalLabels[i]);
+      document.querySelectorAll(".meta-item span").forEach((label, i) => label.textContent = text.modalMeta[i]);
       modalCard.style.setProperty("--modal-color", project.color);
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
@@ -1764,6 +2146,39 @@
         hideModal();
         hideLifeLightbox();
       }
+    });
+
+    casePrev.addEventListener("click", () => shiftCase(-1));
+    caseNext.addEventListener("click", () => shiftCase(1));
+
+    let dragStartX = 0;
+    let dragCurrentX = 0;
+    let isDraggingCase = false;
+
+    caseStage.addEventListener("pointerdown", event => {
+      isDraggingCase = true;
+      dragStartX = event.clientX;
+      dragCurrentX = event.clientX;
+      caseStage.setPointerCapture(event.pointerId);
+    });
+
+    caseStage.addEventListener("pointermove", event => {
+      if (!isDraggingCase) return;
+      dragCurrentX = event.clientX;
+    });
+
+    caseStage.addEventListener("pointerup", event => {
+      if (!isDraggingCase) return;
+      isDraggingCase = false;
+      const delta = dragCurrentX - dragStartX;
+      if (Math.abs(delta) > 46) shiftCase(delta > 0 ? -1 : 1);
+      caseStage.releasePointerCapture(event.pointerId);
+    });
+
+    window.addEventListener("keydown", event => {
+      if (modal.classList.contains("open") || lifeLightbox.classList.contains("open")) return;
+      if (event.key === "ArrowLeft") shiftCase(-1);
+      if (event.key === "ArrowRight") shiftCase(1);
     });
 
     document.querySelectorAll(".life-photo").forEach(photo => {
@@ -1805,16 +2220,250 @@
       const email = "harriet20020601@163.com";
       try {
         await navigator.clipboard.writeText(email);
-        showToast("邮箱已复制");
+        showToast(i18n[currentLang].toastCopied);
       } catch {
         window.location.href = `mailto:${email}`;
       }
     });
 
     printResume.addEventListener("click", () => {
-      showToast("可在打印窗口选择保存为 PDF");
-      window.setTimeout(() => window.print(), 300);
+      downloadResumePdf();
+      showToast(i18n[currentLang].toastPdf);
     });
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      const text = i18n[currentLang];
+      document.documentElement.lang = currentLang === "en" ? "en" : "zh-CN";
+      document.title = currentLang === "en" ? "Qin Feiyan | Digital Advertising Portfolio" : "秦飞艳 | 互联网广告策划作品集";
+      document.querySelectorAll(".nav-links a").forEach((link, i) => link.textContent = text.nav[i]);
+      languageToggle.textContent = text.langButton;
+      document.querySelector(".nav-cta").textContent = text.emailContact;
+      document.querySelector(".eyebrow").innerHTML = `<span class="pulse"></span>${text.eyebrow}`;
+      document.querySelector("h1 span:first-child").textContent = text.heroName;
+      document.querySelector("h1 .script").textContent = text.heroScript;
+      document.querySelector(".lead").textContent = text.lead;
+      document.querySelectorAll(".hero-actions .btn").forEach((button, i) => button.textContent = text.heroButtons[i]);
+      document.querySelectorAll(".proof-item").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.proof[i][0];
+        item.querySelector("span").textContent = text.proof[i][1];
+      });
+      document.querySelectorAll(".metric").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.metrics[i][0];
+        item.querySelector("span").textContent = text.metrics[i][1];
+      });
+      const sectionHeads = document.querySelectorAll(".section-head");
+      sectionHeads[0].querySelector(".section-kicker").textContent = text.aboutKicker;
+      sectionHeads[0].querySelector("h2").textContent = text.aboutTitle;
+      sectionHeads[0].querySelector(".section-desc").textContent = text.aboutDesc;
+      document.querySelectorAll(".story p").forEach((p, i) => { if (text.story[i]) p.textContent = text.story[i]; });
+      document.querySelectorAll(".skills .tag").forEach((tag, i) => tag.textContent = text.skills[i]);
+      document.querySelectorAll(".timeline-item").forEach((item, i) => {
+        item.querySelector("strong").textContent = text.timeline[i][0];
+        item.querySelector("span").textContent = text.timeline[i][1];
+      });
+      sectionHeads[1].querySelector(".section-kicker").textContent = text.workKicker;
+      sectionHeads[1].querySelector("h2").textContent = text.workTitle;
+      sectionHeads[1].querySelector(".section-desc").textContent = text.workDesc;
+      document.querySelector(".industry-band strong").textContent = text.industryTitle;
+      document.querySelectorAll(".industry-list span").forEach((item, i) => item.textContent = text.industries[i]);
+      document.querySelector(".case-hint").textContent = text.caseHint;
+      sectionHeads[2].querySelector(".section-kicker").textContent = text.lifeKicker;
+      sectionHeads[2].querySelector("h2").textContent = text.lifeTitle;
+      sectionHeads[2].querySelector(".section-desc").textContent = text.lifeDesc;
+      document.querySelector(".life-name h3").textContent = text.lifeName;
+      document.querySelector(".life-name span").textContent = text.lifeMeta;
+      document.querySelectorAll(".life-fact").forEach((item, i) => {
+        item.querySelector("span").textContent = text.facts[i][0];
+        item.querySelector("strong").textContent = text.facts[i][1];
+      });
+      document.querySelector(".life-copy").textContent = text.lifeCopy;
+      document.querySelectorAll(".life-tags span").forEach((tag, i) => tag.textContent = text.lifeTags[i]);
+      document.querySelectorAll(".life-photo span").forEach((label, i) => label.textContent = text.photoLabels[i]);
+      const contact = document.querySelector("#contact");
+      contact.querySelector(".section-kicker").textContent = text.contactKicker;
+      contact.querySelector("h2").textContent = text.contactTitle;
+      contact.querySelector(".section-desc").textContent = text.contactDesc;
+      contact.querySelectorAll(".contact-chip").forEach((chip, i) => chip.textContent = text.contactChips[i]);
+      contact.querySelector(".btn.primary").textContent = text.sendEmail;
+      document.querySelector(".footer").textContent = text.footer;
+      renderProjectCards();
+      renderCarousel();
+    }
+
+    languageToggle.addEventListener("click", () => applyLanguage(currentLang === "zh" ? "en" : "zh"));
+
+    function downloadResumePdf() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1240;
+      canvas.height = 1754;
+      const ctx = canvas.getContext("2d");
+      const isEn = currentLang === "en";
+      const fontStack = "Inter, PingFang SC, Microsoft YaHei, Arial, sans-serif";
+      const dark = "#171a20";
+      const muted = "#626875";
+      const accent = "#ff7a3d";
+      const accent2 = "#18b992";
+      ctx.fillStyle = "#fbfaf7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = accent;
+      ctx.fillRect(0, 0, 18, canvas.height);
+      ctx.fillStyle = "#f0eee8";
+      ctx.fillRect(70, 150, 1100, 1);
+      ctx.fillRect(70, 430, 1100, 1);
+      ctx.fillRect(70, 930, 1100, 1);
+
+      function drawText(text, x, y, size, color = dark, weight = 400, maxWidth = 1040, lineHeight = size * 1.55) {
+        ctx.font = `${weight} ${size}px ${fontStack}`;
+        ctx.fillStyle = color;
+        const lines = [];
+        let line = "";
+        const tokens = isEn ? text.split(/\s+/) : Array.from(text);
+        tokens.forEach(token => {
+          const next = isEn ? (line ? `${line} ${token}` : token) : line + token;
+          if (ctx.measureText(next).width > maxWidth && line) {
+            lines.push(line);
+            line = token;
+          } else {
+            line = next;
+          }
+        });
+        if (line) lines.push(line);
+        lines.forEach((item, index) => ctx.fillText(item, x, y + index * lineHeight));
+        return y + Math.max(lines.length, 1) * lineHeight;
+      }
+
+      const resume = isEn ? {
+        name: "QIN FEIYAN / HARRIET",
+        role: "Digital Advertising Planner",
+        contact: "Phone: 13764330601    Email: harriet20020601@163.com",
+        profileTitle: "PROFILE",
+        profile: "A digital advertising planner with 2 years of experience across Xiaohongshu, Douyin, integrated marketing proposals, annual-retainer plans, pitch presentations and media certification cases. Combines visual communication training with cross-functional rotation experience to translate business goals into clear and executable content strategy.",
+        expTitle: "EXPERIENCE",
+        exp: [
+          "Planning Specialist, Brand Business Department - Letui (Shanghai) Culture Communication Co., Ltd.",
+          "Joined as the top-ranked management trainee after graduation and completed a one-year rotation across planning, AE, media and sales assistant roles.",
+          "Independently develops annual-retainer proposals and pitch presentations; supports media certification case writing and agency qualification materials.",
+          "Participated in projects across multiple industries, with total winning project value reaching the 10-million-RMB level."
+        ],
+        eduTitle: "EDUCATION",
+        edu: "Changsha University - Visual Communication Design, 2024",
+        skillsTitle: "CORE SKILLS",
+        skills: ["Annual marketing planning", "Pitch presentation", "Xiaohongshu seeding", "Douyin brand promotion", "Industry insight", "Media strategy", "Case storytelling", "AI-assisted research"],
+        projectsTitle: "SELECTED PROJECTS",
+        projects: ["Qingteng AI New Era Case", "Ninebot Annual Plan", "Abbott Annual Seeding Plan", "Lima E-bike Campaign", "Vanke Four Properties Strategy", "Florasis SEED AWARDS Case", "Eye and Neck Anti-aging Trend", "Respiratory Health Insight"],
+        personalTitle: "PERSONAL",
+        personal: "Nickname: Q33    English Name: Harriet    Zodiac: Cancer    MBTI: ENFJ    Interests: fitness, photography, travel, portraits, singing, diving, hiking and food exploration."
+      } : {
+        name: "秦飞艳 / Harriet",
+        role: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
+        contact: "手机：13764330601    邮箱：harriet20020601@163.com",
+        profileTitle: "个人简介",
+        profile: "2024年毕业于长沙大学视觉传达设计专业，毕业后以管培生考试第一名进入乐推（上海）文化传播有限公司。具备策划、AE、媒体媒介、销售助理轮岗经验，目前定岗品牌业务部策划专员，能够将行业洞察、内容种草、媒介策略和商业目标整合成清晰可执行的方案。",
+        expTitle: "工作经历",
+        exp: [
+          "乐推（上海）文化传播有限公司｜品牌业务部策划专员",
+          "完成1年管培生轮岗，覆盖策划、AE、媒体媒介、销售助理等岗位，建立从客户需求到内容策略、媒介执行的完整业务视角。",
+          "可独立完成大型年框方案撰写与竞标讲标，参与媒体认证案例撰写，帮助公司沉淀行业案例与代理商资质材料。",
+          "参与项目覆盖美妆、母婴健康、教育硬件、地产、电动车、消费电子等行业，累计中标项目金额达到千万级。"
+        ],
+        eduTitle: "教育背景",
+        edu: "长沙大学｜视觉传达设计专业｜2024届",
+        skillsTitle: "核心能力",
+        skills: ["年度营销方案", "竞标讲标", "小红书种草", "抖音品牌推广", "行业洞察", "媒介策略", "案例包装", "AI提效"],
+        projectsTitle: "代表项目",
+        projects: ["青藤之恋AI新纪元案例", "九号短交通年框营销案", "雅培小安素全年种草计划", "立马电动车年度爆品营销", "万科四大楼盘策略方案", "花西子SEED AWARDS种草大赏", "眼颈分区抗老趋势报告", "呼吸健康赛道洞察"],
+        personalTitle: "更多的我",
+        personal: "昵称Q33，英文名Harriet，巨蟹座，MBTI为ENFJ。工作之外喜欢健身、摄影、旅游、出片、唱歌、潜水、徒步和美食探索。"
+      };
+
+      drawText(resume.name, 70, 96, 58, dark, 800, 1000, 66);
+      drawText(resume.role, 72, 172, 25, accent, 700);
+      drawText(resume.contact, 72, 222, 22, muted, 500);
+
+      let y = 318;
+      y = drawText(resume.profileTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      y = drawText(resume.profile, 72, y, 23, dark, 400, 1040, 38) + 34;
+      y = drawText(resume.expTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      resume.exp.forEach(item => {
+        y = drawText(`• ${item}`, 86, y, 22, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 700 : 400, 1010, 36) + 6;
+      });
+      y += 22;
+      y = drawText(resume.eduTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      y = drawText(resume.edu, 72, y, 22, dark, 500, 1040, 36) + 34;
+      y = drawText(resume.skillsTitle, 72, y, 27, accent2, 800, 1040, 34) + 16;
+
+      let chipX = 72;
+      let chipY = y;
+      ctx.font = `700 20px ${fontStack}`;
+      resume.skills.forEach(skill => {
+        const width = ctx.measureText(skill).width + 38;
+        if (chipX + width > 1140) {
+          chipX = 72;
+          chipY += 56;
+        }
+        ctx.fillStyle = "#fff2e8";
+        roundRect(ctx, chipX, chipY - 29, width, 38, 19);
+        ctx.fillStyle = accent;
+        ctx.fillText(skill, chipX + 19, chipY - 4);
+        chipX += width + 12;
+      });
+      y = chipY + 72;
+      y = drawText(resume.projectsTitle, 72, y, 27, accent2, 800, 1040, 34) + 14;
+      resume.projects.forEach(item => {
+        y = drawText(`• ${item}`, 86, y, 22, muted, 400, 1010, 34) + 2;
+      });
+      y += 24;
+      y = drawText(resume.personalTitle, 72, y, 27, accent2, 800, 1040, 34) + 8;
+      drawText(resume.personal, 72, y, 22, dark, 400, 1040, 36);
+
+      function roundRect(context, x, y, width, height, radius) {
+        context.beginPath();
+        context.moveTo(x + radius, y);
+        context.arcTo(x + width, y, x + width, y + height, radius);
+        context.arcTo(x + width, y + height, x, y + height, radius);
+        context.arcTo(x, y + height, x, y, radius);
+        context.arcTo(x, y, x + width, y, radius);
+        context.closePath();
+        context.fill();
+      }
+
+      const jpgBinary = atob(canvas.toDataURL("image/jpeg", 0.92).split(",")[1]);
+      const imageDrawCommand = "q 595 0 0 842 0 0 cm /Im0 Do Q";
+      const header = "%PDF-1.4\n";
+      const objects = [
+        "<< /Type /Catalog /Pages 2 0 R >>",
+        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 5 0 R >> >> /Contents 4 0 R >>",
+        `<< /Length ${imageDrawCommand.length} >>\nstream\n${imageDrawCommand}\nendstream`,
+        `<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpgBinary.length} >>\nstream\n${jpgBinary}\nendstream`
+      ];
+      let pdf = header;
+      const offsets = [0];
+      objects.forEach((object, index) => {
+        offsets[index + 1] = pdf.length;
+        pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+      });
+      const xrefStart = pdf.length;
+      pdf += "xref\n0 6\n0000000000 65535 f \n";
+      for (let i = 1; i <= 5; i += 1) {
+        pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+      }
+      pdf += `trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+      const bytes = new Uint8Array(pdf.length);
+      for (let i = 0; i < pdf.length; i += 1) bytes[i] = pdf.charCodeAt(i) & 0xff;
+      const blob = new Blob([bytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Qin-Feiyan-Harriet-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    applyLanguage("zh");
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
