@@ -2944,13 +2944,13 @@
       });
 
       ctx.fillStyle = "rgba(255,255,255,0.07)";
-      roundRect(ctx, 748, 1018, 410, 360, 28);
+      roundRect(ctx, 748, 1018, 410, 330, 28);
       drawText(isEn ? "Representative cases" : "代表作品", 790, 1076, 28, accent2, 800, 320, 34);
-      drawText(isEn ? "AI marketing case / annual strategy / healthcare seeding / award certification" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1128, 22, dark, 600, 300, 34);
-      drawText(isEn ? "Desktop portfolio:" : "电脑端作品集：", 790, 1232, 18, accent2, 700, 300, 26);
-      drawText("harriet0601.github.io/Harriet/", 790, 1262, 17, muted, 500, 320, 24);
-      drawText(isEn ? "Mobile portfolio:" : "手机端作品集：", 790, 1310, 18, accent2, 700, 300, 26);
-      drawText("harriet0601.github.io/Harriet/mobile.html", 790, 1340, 17, muted, 500, 320, 24);
+      drawText(isEn ? "AI marketing / annual strategy / healthcare seeding / awards" : "AI营销案例 / 年框策略 / 健康种草 / 奖项认证", 790, 1128, isEn ? 19 : 22, dark, 600, 320, isEn ? 28 : 34);
+      drawText(isEn ? "Desktop portfolio:" : "电脑端作品集：", 790, 1214, 18, accent2, 700, 300, 26);
+      drawTextSingleLine("harriet0601.github.io/Harriet/", 790, 1244, 17, muted, 500, 330);
+      drawText(isEn ? "Mobile portfolio:" : "手机端作品集：", 790, 1290, 18, accent2, 700, 300, 26);
+      drawTextSingleLine("harriet0601.github.io/Harriet/mobile.html", 790, 1320, 14, muted, 500, 340);
 
       function drawText(text, x, y, size, color = dark, weight = 400, maxWidth = 1040, lineHeight = size * 1.55) {
         ctx.font = `${weight} ${size}px ${fontStack}`;
@@ -2977,6 +2977,18 @@
         }
         lines.forEach((item, index) => ctx.fillText(item, x, y + index * lineHeight));
         return y + Math.max(lines.length, 1) * lineHeight;
+      }
+
+      function drawTextSingleLine(text, x, y, size, color = dark, weight = 400, maxWidth = 1040) {
+        let fittedSize = size;
+        ctx.font = `${weight} ${fittedSize}px ${fontStack}`;
+        while (ctx.measureText(text).width > maxWidth && fittedSize > 10) {
+          fittedSize -= 1;
+          ctx.font = `${weight} ${fittedSize}px ${fontStack}`;
+        }
+        ctx.fillStyle = color;
+        ctx.fillText(text, x, y);
+        return y + fittedSize * 1.45;
       }
 
       function loadCanvasImage(src) {
@@ -3054,13 +3066,13 @@
         role: "Digital Advertising Planner",
         contact: "Phone: 13764330601    Email: harriet20020601@163.com",
         profileTitle: "PROFILE",
-        profile: "A digital advertising planner with visual communication training and cross-functional rotation experience across planning, AE, media and sales support. I work through an insight-strategy-content-execution path, turning brand goals, audience insight and platform rhythm into clear, executable growth proposals.",
+        profile: "A digital advertising planner with visual communication training and cross-functional rotation experience across planning, AE, media and sales support. I turn brand goals, audience insights and platform rhythm into clear growth proposals.",
         expTitle: "EXPERIENCE",
         exp: [
           "Planning Specialist, Brand Business Department - Letui (Shanghai) Culture Communication Co., Ltd.",
-          "Joined as the top-ranked management trainee after graduation and completed a one-year rotation across planning, AE, media and sales support roles.",
-          "Independently develops annual-retainer proposals, phased campaign plans and pitch presentations; also supports media certification case writing.",
-          "Project experience spans beauty, maternal and child health, education hardware, real estate, mobility and consumer electronics, with total winning project value reaching the 10-million-RMB level."
+          "Joined as the top-ranked management trainee and completed a one-year rotation across planning, AE, media and sales support.",
+          "Develops annual-retainer proposals, phased campaign plans and pitch presentations; also supports media certification case writing.",
+          "Project experience spans beauty, healthcare, education hardware, real estate, mobility and consumer electronics, with total winning project value reaching the 10-million-RMB level."
         ],
         eduTitle: "EDUCATION",
         edu: "Changsha University - Visual Communication Design, 2024",
@@ -3069,7 +3081,7 @@
         projectsTitle: "SELECTED PROJECTS",
         projects: ["Qingteng AI New Era Case", "Ninebot Annual Plan", "Abbott Annual Seeding Plan", "Lima E-bike Campaign", "Vanke Four Properties Strategy", "Florasis SEED AWARDS Case", "Eye and Neck Anti-aging Trend", "Respiratory Health Insight"],
         personalTitle: "PERSONAL",
-        personal: "Nickname: Q33    English Name: Harriet    Zodiac: Cancer    MBTI: ENFJ    Interests: fitness, photography, travel, portraits, singing, diving, hiking and food exploration."
+        personal: "Nickname: Q33. English name: Harriet. Zodiac: Cancer. MBTI: ENFJ. Interests: fitness, photography, travel, portraits, singing, diving, hiking and food exploration."
       } : {
         name: "秦飞艳 / Harriet",
         role: "互联网广告策划 | 小红书 / 抖音 / 整合营销",
@@ -3099,39 +3111,39 @@
 
       let y = 446;
       y = drawText(resume.profileTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
-      y = drawText(resume.profile, 72, y, 20, "rgba(247,245,239,0.84)", 400, 650, 33) + 26;
+      y = drawText(resume.profile, 72, y, isEn ? 19 : 20, "rgba(247,245,239,0.84)", 400, 650, isEn ? 30 : 33) + 22;
       y = drawText(resume.expTitle, 72, y, 27, accent2, 900, 650, 32) + 10;
       resume.exp.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, 19, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, 30) + 4;
+        y = drawText(`• ${item}`, 86, y, isEn ? 18 : 19, item === resume.exp[0] ? dark : muted, item === resume.exp[0] ? 800 : 400, 630, isEn ? 27 : 30) + 3;
       });
-      y += 18;
+      y += isEn ? 12 : 18;
       y = drawText(resume.eduTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
-      y = drawText(resume.edu, 72, y, 20, dark, 600, 650, 31) + 24;
-      y = drawText(resume.skillsTitle, 72, y, 27, accent2, 900, 650, 32) + 16;
+      y = drawText(resume.edu, 72, y, 20, dark, 600, 650, 31) + (isEn ? 18 : 24);
+      y = drawText(resume.skillsTitle, 72, y, 27, accent2, 900, 650, 32) + (isEn ? 12 : 16);
 
       let chipX = 72;
       let chipY = y;
       ctx.font = `700 18px ${fontStack}`;
       resume.skills.forEach(skill => {
-        const width = ctx.measureText(skill).width + 34;
+        const width = ctx.measureText(skill).width + (isEn ? 26 : 34);
         if (chipX + width > 700) {
           chipX = 72;
-          chipY += 48;
+          chipY += isEn ? 40 : 48;
         }
         ctx.fillStyle = "rgba(255,122,61,0.17)";
-        roundRect(ctx, chipX, chipY - 27, width, 34, 17);
+        roundRect(ctx, chipX, chipY - 27, width, isEn ? 30 : 34, 17);
         ctx.fillStyle = "#ffc49d";
-        ctx.fillText(skill, chipX + 17, chipY - 5);
+        ctx.fillText(skill, chipX + (isEn ? 13 : 17), chipY - (isEn ? 7 : 5));
         chipX += width + 12;
       });
-      y = chipY + 58;
+      y = chipY + (isEn ? 48 : 58);
       y = drawText(resume.projectsTitle, 72, y, 27, accent2, 900, 650, 32) + 12;
       resume.projects.forEach(item => {
-        y = drawText(`• ${item}`, 86, y, 19, muted, 400, 630, 29) + 1;
+        y = drawText(`• ${item}`, 86, y, isEn ? 18 : 19, muted, 400, 630, isEn ? 25 : 29) + 1;
       });
-      y += 18;
+      y += isEn ? 12 : 18;
       y = drawText(resume.personalTitle, 72, y, 27, accent2, 900, 650, 32) + 8;
-      drawText(resume.personal, 72, y, 19, "rgba(247,245,239,0.84)", 400, 650, 30);
+      drawText(resume.personal, 72, y, isEn ? 17 : 19, "rgba(247,245,239,0.84)", 400, 650, isEn ? 25 : 30);
 
       function roundRect(context, x, y, width, height, radius) {
         context.beginPath();
@@ -3147,12 +3159,27 @@
       const jpgBinary = atob(canvas.toDataURL("image/jpeg", 0.92).split(",")[1]);
       const imageDrawCommand = "q 595 0 0 842 0 0 cm /Im0 Do Q";
       const header = "%PDF-1.4\n";
+      const pageWidth = 595;
+      const pageHeight = 842;
+      const linkScaleX = pageWidth / canvas.width;
+      const linkScaleY = pageHeight / canvas.height;
+      const pdfRectFromCanvas = (x, y, width, height) => {
+        const left = x * linkScaleX;
+        const right = (x + width) * linkScaleX;
+        const top = pageHeight - y * linkScaleY;
+        const bottom = pageHeight - (y + height) * linkScaleY;
+        return [left, bottom, right, top].map(value => value.toFixed(2)).join(" ");
+      };
+      const desktopRect = pdfRectFromCanvas(790, 1226, 350, 32);
+      const mobileRect = pdfRectFromCanvas(790, 1302, 350, 32);
       const objects = [
         "<< /Type /Catalog /Pages 2 0 R >>",
         "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 5 0 R >> >> /Contents 4 0 R >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 5 0 R >> >> /Contents 4 0 R /Annots [6 0 R 7 0 R] >>",
         `<< /Length ${imageDrawCommand.length} >>\nstream\n${imageDrawCommand}\nendstream`,
-        `<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpgBinary.length} >>\nstream\n${jpgBinary}\nendstream`
+        `<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpgBinary.length} >>\nstream\n${jpgBinary}\nendstream`,
+        `<< /Type /Annot /Subtype /Link /Rect [${desktopRect}] /Border [0 0 0] /A << /S /URI /URI (https://harriet0601.github.io/Harriet/) >> >>`,
+        `<< /Type /Annot /Subtype /Link /Rect [${mobileRect}] /Border [0 0 0] /A << /S /URI /URI (https://harriet0601.github.io/Harriet/mobile.html) >> >>`
       ];
       let pdf = header;
       const offsets = [0];
@@ -3161,11 +3188,11 @@
         pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
       });
       const xrefStart = pdf.length;
-      pdf += "xref\n0 6\n0000000000 65535 f \n";
-      for (let i = 1; i <= 5; i += 1) {
+      pdf += "xref\n0 8\n0000000000 65535 f \n";
+      for (let i = 1; i <= 7; i += 1) {
         pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
       }
-      pdf += `trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
+      pdf += `trailer\n<< /Size 8 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`;
       const bytes = new Uint8Array(pdf.length);
       for (let i = 0; i < pdf.length; i += 1) bytes[i] = pdf.charCodeAt(i) & 0xff;
       const blob = new Blob([bytes], { type: "application/pdf" });
